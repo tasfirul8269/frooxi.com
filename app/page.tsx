@@ -1,0 +1,693 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import HeroSection from '@/components/HeroSection';
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Our Brands Section */}
+      <section className="px-4 sm:px-6 py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Our Brands</h2>
+            </div>
+            <div>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                Our products and features specialized software technology solutions, including a network system builder, advanced development tools, and comprehensive project management systems, all designed to cater to diverse digital needs.
+              </p>
+            </div>
+          </div>
+          {/* Featured Brand - Large Card */}
+          <div className="mb-8 lg:mb-12">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 lg:p-12 rounded-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 sm:w-32 h-20 sm:h-32 bg-black opacity-5 rounded-full -translate-y-8 sm:-translate-y-16 translate-x-8 sm:translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-16 sm:w-24 h-16 sm:h-24 bg-black opacity-5 rounded-full translate-y-6 sm:translate-y-12 -translate-x-6 sm:-translate-x-12"></div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+                <div>
+                  <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
+                      <span className="text-white text-base sm:text-lg font-bold">JS</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black">JOOMSHAPER</h3>
+                      <p className="text-gray-500 text-xs sm:text-sm">Flagship Platform</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
+                    JoomShaper provides a marketplace of over 100 digital products and services, serving thousands of developers and businesses worldwide with cutting-edge solutions.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                    <Link href="#" className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
+                      Explore Platform
+                    </Link>
+                    <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
+                      <span>100+ Products</span>
+                      <span>•</span>
+                      <span>10K+ Users</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative mt-8 lg:mt-0">
+                  <div className="bg-white rounded-lg p-4 sm:p-6 shadow-lg border border-gray-200">
+                    <div className="flex items-center justify-between mb-2 sm:mb-4">
+                      <h4 className="font-semibold text-black text-sm sm:text-base">Popular Products</h4>
+                      <span className="text-green-600 text-xs sm:text-sm font-medium">Live</span>
+                    </div>
+                    <div className="space-y-2 sm:space-y-3">
+                      <div className="flex items-center space-x-3 p-2 sm:p-3 bg-gray-50 rounded">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">WP</span>
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs sm:text-sm font-medium text-black">WordPress Themes</p>
+                          <p className="text-[10px] sm:text-xs text-gray-500">Premium templates</p>
+                        </div>
+                        <span className="text-[10px] sm:text-xs text-gray-400">4.9★</span>
+                      </div>
+                      <div className="flex items-center space-x-3 p-2 sm:p-3 bg-gray-50 rounded">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">UI</span>
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs sm:text-sm font-medium text-black">UI Components</p>
+                          <p className="text-[10px] sm:text-xs text-gray-500">Reusable elements</p>
+                        </div>
+                        <span className="text-[10px] sm:text-xs text-gray-400">4.8★</span>
+                      </div>
+                      <div className="flex items-center space-x-3 p-2 sm:p-3 bg-gray-50 rounded">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">API</span>
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs sm:text-sm font-medium text-black">API Tools</p>
+                          <p className="text-[10px] sm:text-xs text-gray-500">Development kits</p>
+                        </div>
+                        <span className="text-[10px] sm:text-xs text-gray-400">4.7★</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Other Brands - Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:border-gray-300">
+              <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
+                  <span className="text-white text-base sm:text-lg font-bold">H</span>
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-black">Henosum</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm">Manufacturing</p>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Henosum is a tool and set manufacturing plant for flagship products offered to the global market.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+                <Link href="#" className="text-black font-medium hover:underline transition-colors text-sm sm:text-base">
+                  Learn More →
+                </Link>
+                <div className="text-xs text-gray-400">Global Reach</div>
+              </div>
+            </div>
+            <div className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:border-gray-300">
+              <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
+                  <span className="text-white text-base sm:text-lg font-bold">D</span>
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-black">droip</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm">Website Builder</p>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Droip is a next-generation, revolutionary file and website builder with advanced features.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+                <Link href="#" className="text-black font-medium hover:underline transition-colors text-sm sm:text-base">
+                  Learn More →
+                </Link>
+                <div className="text-xs text-gray-400">Next-Gen</div>
+              </div>
+            </div>
+            <div className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:border-gray-300">
+              <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
+                  <span className="text-white text-base sm:text-lg font-bold">J</span>
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-black">Jooloud</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm">Templates</p>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Jooloud offers clean, professionally crafted free and premium templates for modern web development.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+                <Link href="#" className="text-black font-medium hover:underline transition-colors text-sm sm:text-base">
+                  Learn More →
+                </Link>
+                <div className="text-xs text-gray-400">Premium</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services Section */}
+      <section className="px-4 sm:px-6 py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Our Services</h2>
+            </div>
+            <div>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                We provide comprehensive software development services with a focus on quality and efficiency, delivering solutions that drive business growth.
+              </p>
+            </div>
+          </div>
+          {/* Featured Service - Large Card */}
+          <div className="mb-8 lg:mb-12">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-12 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 sm:w-32 h-20 sm:h-32 bg-black opacity-5 rounded-full -translate-y-8 sm:-translate-y-16 translate-x-8 sm:translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-16 sm:w-24 h-16 sm:h-24 bg-black opacity-5 rounded-full translate-y-6 sm:translate-y-12 -translate-x-6 sm:-translate-x-12"></div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+                <div>
+                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-black rounded-xl flex items-center justify-center">
+                      <svg className="w-6 sm:w-8 h-6 sm:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black">Custom Development</h3>
+                      <p className="text-gray-500 text-base sm:text-lg">Our Core Service</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
+                    We create custom software solutions tailored to your specific business needs and requirements, ensuring every project delivers measurable results.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                    <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
+                      Start Project
+                    </button>
+                    <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
+                      <span>500+ Projects</span>
+                      <span>•</span>
+                      <span>98% Success Rate</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative mt-8 lg:mt-0">
+                  <div className="bg-gray-50 rounded-xl p-4 sm:p-8 border border-gray-200">
+                    <h4 className="font-bold text-black mb-4 sm:mb-6 text-base sm:text-lg">What We Deliver</h4>
+                    <div className="space-y-2 sm:space-y-4">
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">Web Applications</p>
+                          <p className="text-xs sm:text-sm text-gray-500">Scalable & responsive</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">API Development</p>
+                          <p className="text-xs sm:text-sm text-gray-500">RESTful & GraphQL</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">Mobile Apps</p>
+                          <p className="text-xs sm:text-sm text-gray-500">iOS & Android</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">Cloud Solutions</p>
+                          <p className="text-xs sm:text-sm text-gray-500">AWS, Azure, GCP</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Other Services - Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <span className="text-white text-lg">🎨</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">UI/UX Design</h3>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Beautiful, intuitive user interfaces designed to enhance user experience and drive engagement.
+              </p>
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
+                <li>• User Research</li>
+                <li>• Wireframing</li>
+                <li>• Prototyping</li>
+                <li>• Design Systems</li>
+              </ul>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <span className="text-white text-lg">🔒</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Security Services</h3>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Comprehensive security solutions to protect your applications and data from threats and vulnerabilities.
+              </p>
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
+                <li>• Security Audits</li>
+                <li>• Penetration Testing</li>
+                <li>• Compliance</li>
+                <li>• Data Protection</li>
+              </ul>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <span className="text-white text-lg">📊</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Data Analytics</h3>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Transform your data into actionable insights with advanced analytics and business intelligence solutions.
+              </p>
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
+                <li>• Data Visualization</li>
+                <li>• Business Intelligence</li>
+                <li>• Predictive Analytics</li>
+                <li>• Reporting Systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="px-4 sm:px-6 py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
+            <div>
+              <p className="text-gray-500 text-xs sm:text-sm mb-1 sm:mb-2">About Us</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Who We Are</h2>
+            </div>
+            <div>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                We are a forward-thinking software company focused on creating simple, effective solutions. Our team combines years of experience with cutting-edge technology to deliver software that works.
+              </p>
+            </div>
+          </div>
+          {/* Main Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+            {/* Left Column - Story & Approach */}
+            <div className="space-y-6 sm:space-y-8">
+              <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-200">
+                <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
+                    <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-black">Our Story</h3>
+                    <p className="text-gray-500 text-xs sm:text-sm">Founded in 2014</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                  Started as a small team with big dreams, we've grown into a trusted partner for businesses worldwide. Our journey has been marked by continuous innovation and unwavering commitment to quality.
+                </p>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
+                  <span>500+ Projects</span>
+                  <span>•</span>
+                  <span>50+ Clients</span>
+                  <span>•</span>
+                  <span>10+ Years</span>
+                </div>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Our Approach</h3>
+                <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                  We believe in clean code, clear communication, and practical solutions. Every project starts with understanding your needs and ends with software that truly works.
+                </p>
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 sm:w-6 h-5 sm:h-6 bg-black rounded-full flex items-center justify-center">
+                      <svg className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                    </div>
+                    <span className="text-xs sm:text-sm text-gray-600">User-centered design thinking</span>
+                  </div>
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 sm:w-6 h-5 sm:h-6 bg-black rounded-full flex items-center justify-center">
+                      <svg className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                    </div>
+                    <span className="text-xs sm:text-sm text-gray-600">Agile development methodology</span>
+                  </div>
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 sm:w-6 h-5 sm:h-6 bg-black rounded-full flex items-center justify-center">
+                      <svg className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                    </div>
+                    <span className="text-xs sm:text-sm text-gray-600">Continuous testing and optimization</span>
+                  </div>
+                </div>
+              </div>
+              <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full lg:w-auto mt-4">Learn More About Us</button>
+            </div>
+            {/* Right Column - Values Grid */}
+            <div className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                    <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                  </div>
+                  <h4 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">Innovation</h4>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    Fresh solutions delivered on time with cutting-edge technology
+                  </p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                    <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <h4 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">Reliability</h4>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    Reliable solutions for complex problems with proven track record
+                  </p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                    <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                    </svg>
+                  </div>
+                  <h4 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">Quality</h4>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    Top-quality software solutions with attention to every detail
+                  </p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                    <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                  <h4 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">Growth</h4>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    Scalable solutions that grow with your business needs
+                  </p>
+                </div>
+              </div>
+              {/* Team Stats */}
+              <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 pb-8 sm:pb-10 pt-8 sm:pt-10 ">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+                  <div>
+                    <div className="text-lg sm:text-2xl font-bold text-black">25+</div>
+                    <div className="text-xs text-gray-500">Developers</div>
+                  </div>
+                  <div>
+                    <div className="text-lg sm:text-2xl font-bold text-black">8+</div>
+                    <div className="text-xs text-gray-500">Designers</div>
+                  </div>
+                  <div>
+                    <div className="text-lg sm:text-2xl font-bold text-black">5+</div>
+                    <div className="text-xs text-gray-500">Managers</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="px-4 sm:px-6 py-12 sm:py-16 bg-white border-t border-gray-200 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+            <div>
+              <div className="text-3xl xs:text-4xl sm:text-5xl font-bold text-black mb-1 sm:mb-2">500+</div>
+              <div className="text-gray-600 text-sm sm:text-base">Projects Completed</div>
+            </div>
+            <div>
+              <div className="text-3xl xs:text-4xl sm:text-5xl font-bold text-black mb-1 sm:mb-2">50+</div>
+              <div className="text-gray-600 text-sm sm:text-base">Happy Clients</div>
+            </div>
+            <div>
+              <div className="text-3xl xs:text-4xl sm:text-5xl font-bold text-black mb-1 sm:mb-2">98%</div>
+              <div className="text-gray-600 text-sm sm:text-base">Success Rate</div>
+            </div>
+            <div>
+              <div className="text-3xl xs:text-4xl sm:text-5xl font-bold text-black mb-1 sm:mb-2">5+</div>
+              <div className="text-gray-600 text-sm sm:text-base">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Teams Section */}
+      <section className="px-4 sm:px-6 py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Our Teams</h2>
+            </div>
+            <div>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                Explore diverse areas such as Software Engineering, Design & UX, and more to find where your unique talents can shine and drive impact.
+              </p>
+            </div>
+          </div>
+          
+          {/* Featured Team - Large Card */}
+          <div className="mb-8 lg:mb-12">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-12 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 sm:w-32 h-20 sm:h-32 bg-black opacity-5 rounded-full -translate-y-8 sm:-translate-y-16 translate-x-8 sm:translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-16 sm:w-24 h-16 sm:h-24 bg-black opacity-5 rounded-full translate-y-6 sm:translate-y-12 -translate-x-6 sm:-translate-x-12"></div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+                <div>
+                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-black rounded-xl flex items-center justify-center">
+                      <svg className="w-6 sm:w-8 h-6 sm:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black">Software Engineering</h3>
+                      <p className="text-gray-500 text-base sm:text-lg">Core Development Team</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
+                    Our largest and most dynamic team, working with complex challenges to build scalable systems and innovative solutions that power the future.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                    <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
+                      Join Our Team
+                    </button>
+                    <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
+                      <span>25+ Engineers</span>
+                      <span>•</span>
+                      <span>Full-Stack</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative mt-8 lg:mt-0">
+                  <div className="bg-white rounded-xl p-4 sm:p-8 border border-gray-200">
+                    <h4 className="font-bold text-black mb-4 sm:mb-6 text-base sm:text-lg">Technologies We Use</h4>
+                    <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">R</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-black">React</span>
+                      </div>
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">N</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-black">Node.js</span>
+                      </div>
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">P</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-black">Python</span>
+                      </div>
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">A</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-black">AWS</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Team Categories */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Development Teams */}
+            <div className="bg-white border border-gray-200 rounded-xl p-8">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black">Creative Teams</h3>
+                  <p className="text-gray-500 text-sm">Design & UX</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-black">Design & UX</span>
+                  </div>
+                  <span className="text-xs text-gray-400">8+ Members</span>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-black">AI & Machine Learning</span>
+                  </div>
+                  <span className="text-xs text-gray-400">6+ Members</span>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-black">Security</span>
+                  </div>
+                  <span className="text-xs text-gray-400">4+ Members</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Business Teams */}
+            <div className="bg-white border border-gray-200 rounded-xl p-8">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black">Business Teams</h3>
+                  <p className="text-gray-500 text-sm">Management & Growth</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-black">Project Management</span>
+                  </div>
+                  <span className="text-xs text-gray-400">5+ Members</span>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-black">Marketing & Sales</span>
+                  </div>
+                  <span className="text-xs text-gray-400">7+ Members</span>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-black">Research</span>
+                  </div>
+                  <span className="text-xs text-gray-400">3+ Members</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* CTA Section */}
+          <div className="text-center">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-black mb-4">Ready to Join Our Team?</h3>
+              <p className="text-gray-600 mb-8">
+                We're always looking for talented individuals who are passionate about technology and innovation.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">
+                  View Open Positions
+                </button>
+                <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
+                  Contact HR
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+    </div>
+  );
+}
