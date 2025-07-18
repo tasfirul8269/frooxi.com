@@ -14,7 +14,7 @@ export default function About() {
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                We're a team of passionate developers, designers, and innovators dedicated to creating software that makes a difference. Founded in 2014, we've grown from a small startup to a trusted partner for businesses worldwide.
+                We&apos;re a team of passionate developers, designers, and innovators dedicated to creating software that makes a difference. Founded in 2014, we&apos;ve grown from a small startup to a trusted partner for businesses worldwide.
               </p>
             </div>
           </div>
@@ -35,7 +35,7 @@ export default function About() {
                   </div>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Started as a small team with big dreams, we've grown into a trusted partner for businesses worldwide. Our journey has been marked by continuous innovation and unwavering commitment to quality.
+                  Started as a small team with big dreams, we&apos;ve grown into a trusted partner for businesses worldwide. Our journey has been marked by continuous innovation and unwavering commitment to quality.
                 </p>
                 <div className="flex items-center space-x-4 text-sm text-gray-500">
                   <span>500+ Projects</span>
@@ -134,7 +134,7 @@ export default function About() {
                   </div>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  We strive to be at the forefront of technological innovation, constantly pushing boundaries and exploring new possibilities to create solutions that haven't been imagined yet.
+                  We strive to be at the forefront of technological innovation, constantly pushing boundaries and exploring new possibilities to create solutions that haven&apos;t been imagined yet.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
@@ -316,7 +316,7 @@ export default function About() {
             <div className="bg-white border border-gray-200 rounded-xl p-8">
               <h3 className="text-xl font-bold text-black mb-4">Our Commitment</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                We're committed to delivering exceptional software solutions that drive business growth and create lasting value for our clients.
+                We&apos;re committed to delivering exceptional software solutions that drive business growth and create lasting value for our clients.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
@@ -454,7 +454,7 @@ export default function About() {
             <div className="bg-white border border-gray-200 rounded-xl p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-black mb-4">Join Our Team</h3>
               <p className="text-gray-600 mb-8">
-                We're always looking for talented individuals who are passionate about technology and innovation.
+                We&apos;re always looking for talented individuals who are passionate about technology and innovation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">
