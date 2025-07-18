@@ -380,7 +380,7 @@ export default function About() {
           {/* Header */}
           <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
             <div>
-              <h2 className="text-4xl font-bold text-black mb-6">Meet Our Team</h2>
+              <h2 className="text-4xl font-semibold text-black/80 mb-6">Founders</h2>
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -391,67 +391,59 @@ export default function About() {
           
           {/* Leadership Team */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-black mb-8 text-center">Leadership Team</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <div className="w-20 h-20 bg-gray-100 rounded-full overflow-hidden mb-6">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                    alt="John Doe" 
-                    className="w-full h-full object-cover"
-                  />
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Founder & CEO */}
+              <Link href="/team/john-doe" className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow block">
+                <div className="flex items-start space-x-6">
+                  <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                      alt="John Doe" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <h3 className="text-2xl font-bold text-black">Tanvir Almas</h3>
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Co-Founder & CEO</span>
+                    </div>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      Visionary leader with 15+ years of experience in software development and business strategy. Passionate about innovation and team growth.
+                    </p>
+                    <div className="flex space-x-3">
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Leadership</span>
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Strategy</span>
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold text-black mb-2">Tanvir Almas</h4>
-                <p className="text-gray-500 mb-4">Co-Founder & CEO</p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Visionary leader with 15+ years of experience in software development and business strategy. Passionate about innovation and team growth.
-                </p>
-                <div className="flex space-x-3">
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Leadership</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Strategy</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
+              </Link>
+              {/* Founder & CTO */}
+              <Link href="/team/sarah-miller" className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow block">
+                <div className="flex items-start space-x-6">
+                  <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
+                    <img 
+                      src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                      alt="Sarah Miller" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <h3 className="text-2xl font-bold text-black">Tasfirul Haque</h3>
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Co-Founder & CTO</span>
+                    </div>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      Technical expert specializing in scalable architectures and emerging technologies. Drives our technical innovation and excellence.
+                    </p>
+                    <div className="flex space-x-3">
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Architecture</span>
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
+                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Technology</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <div className="w-20 h-20 bg-gray-100 rounded-full overflow-hidden mb-6">
-                  <img 
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                    alt="Sarah Miller" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="text-xl font-bold text-black mb-2">Tasfirul Haque</h4>
-                <p className="text-gray-500 mb-4">Co-Founder & CTO</p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Technical expert specializing in scalable architectures and emerging technologies. Drives our technical innovation and excellence.
-                </p>
-                <div className="flex space-x-3">
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Architecture</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Technology</span>
-                </div>
-              </div>
-              
-              <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <div className="w-20 h-20 bg-gray-100 rounded-full overflow-hidden mb-6">
-                  <img 
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                    alt="Alex Lee" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="text-xl font-bold text-black mb-2">Alex Lee</h4>
-                <p className="text-gray-500 mb-4">Head of Design</p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Creative director focused on user experience and beautiful, functional interfaces. Ensures our products delight users.
-                </p>
-                <div className="flex space-x-3">
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">UX/UI</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Design</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Creativity</span>
-                </div>
-              </div>
+              </Link>
             </div>
           </div>
           
