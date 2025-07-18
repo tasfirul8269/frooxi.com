@@ -14,11 +14,11 @@ export default function Home() {
           {/* Header */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Our Brands</h2>
+              <h2 className="text-4xl sm:text-6xl font-semibold text-black/80 mb-4 sm:mb-6">Our Brands</h2>
             </div>
             <div>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                Our products and features specialized software technology solutions, including a network system builder, advanced development tools, and comprehensive project management systems, all designed to cater to diverse digital needs.
+              We offer a comprehensive suite of digital solutions — from smart task management and intuitive team collaboration tools to robust finance systems, advanced eCommerce platforms, dynamic eLearning software, and professional Figma-based UI/UX design assets — all crafted to streamline workflows, enhance collaboration, and drive modern business growth.
               </p>
             </div>
           </div>
@@ -31,31 +31,31 @@ export default function Home() {
                 <div>
                   <div className="flex items-center space-x-3 mb-4 sm:mb-6">
                     <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
-                      <span className="text-white text-base sm:text-lg font-bold">JS</span>
+                      <span className="text-white text-base sm:text-lg font-bold">S</span>
                     </div>
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-black">JOOMSHAPER</h3>
-                      <p className="text-gray-500 text-xs sm:text-sm">Flagship Platform</p>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black">SKILSE</h3>
+                      <p className="text-gray-500 text-xs sm:text-sm">Online Learning Platform</p>
                     </div>
                   </div>
                   <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                    JoomShaper provides a marketplace of over 100 digital products and services, serving thousands of developers and businesses worldwide with cutting-edge solutions.
+                    Skilse offers a growing library of expert-led online courses focused on web and app development, empowering learners to build real-world skills and stay ahead in the digital age.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                     <Link href="#" className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
                       Explore Platform
                     </Link>
                     <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
-                      <span>100+ Products</span>
+                      <span>300+ Classes</span>
                       <span>•</span>
-                      <span>10K+ Users</span>
+                      <span>1K+ Students</span>
                     </div>
                   </div>
                 </div>
                 <div className="relative mt-8 lg:mt-0">
                   <div className="bg-white rounded-lg p-4 sm:p-6 shadow-lg border border-gray-200">
                     <div className="flex items-center justify-between mb-2 sm:mb-4">
-                      <h4 className="font-semibold text-black text-sm sm:text-base">Popular Products</h4>
+                      <h4 className="font-semibold text-black text-sm sm:text-base">Topics</h4>
                       <span className="text-green-600 text-xs sm:text-sm font-medium">Live</span>
                     </div>
                     <div className="space-y-2 sm:space-y-3">
@@ -64,8 +64,8 @@ export default function Home() {
                           <span className="text-white text-xs font-bold">WP</span>
                         </div>
                         <div className="flex-1">
-                          <p className="text-xs sm:text-sm font-medium text-black">WordPress Themes</p>
-                          <p className="text-[10px] sm:text-xs text-gray-500">Premium templates</p>
+                          <p className="text-xs sm:text-sm font-medium text-black">Web Development</p>
+                          <p className="text-[10px] sm:text-xs text-gray-500">Learn to build websites</p>
                         </div>
                         <span className="text-[10px] sm:text-xs text-gray-400">4.9★</span>
                       </div>
@@ -100,41 +100,41 @@ export default function Home() {
             <div className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:border-gray-300">
               <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                 <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
-                  <span className="text-white text-base sm:text-lg font-bold">H</span>
+                  <span className="text-white text-base sm:text-lg font-bold">A</span>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-black">Henosum</h3>
-                  <p className="text-gray-500 text-xs sm:text-sm">Manufacturing</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-black">ATTOWEAR</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm">Clothing Brand</p>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Henosum is a tool and set manufacturing plant for flagship products offered to the global market.
+                Attowear is a modern men’s clothing brand offering a curated selection of essential and trend-forward apparel, including shirts, pants, and outerwear, designed for comfort, versatility, and effortless everyday style for men.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
                 <Link href="#" className="text-black font-medium hover:underline transition-colors text-sm sm:text-base">
                   Learn More →
                 </Link>
-                <div className="text-xs text-gray-400">Global Reach</div>
+                <div className="text-xs text-gray-400">20+ Products</div>
               </div>
             </div>
             <div className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:border-gray-300">
               <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                 <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
-                  <span className="text-white text-base sm:text-lg font-bold">D</span>
+                  <span className="text-white text-base sm:text-lg font-bold">U</span>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-black">droip</h3>
-                  <p className="text-gray-500 text-xs sm:text-sm">Website Builder</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-black">UiVo</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm">UI/UX Design Assets</p>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Droip is a next-generation, revolutionary file and website builder with advanced features.
+                Uivo is a collection of professional Figma-based UI/UX design assets, including components, templates, and patterns, designed to help developers and designers create beautiful and functional digital experiences.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
                 <Link href="#" className="text-black font-medium hover:underline transition-colors text-sm sm:text-base">
                   Learn More →
                 </Link>
-                <div className="text-xs text-gray-400">Next-Gen</div>
+                <div className="text-xs text-gray-400">100+ Assets</div>
               </div>
             </div>
             <div className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:border-gray-300">
@@ -144,11 +144,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-black">Jooloud</h3>
-                  <p className="text-gray-500 text-xs sm:text-sm">Templates</p>
+                  <p className="text-gray-500 text-xs sm:text-sm">No-Code Website Builder</p>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Jooloud offers clean, professionally crafted free and premium templates for modern web development.
+              Jooloud is a no-code website builder that allows users to create professional websites without writing code, using a drag-and-drop interface and pre-built templates. It also provides hosting, so your site is live instantly—no extra setup required.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
                 <Link href="#" className="text-black font-medium hover:underline transition-colors text-sm sm:text-base">
@@ -167,7 +167,7 @@ export default function Home() {
           {/* Header */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Our Services</h2>
+              <h2 className="text-4xl sm:text-6xl font-semibold text-black/80 mb-4 sm:mb-6">Our Services</h2>
             </div>
             <div>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
@@ -194,14 +194,14 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                    We create custom software solutions tailored to your specific business needs and requirements, ensuring every project delivers measurable results.
+                  We specialize in building custom software solutions tailored to your business needs, from strategy and design to development and support. Our team delivers robust, scalable applications that help you achieve measurable results and drive growth.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                     <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
                       Start Project
                     </button>
                     <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
-                      <span>500+ Projects</span>
+                      <span>90+ Projects</span>
                       <span>•</span>
                       <span>98% Success Rate</span>
                     </div>
@@ -323,7 +323,7 @@ export default function Home() {
             </div>
             <div>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                We are a forward-thinking software company focused on creating simple, effective solutions. Our team combines years of experience with cutting-edge technology to deliver software that works.
+                At the heart of our software company is a passion for innovation and a commitment to excellence. We specialize in delivering user-friendly, high-impact digital solutions that empower businesses to thrive in a rapidly evolving world. With a seasoned team of experts and a proven track record, we blend creativity, technology, and strategic insight to turn your ideas into powerful, reliable software—driving real results and lasting success.
               </p>
             </div>
           </div>

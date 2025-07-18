@@ -29,7 +29,7 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 sm:gap-8 py-6 sm:py-8 border-t border-b border-gray-200 text-center">
               <div>
-                <div className="text-lg sm:text-2xl font-bold text-black">500+</div>
+                <div className="text-lg sm:text-2xl font-bold text-black">100+</div>
                 <div className="text-xs sm:text-sm text-gray-600">Projects</div>
               </div>
               <div>
