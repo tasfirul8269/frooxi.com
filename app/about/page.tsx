@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -83,10 +84,12 @@ export default function About() {
             {/* Team Image on the right */}
             <div className="relative">
               <div className="bg-gray-100 rounded-xl overflow-hidden h-full">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
                   alt="Our team working together" 
+                  width={800} height={400}
                   className="w-full h-full object-cover"
+                  priority
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                 
@@ -384,7 +387,7 @@ export default function About() {
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                We're a diverse group of professionals passionate about technology and innovation, working together to deliver exceptional results.
+                We&apos;re a diverse group of professionals passionate about technology and innovation, working together to deliver exceptional results.
               </p>
             </div>
           </div>
@@ -396,9 +399,10 @@ export default function About() {
               <Link href="/team/john-doe" className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow block">
                 <div className="flex items-start space-x-6">
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
-                    <img 
+                    <Image 
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
                       alt="John Doe" 
+                      width={100} height={100}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -422,9 +426,10 @@ export default function About() {
               <Link href="/team/sarah-miller" className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow block">
                 <div className="flex items-start space-x-6">
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
-                    <img 
+                    <Image 
                       src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
                       alt="Sarah Miller" 
+                      width={100} height={100}
                       className="w-full h-full object-cover"
                     />
                   </div>

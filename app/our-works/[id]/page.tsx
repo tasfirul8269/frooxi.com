@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Mock data (in real app, fetch by id)
 const works = [
@@ -35,7 +36,12 @@ export default function WorkDetails({ params }: { params: { id: string } }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
             {work.images.map((img, i) => (
               <div key={i} className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
-                <img src={img} alt={work.title + ' screenshot ' + (i+1)} className="w-full h-64 object-cover" />
+                <Image 
+                  src={work.images[i]} 
+                  alt={work.title + ' screenshot ' + (i+1)} 
+                  width={800} height={256}
+                  className="w-full h-64 object-cover" 
+                />
               </div>
             ))}
           </div>

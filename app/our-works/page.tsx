@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const categories = ['Business', 'Ecommerce', 'Portfolio', 'Travel', 'More...'];
 const works = [
@@ -76,9 +77,10 @@ export default function OurWorks() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {works.map((work, idx) => (
             <Link key={idx} href={`/our-works/${idx}`} className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white group block">
-              <img
+              <Image
                 src={work.image}
                 alt={work.title}
+                width={400} height={420}
                 className="w-full object-cover block"
                 style={{ minHeight: '220px', maxHeight: '420px', aspectRatio: '4/5' }}
               />

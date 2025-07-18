@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Mock data (in real app, fetch by id)
 const brands = [
@@ -26,7 +27,12 @@ export default function BrandDetails({ params }: { params: { id: string } }) {
         <div className="max-w-4xl mx-auto">
           <Link href="/brands" className="text-gray-500 hover:text-black text-sm mb-8 inline-block">← Back to Brands</Link>
           <div className="flex items-center space-x-6 mb-8">
-            <img src={brand.image} alt={brand.name} className="w-20 h-20 rounded-full object-cover bg-gray-100" />
+            <Image 
+              src={brand.image} 
+              alt={brand.name} 
+              width={80} height={80}
+              className="w-20 h-20 rounded-full object-cover bg-gray-100" 
+            />
             <h1 className="text-4xl font-bold text-black">{brand.name}</h1>
           </div>
           <p className="text-gray-600 text-lg mb-6">{brand.description}</p>
@@ -36,7 +42,12 @@ export default function BrandDetails({ params }: { params: { id: string } }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {brand.gallery.map((img, i) => (
                 <div key={i} className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
-                  <img src={img} alt={brand.name + ' screenshot ' + (i+1)} className="w-full h-64 object-cover" />
+                  <Image 
+                    src={img} 
+                    alt={brand.name + ' screenshot ' + (i+1)} 
+                    width={400} height={256}
+                    className="w-full h-64 object-cover" 
+                  />
                 </div>
               ))}
             </div>

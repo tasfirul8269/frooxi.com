@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Services() {
   return (
@@ -12,8 +13,8 @@ export default function Services() {
                 Our Services
               </h1>
               <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                We deliver comprehensive software solutions that drive business growth and digital transformation. 
-                From custom development to cloud infrastructure, we've got you covered.
+                We&apos;re committed to delivering exceptional software solutions that drive business growth and create lasting value for our clients.
+                From custom development to cloud infrastructure, we&apos;ve got you covered.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">
@@ -26,10 +27,12 @@ export default function Services() {
             </div>
             <div className="relative">
               <div className="w-full h-96 bg-gray-200 rounded-xl overflow-hidden">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
                   alt="Software Development Services" 
+                  width={800} height={384}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
             </div>
@@ -286,7 +289,7 @@ export default function Services() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Let's discuss your project requirements and create a custom solution that drives your business forward.
+            Let&apos;s discuss your project requirements and create a custom solution that drives your business forward.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-black px-8 py-4 rounded-lg hover:bg-gray-200 transition-colors font-medium">

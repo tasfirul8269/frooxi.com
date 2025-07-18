@@ -344,7 +344,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                  Started as a small team with big dreams, we've grown into a trusted partner for businesses worldwide. Our journey has been marked by continuous innovation and unwavering commitment to quality.
+                  Started as a small team with big dreams, we&apos;ve grown into a trusted partner for businesses worldwide. Our journey has been marked by continuous innovation and unwavering commitment to quality.
                 </p>
                 <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
                   <span>500+ Projects</span>
@@ -672,7 +672,7 @@ export default function Home() {
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-black mb-4">Ready to Join Our Team?</h3>
               <p className="text-gray-600 mb-8">
-                We're always looking for talented individuals who are passionate about technology and innovation.
+                We&apos;re always looking for talented individuals who are passionate about technology and innovation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">

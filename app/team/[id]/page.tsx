@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 
 // Team member data
 const teamMembers = {
@@ -149,10 +150,11 @@ export default function TeamMemberProfile({ params }: { params: { id: string } }
             <div className="lg:col-span-1">
               <div className="bg-white border border-gray-200 rounded-xl p-8">
                 <div className="w-32 h-32 bg-gray-100 rounded-full overflow-hidden mb-6 mx-auto">
-                  <img 
+                  <Image 
                     src={member.image} 
                     alt={member.name} 
-                    className="w-full h-full object-cover"
+                    width={120} height={120}
+                    className="w-24 h-24 rounded-full object-cover" 
                   />
                 </div>
                 <div className="text-center">
@@ -214,7 +216,9 @@ export default function TeamMemberProfile({ params }: { params: { id: string } }
               {/* About */}
               <div className="bg-white border border-gray-200 rounded-xl p-8">
                 <h2 className="text-2xl font-bold text-black mb-6">About</h2>
-                <p className="text-gray-600 leading-relaxed mb-6">{member.bio}</p>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  We&apos;re committed to delivering exceptional software solutions that drive business growth and create lasting value for our clients.
+                </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-black mb-3">Education</h3>
@@ -254,7 +258,7 @@ export default function TeamMemberProfile({ params }: { params: { id: string } }
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-6">Portfolio</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              A showcase of {member.name}'s best work and projects that demonstrate expertise and innovation.
+              A showcase of {member.name}&apos;s best work and projects that demonstrate expertise and innovation.
             </p>
           </div>
           
@@ -262,9 +266,10 @@ export default function TeamMemberProfile({ params }: { params: { id: string } }
             {member.portfolio.map((project, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow group">
                 <div className="h-48 bg-gray-100 overflow-hidden relative">
-                  <img 
+                  <Image 
                     src={project.image} 
                     alt={project.title} 
+                    width={400} height={300}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
