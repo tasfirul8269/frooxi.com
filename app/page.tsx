@@ -1,8 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
+import { useState, useRef } from 'react';
 
 export default function Home() {
+  const [showStoryVideo, setShowStoryVideo] = useState(false);
+  const knowMoreBtnRef = useRef(null);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -331,7 +337,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* Left Column - Story & Approach */}
             <div className="space-y-6 sm:space-y-8">
-              <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-200">
+              <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-200 relative">
                 <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                   <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center">
                     <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -340,19 +346,82 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-black">Our Story</h3>
-                    <p className="text-gray-500 text-xs sm:text-sm">Founded in 2014</p>
+                    <p className="text-gray-500 text-xs sm:text-sm">Founded in 2024</p>
                   </div>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                  Started as a small team with big dreams, we&apos;ve grown into a trusted partner for businesses worldwide. Our journey has been marked by continuous innovation and unwavering commitment to quality.
+                Frooxi was built with one goal in mind — to create digital solutions that truly understand people.
+
+We don&apos;t just build what you ask for. We listen, think deeply, and treat every project like our own. That&apos;s what makes us different.
+
+Every product we create is driven by purpose and care. This mindset is what shaped Frooxi into what it is today.
+
+We&apos;re not here to follow trends. We&apos;re here to build things that matter.
+
+
                 </p>
-                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
-                  <span>500+ Projects</span>
-                  <span>•</span>
-                  <span>50+ Clients</span>
-                  <span>•</span>
-                  <span>10+ Years</span>
+                <div className="flex flex-wrap items-center justify-between text-xs sm:text-sm text-gray-500 mb-4 w-full">
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <span>500+ Projects</span>
+                    <span>•</span>
+                    <span>50+ Clients</span>
+                    <span>•</span>
+                    <span>10+ Years</span>
+                  </div>
+                  <button
+                    ref={knowMoreBtnRef}
+                    className="text-black/60 hover:text-black underline underline-offset-2 transition-colors p-0 bg-transparent border-none shadow-none font-medium ml-4"
+                    style={{background: 'none', border: 'none'}}
+                    onClick={() => setShowStoryVideo(true)}
+                  >
+                    Know More
+                  </button>
                 </div>
+                {/* Overlay Popup */}
+                {showStoryVideo && (
+                  <>
+                    <div
+                      className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+                      onClick={() => setShowStoryVideo(false)}
+                    />
+                    <div
+                      className="fixed z-50 right-0 top-0 h-full flex items-center"
+                      style={{ pointerEvents: 'none' }}
+                    >
+                      <div
+                        className="relative bg-white rounded-l-2xl shadow-2xl border border-gray-200 w-[90vw] max-w-md p-6 sm:p-8 flex flex-col items-center justify-center animate-slideIn"
+                        style={{ pointerEvents: 'auto' }}
+                      >
+                        <button
+                          className="absolute top-3 right-3 text-gray-400 hover:text-black text-xl font-bold"
+                          onClick={() => setShowStoryVideo(false)}
+                          aria-label="Close"
+                        >
+                          ×
+                        </button>
+                        <div className="mb-4 text-center">
+                          <h4 className="text-lg font-bold text-black mb-1">Our Story</h4>
+                          <p className="text-xs text-gray-500">Watch our journey</p>
+                        </div>
+                        <video
+                          src="/StoryVideo.mp4"
+                          autoPlay
+                          controls
+                          className="rounded-xl w-full max-w-full max-h-[60vh] object-contain border border-gray-200 shadow-lg bg-black"
+                        />
+                      </div>
+                    </div>
+                    <style jsx global>{`
+                      @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                      }
+                      .animate-slideIn {
+                        animation: slideIn 0.4s cubic-bezier(0.4,0,0.2,1);
+                      }
+                    `}</style>
+                  </>
+                )}
               </div>
               <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8">
                 <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Our Approach</h3>

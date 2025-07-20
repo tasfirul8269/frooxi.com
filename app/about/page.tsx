@@ -400,26 +400,26 @@ export default function About() {
                 <div className="flex items-start space-x-6">
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
                     <Image 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                      alt="John Doe" 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                    alt="John Doe" 
                       width={100} height={100}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-3">
                       <h3 className="text-2xl font-bold text-black">Tanvir Almas</h3>
                       <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Co-Founder & CEO</span>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                      Visionary leader with 15+ years of experience in software development and business strategy. Passionate about innovation and team growth.
-                    </p>
-                    <div className="flex space-x-3">
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Leadership</span>
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Strategy</span>
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
-                    </div>
-                  </div>
+                  Visionary leader with 15+ years of experience in software development and business strategy. Passionate about innovation and team growth.
+                </p>
+                <div className="flex space-x-3">
+                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Leadership</span>
+                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Strategy</span>
+                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
+                </div>
+              </div>
                 </div>
               </Link>
               {/* Founder & CTO */}
@@ -427,26 +427,26 @@ export default function About() {
                 <div className="flex items-start space-x-6">
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
                     <Image 
-                      src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                      alt="Sarah Miller" 
+                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                    alt="Sarah Miller" 
                       width={100} height={100}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-3">
                       <h3 className="text-2xl font-bold text-black">Tasfirul Haque</h3>
                       <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Co-Founder & CTO</span>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                      Technical expert specializing in scalable architectures and emerging technologies. Drives our technical innovation and excellence.
-                    </p>
-                    <div className="flex space-x-3">
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Architecture</span>
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Technology</span>
-                    </div>
-                  </div>
+                  Technical expert specializing in scalable architectures and emerging technologies. Drives our technical innovation and excellence.
+                </p>
+                <div className="flex space-x-3">
+                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Architecture</span>
+                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
+                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Technology</span>
+                </div>
+              </div>
                 </div>
               </Link>
             </div>
