@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import ServiceImage from '../../public/ServiceImage.png';
 
 export default function Services() {
   return (
@@ -29,7 +28,7 @@ export default function Services() {
             <div className="relative">
               <div className="w-full h-96 bg-gray-200 rounded-xl overflow-hidden">
                 <Image 
-                  src={ServiceImage} 
+                  src="/ServiceImage.png"
                   alt="Service Hero" 
                   width={800} height={384}
                   className="w-full h-full object-cover"
