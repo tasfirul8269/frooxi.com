@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import ServiceImage from '../../public/ServiceImage.jng';
+import ServiceImage from '../../public/ServiceImage.png';
 
 export default function Services() {
   return (
