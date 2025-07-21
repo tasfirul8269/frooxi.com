@@ -11,11 +11,11 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
             <div>
               <p className="text-gray-500 text-sm mb-2">About Us</p>
-              <h1 className="text-4xl font-bold text-black mb-6">Who We Are</h1>
+              <h1 className="text-6xl font-bold text-black/80 mb-6">Who We Are</h1>
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                We&apos;re a team of passionate developers, designers, and innovators dedicated to creating software that makes a difference. Founded in 2014, we&apos;ve grown from a small startup to a trusted partner for businesses worldwide.
+              At the heart of our software company is a passion for innovation and a commitment to excellence. We specialize in delivering user-friendly, high-impact digital solutions that empower businesses to thrive in a rapidly evolving world. With a seasoned team of experts and a proven track record, we blend creativity, technology, and strategic insight to turn your ideas into powerful, reliable software—driving real results and lasting success.s
               </p>
             </div>
           </div>
@@ -32,11 +32,17 @@ export default function About() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-black">Our Story</h3>
-                    <p className="text-gray-500 text-sm">Founded in 2014</p>
+                    <p className="text-gray-500 text-sm">Founded in 2024</p>
                   </div>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Started as a small team with big dreams, we&apos;ve grown into a trusted partner for businesses worldwide. Our journey has been marked by continuous innovation and unwavering commitment to quality.
+                Frooxi was built with one goal in mind — to create digital solutions that truly understand people.
+
+We don&apos;t just build what you ask for. We listen, think deeply, and treat every project like our own. That&apos;s what makes us different.
+
+Every product we create is driven by purpose and care. This mindset is what shaped Frooxi into what it is today.
+
+We&apos;re not here to follow trends. We&apos;re here to build things that matter.
                 </p>
                 <div className="flex items-center space-x-4 text-sm text-gray-500">
                   <span>500+ Projects</span>
@@ -50,7 +56,9 @@ export default function About() {
               <div className="bg-white border border-gray-200 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-black mb-4">Our Approach</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  We believe in clean code, clear communication, and practical solutions. Every project starts with understanding your needs and ends with software that truly works.
+                At Frooxi we keep things simple and focused. We take time to understand your needs then design and build with purpose.
+
+Whether it&apos;s an app a website or a complete brand experience we care about what works best for you and your goals
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
@@ -116,7 +124,9 @@ export default function About() {
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                We envision a future where technology seamlessly enhances human potential, creating solutions that empower businesses and individuals to achieve their goals.
+              We see a future where technology feels natural, helpful, and truly human.
+
+Our vision is to build solutions that empower people and businesses to grow, create, and reach their full potential — not through complexity, but through clarity and purpose.
               </p>
             </div>
           </div>
@@ -400,8 +410,8 @@ export default function About() {
                 <div className="flex items-start space-x-6">
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
                     <Image 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                    alt="John Doe" 
+                    src="/Tanvir.jpg" 
+                    alt="Tanvir Almas" 
                       width={100} height={100}
                     className="w-full h-full object-cover"
                   />
@@ -427,8 +437,8 @@ export default function About() {
                 <div className="flex items-start space-x-6">
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
                     <Image 
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                    alt="Sarah Miller" 
+                    src="/Tasfirul.png" 
+                    alt="Tasfirul Haque" 
                       width={100} height={100}
                     className="w-full h-full object-cover"
                   />

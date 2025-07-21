@@ -28,7 +28,7 @@ export default function Services() {
             <div className="relative">
               <div className="w-full h-96 bg-gray-200 rounded-xl overflow-hidden">
                 <Image 
-                  src="/ServiceImage.png"
+                  src="/ServiceImage.jpg"
                   alt="Service Hero" 
                   width={800} height={384}
                   className="w-full h-full object-cover"

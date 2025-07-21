@@ -325,7 +325,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
             <div>
               <p className="text-gray-500 text-xs sm:text-sm mb-1 sm:mb-2">About Us</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Who We Are</h2>
+              <h2 className="text-4xl sm:text-6xl font-bold text-black/80 mb-4 sm:mb-6">Who We Are</h2>
             </div>
             <div>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
@@ -376,57 +376,59 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                   >
                     Know More
                   </button>
-                </div>
-                {/* Overlay Popup */}
-                {showStoryVideo && (
-                  <>
-                    <div
-                      className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
-                      onClick={() => setShowStoryVideo(false)}
-                    />
-                    <div
-                      className="fixed z-50 right-0 top-0 h-full flex items-center"
-                      style={{ pointerEvents: 'none' }}
-                    >
+                  {/* Overlay Popup */}
+                  {showStoryVideo && (
+                    <>
                       <div
-                        className="relative bg-white rounded-l-2xl shadow-2xl border border-gray-200 w-[90vw] max-w-md p-6 sm:p-8 flex flex-col items-center justify-center animate-slideIn"
-                        style={{ pointerEvents: 'auto' }}
+                        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+                        onClick={() => setShowStoryVideo(false)}
+                      />
+                      <div
+                        className="fixed z-50 right-0 top-0 h-full flex items-center"
+                        style={{ pointerEvents: 'none' }}
                       >
-                        <button
-                          className="absolute top-3 right-3 text-gray-400 hover:text-black text-xl font-bold"
-                          onClick={() => setShowStoryVideo(false)}
-                          aria-label="Close"
+                        <div
+                          className="relative bg-white rounded-l-2xl shadow-2xl border border-gray-200 w-[90vw] max-w-md p-6 sm:p-8 flex flex-col items-center justify-center animate-slideIn"
+                          style={{ pointerEvents: 'auto' }}
                         >
-                          ×
-                        </button>
-                        <div className="mb-4 text-center">
-                          <h4 className="text-lg font-bold text-black mb-1">Our Story</h4>
-                          <p className="text-xs text-gray-500">Watch our journey</p>
+                          <button
+                            className="absolute top-3 right-3 text-gray-400 hover:text-black text-xl font-bold"
+                            onClick={() => setShowStoryVideo(false)}
+                            aria-label="Close"
+                          >
+                            ×
+                          </button>
+                          <div className="mb-4 text-center">
+                            <h4 className="text-lg font-bold text-black mb-1">Our Story</h4>
+                            <p className="text-xs text-gray-500">Watch our journey</p>
+                          </div>
+                          <video
+                            src="/StoryVideo.mp4"
+                            autoPlay
+                            controls
+                            className="rounded-xl w-full max-w-full max-h-[60vh] object-contain border border-gray-200 shadow-lg bg-black"
+                          />
                         </div>
-                        <video
-                          src="/StoryVideo.mp4"
-                          autoPlay
-                          controls
-                          className="rounded-xl w-full max-w-full max-h-[60vh] object-contain border border-gray-200 shadow-lg bg-black"
-                        />
                       </div>
-                    </div>
-                    <style jsx global>{`
-                      @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                      }
-                      .animate-slideIn {
-                        animation: slideIn 0.4s cubic-bezier(0.4,0,0.2,1);
-                      }
-                    `}</style>
-                  </>
-                )}
+                      <style jsx global>{`
+                        @keyframes slideIn {
+                          from { transform: translateX(100%); opacity: 0; }
+                          to { transform: translateX(0); opacity: 1; }
+                        }
+                        .animate-slideIn {
+                          animation: slideIn 0.4s cubic-bezier(0.4,0,0.2,1);
+                        }
+                      `}</style>
+                    </>
+                  )}
+                </div>
               </div>
               <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8">
                 <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Our Approach</h3>
                 <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                  We believe in clean code, clear communication, and practical solutions. Every project starts with understanding your needs and ends with software that truly works.
+                  At Frooxi we keep things simple and focused. We take time to understand your needs then design and build with purpose.
+
+Whether it&apos;s an app a website or a complete brand experience we care about what works best for you and your goals
                 </p>
                 <div className="space-y-2 sm:space-y-3">
                   <div className="flex items-center space-x-2 sm:space-x-3">
@@ -455,7 +457,6 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                   </div>
                 </div>
               </div>
-              <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full lg:w-auto mt-4">Learn More About Us</button>
             </div>
             {/* Right Column - Values Grid */}
             <div className="space-y-4 sm:space-y-6">
@@ -522,6 +523,9 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                   </div>
                 </div>
               </div>
+              <div className="mt-6 mb-2">
+                <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full lg:w-auto">Learn More About Us</button>
+              </div>
             </div>
           </div>
         </div>
@@ -557,7 +561,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
           {/* Header */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">Our Teams</h2>
+              <h2 className="text-4xl sm:text-6xl font-bold text-black/80 mb-4 sm:mb-6">Our Teams</h2>
             </div>
             <div>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
@@ -580,7 +584,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-black">Software Engineering</h3>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black">Development Teams</h3>
                       <p className="text-gray-500 text-base sm:text-lg">Core Development Team</p>
                     </div>
                   </div>
@@ -592,7 +596,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                       Join Our Team
                     </button>
                     <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
-                      <span>25+ Engineers</span>
+                      <span>25+ Developers</span>
                       <span>•</span>
                       <span>Full-Stack</span>
                     </div>
@@ -616,15 +620,37 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                       </div>
                       <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                         <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">P</span>
+                          <span className="text-white text-xs font-bold">NJ</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-black">Python</span>
+                        <span className="text-xs sm:text-sm font-medium text-black">Next.js</span>
                       </div>
                       <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                         <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
+                          <span className="text-white text-xs font-bold">K</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-black">AWS</span>
+                        <span className="text-xs sm:text-sm font-medium text-black">Kotlin</span>
+                      </div>
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">J</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-black">Java</span>
+                      </div>
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">S</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-black">Swift</span>
+                      </div>
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 bg-black rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">M</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-black">MongoDB</span>
+                      </div>
+                      <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3  rounded-lg">
+                        
+                        <span className="text-xs sm:text-sm font-medium text-black">More...</span>
                       </div>
                     </div>
                   </div>
@@ -640,7 +666,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
                 </div>
                 <div>
@@ -656,7 +682,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                       </svg>
                     </div>
-                    <span className="text-sm font-medium text-black">Design & UX</span>
+                    <span className="text-sm font-medium text-black">UI & UX</span>
                   </div>
                   <span className="text-xs text-gray-400">8+ Members</span>
                 </div>
@@ -667,7 +693,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                       </svg>
                     </div>
-                    <span className="text-sm font-medium text-black">AI & Machine Learning</span>
+                    <span className="text-sm font-medium text-black">Graphics Design</span>
                   </div>
                   <span className="text-xs text-gray-400">6+ Members</span>
                 </div>
@@ -678,7 +704,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                       </svg>
                     </div>
-                    <span className="text-sm font-medium text-black">Security</span>
+                    <span className="text-sm font-medium text-black">Video & Photography</span>
                   </div>
                   <span className="text-xs text-gray-400">4+ Members</span>
                 </div>

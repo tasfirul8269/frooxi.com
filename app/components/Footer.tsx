@@ -55,15 +55,18 @@ export default function Footer() {
             <p className="text-gray-400 text-sm mb-4 leading-relaxed">
               Subscribe to our newsletter for the latest updates and insights.
             </p>
-            <div className="flex">
-              <input 
-                type="email" 
+            <div className="relative w-full">
+              <input
+                type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-gray-800 text-white text-sm rounded-l border-0 focus:outline-none focus:ring-2 focus:ring-white"
+                className="px-4 pr-10 py-2 bg-gray-800 text-white text-sm rounded border-0 focus:outline-none focus:ring-2 focus:ring-white w-full"
               />
-              <button className="bg-white text-black px-4 py-2 text-sm rounded-r hover:bg-gray-200 font-medium">
-                Subscribe
-              </button>
+              <span className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-400 hover:text-white">
+                {/* Paper plane icon (Heroicons outline or SVG) */}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21l16.5-9-16.5-9v7.5l11.25 1.5-11.25 1.5V21z" />
+                </svg>
+              </span>
             </div>
           </div>
         </div>
