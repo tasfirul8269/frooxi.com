@@ -419,17 +419,11 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-3">
                       <h3 className="text-2xl font-bold text-black">Tanvir Almas</h3>
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Co-Founder & CEO</span>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                  Visionary leader with 15+ years of experience in software development and business strategy. Passionate about innovation and team growth.
-                </p>
-                <div className="flex space-x-3">
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Leadership</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Strategy</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
-                </div>
-              </div>
+                      "At Frooxi, my goal is to build technology that truly makes a difference. I believe in leading with vision, empowering our team, and always putting people first. Every project is a chance to create something meaningful."
+                    </p>
+                  </div>
                 </div>
               </Link>
               {/* Founder & CTO */}
@@ -446,17 +440,11 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-3">
                       <h3 className="text-2xl font-bold text-black">Tasfirul Haque</h3>
-                      <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Co-Founder & CTO</span>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                  Technical expert specializing in scalable architectures and emerging technologies. Drives our technical innovation and excellence.
-                </p>
-                <div className="flex space-x-3">
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Architecture</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Innovation</span>
-                  <span className="text-xs bg-black text-white px-3 py-1 rounded-full">Technology</span>
-                </div>
-              </div>
+                      "For me, Frooxi is about pushing boundaries and solving real problems with smart, reliable technology. I’m passionate about building things that last and helping our clients succeed in a fast-changing world."
+                    </p>
+                  </div>
                 </div>
               </Link>
             </div>
