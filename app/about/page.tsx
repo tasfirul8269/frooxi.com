@@ -1,7 +1,24 @@
+'use client';
+
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function About() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play().catch(e => console.error("Error playing video:", e));
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* About Us Section */}
@@ -15,11 +32,11 @@ export default function About() {
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-              At the heart of our software company is a passion for innovation and a commitment to excellence. We specialize in delivering user-friendly, high-impact digital solutions that empower businesses to thrive in a rapidly evolving world. With a seasoned team of experts and a proven track record, we blend creativity, technology, and strategic insight to turn your ideas into powerful, reliable software—driving real results and lasting success.s
+                At the heart of our software company is a passion for innovation and a commitment to excellence. We specialize in delivering user-friendly, high-impact digital solutions that empower businesses to thrive in a rapidly evolving world. With a seasoned team of experts and a proven track record, we blend creativity, technology, and strategic insight to turn your ideas into powerful, reliable software—driving real results and lasting success.
               </p>
             </div>
           </div>
-          
+
           {/* Main Content */}
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="space-y-8">
@@ -56,9 +73,9 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
               <div className="bg-white border border-gray-200 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-black mb-4">Our Approach</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                At Frooxi we keep things simple and focused. We take time to understand your needs then design and build with purpose.
+                  At Frooxi we keep things simple and focused. We take time to understand your needs then design and build with purpose.
 
-Whether it&apos;s an app a website or a complete brand experience we care about what works best for you and your goals
+Whether it's an app, a website, or a complete brand experience, we care about what works best for you and your goals.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
@@ -89,24 +106,94 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
               </div>
             </div>
             
-            {/* Team Image on the right */}
-            <div className="relative">
-              <div className="bg-gray-100 rounded-xl overflow-hidden h-full">
-                <Image 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="Our team working together" 
-                  width={800} height={400}
-                  className="w-full h-full object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-                
-                {/* Overlay elements */}
-                <div className="absolute top-6 left-6 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-                  <div className="text-sm text-gray-600">Team: 25 Members</div>
+            {/* Video on the right - matching height of left column */}
+            <div className="relative rounded-xl overflow-hidden w-full bg-black group">
+              <video
+                ref={videoRef}
+                src="/StoryVideo.mp4"
+                loop
+                playsInline
+                onClick={togglePlayPause}
+                className="w-full h-[600px] object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+              >
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Semi-transparent overlay */}
+              <div 
+                className={`absolute inset-0 transition-all duration-300 ${
+                  isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
+                }`}
+                style={{
+                  background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%)'
+                }}
+              ></div>
+              
+              {/* Play/Pause button overlay */}
+              <div 
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                  isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
+                }`}
+                onClick={togglePlayPause}
+              >
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-full flex items-center justify-center transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+                  {isPlaying ? (
+                    <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ) : (
+                    <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  )}
                 </div>
-                <div className="absolute bottom-6 right-6 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-                  <div className="text-sm font-medium text-black">Remote First</div>
+              </div>
+              
+              {/* Bottom gradient overlay with controls */}
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="absolute bottom-4 left-6 right-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-white text-sm font-medium">Our Story</div>
+                      <div className="text-white/80 text-xs">Watch our journey</div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (videoRef.current) {
+                            videoRef.current.muted = !videoRef.current.muted;
+                          }
+                        }}
+                        className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
+                        aria-label={videoRef.current?.muted ? 'Unmute' : 'Mute'}
+                      >
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          {videoRef.current?.muted ? (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                          ) : (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                          )}
+                        </svg>
+                      </button>
+                      <button 
+                        onClick={togglePlayPause}
+                        className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
+                        aria-label={isPlaying ? 'Pause' : 'Play'}
+                      >
+                        {isPlaying ? (
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        ) : (
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -411,8 +498,9 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
                     <Image 
                     src="/Tanvir.jpg" 
-                    alt="Tanvir Almas" 
-                      width={100} height={100}
+                    alt="Tanvir Almas - Founder & CEO" 
+                    width={100} 
+                    height={100}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -421,7 +509,7 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                       <h3 className="text-2xl font-bold text-black">Tanvir Almas</h3>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                      "At Frooxi, my goal is to build technology that truly makes a difference. I believe in leading with vision, empowering our team, and always putting people first. Every project is a chance to create something meaningful."
+                      "Frooxi is a cutting-edge technology company that delivers innovative digital solutions to transform businesses. We specialize in creating custom software, mobile apps, and web applications that drive growth and efficiency for our clients."
                     </p>
                   </div>
                 </div>
@@ -432,8 +520,9 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                   <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
                     <Image 
                     src="/Tasfirul.png" 
-                    alt="Tasfirul Haque" 
-                      width={100} height={100}
+                    alt="Tasfirul Haque - Founder & CTO" 
+                    width={100} 
+                    height={100}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -442,7 +531,7 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                       <h3 className="text-2xl font-bold text-black">Tasfirul Haque</h3>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                      "For me, Frooxi is about pushing boundaries and solving real problems with smart, reliable technology. I’m passionate about building things that last and helping our clients succeed in a fast-changing world."
+                      "At Frooxi, we deliver seamless digital experiences through our expertise in AI, cloud computing, and enterprise solutions. Our team builds scalable, secure, and user-friendly applications that help businesses thrive in the digital age."
                     </p>
                   </div>
                 </div>
