@@ -474,87 +474,66 @@ Our vision is to build solutions that empower people and businesses to grow, cre
         </div>
       </section>
 
-      {/* Team Members Section */}
+      {/* Gallery Section */}
       <section className="px-6 py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
             <div>
-              <h2 className="text-4xl font-semibold text-black/80 mb-6">Founders</h2>
+              <h2 className="text-4xl font-semibold text-black/80 mb-6">Our Gallery</h2>
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                We&apos;re a diverse group of professionals passionate about technology and innovation, working together to deliver exceptional results.
+                A glimpse into our world of creativity, innovation, and the amazing projects we&apos;ve had the privilege to work on.
               </p>
             </div>
           </div>
           
-          {/* Leadership Team */}
-          <div className="mb-16">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Founder & CEO */}
-              <Link href="/team/john-doe" className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow block">
-                <div className="flex items-start space-x-6">
-                  <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
-                    <Image 
-                    src="/Tanvir.jpg" 
-                    alt="Tanvir Almas - Founder & CEO" 
-                    width={100} 
-                    height={100}
-                    className="w-full h-full object-cover"
-                  />
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { id: 1, title: 'Team Collaboration', desc: 'Our team working together on innovative solutions' },
+              { id: 2, title: 'Office Space', desc: 'Our modern and creative workspace' },
+              { id: 3, title: 'Project Meeting', desc: 'Brainstorming session with clients' },
+              { id: 4, title: 'Product Launch', desc: 'Celebrating successful project delivery' },
+              { id: 5, title: 'Tech Conference', desc: 'Sharing knowledge at industry events' },
+              { id: 6, title: 'Awards Ceremony', desc: 'Recognizing excellence in our team' }
+            ].map((item) => (
+              <div key={item.id} className="group relative overflow-hidden rounded-xl aspect-square">
+                <Image
+                  src={`https://picsum.photos/seed/frooxi-${item.id}/800/800`}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <h3 className="text-white font-semibold text-lg">{item.title}</h3>
+                  <p className="text-white/80 text-sm mt-1">{item.desc}</p>
                 </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <h3 className="text-2xl font-bold text-black">Tanvir Almas</h3>
-                    </div>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      &ldquo;Frooxi is a cutting-edge technology company that delivers innovative digital solutions to transform businesses. We specialize in creating custom software, mobile apps, and web applications that drive growth and efficiency for our clients.&rdquo;
-                    </p>
-                  </div>
+                <div className="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                  <svg className="w-12 h-12 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
                 </div>
-              </Link>
-              {/* Founder & CTO */}
-              <Link href="/team/sarah-miller" className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow block">
-                <div className="flex items-start space-x-6">
-                  <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
-                    <Image 
-                    src="/Tasfirul.png" 
-                    alt="Tasfirul Haque - Founder & CTO" 
-                    width={100} 
-                    height={100}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <h3 className="text-2xl font-bold text-black">Tasfirul Haque</h3>
-                    </div>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      &ldquo;At Frooxi, we deliver seamless digital experiences through our expertise in AI, cloud computing, and enterprise solutions. Our team builds scalable, secure, and user-friendly applications that help businesses thrive in the digital age.&rdquo;
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+              </div>
+            ))}
           </div>
-          
-
           
           {/* CTA Section */}
           <div className="text-center mt-16">
             <div className="bg-white border border-gray-200 rounded-xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-black mb-4">Join Our Team</h3>
+              <h3 className="text-2xl font-bold text-black mb-4">See More of Our Work</h3>
               <p className="text-gray-600 mb-8">
-                We&apos;re always looking for talented individuals who are passionate about technology and innovation.
+                Explore our portfolio to see how we&apos;ve helped businesses transform their digital presence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">
-                  View Open Positions
-                </button>
-                <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
-                  Contact HR
-                </button>
+                <Link href="/our-works" className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors inline-block">
+                  View Portfolio
+                </Link>
+                <Link href="/contact" className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors inline-block">
+                  Get in Touch
+                </Link>
               </div>
             </div>
           </div>
