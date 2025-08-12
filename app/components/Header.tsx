@@ -2,34 +2,71 @@
 
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 export default function Header({ current }: { current?: string }) {
   const [visible, setVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const lastScroll = useRef(0);
 
   useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const curr = window.scrollY;
-          if (curr < 10) {
-            setVisible(true);
-          } else if (curr > lastScroll.current) {
+    // Initialize last scroll position on mount
+    lastScroll.current = window.scrollY || 0;
+  }, []);
+
+  useEffect(() => {
+    const getScrollTop = () => (
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0
+    );
+
+    let rafId: number | null = null;
+    const THRESHOLD = 12; // px before toggling to avoid jitter
+
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        const curr = getScrollTop();
+        setIsScrolled(curr > 0);
+
+        if (mobileOpen) {
+          setVisible(true);
+          lastScroll.current = curr;
+          rafId && cancelAnimationFrame(rafId);
+          rafId = null;
+          return;
+        }
+
+        if (curr <= 0) {
+          setVisible(true);
+        } else {
+          const delta = curr - lastScroll.current;
+          if (delta > THRESHOLD) {
             setVisible(false); // scrolling down
-          } else {
+          } else if (delta < -THRESHOLD) {
             setVisible(true); // scrolling up
           }
-          lastScroll.current = curr;
-          ticking = false;
-        });
-        ticking = true;
-      }
+        }
+
+        lastScroll.current = curr;
+        rafId && cancelAnimationFrame(rafId);
+        rafId = null;
+      });
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+    // Initial state
+    lastScroll.current = getScrollTop();
+    setIsScrolled(lastScroll.current > 0);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScroll as any);
+    };
+  }, [mobileOpen]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -40,16 +77,25 @@ export default function Header({ current }: { current?: string }) {
 
   return (
     <header
-      className={`bg-white flex items-center justify-between px-6 py-4 border-b border-gray-100 fixed top-0 left-0 w-full z-30 transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}
-      style={{ willChange: 'transform' }}
+      className={`flex items-center justify-between px-6 py-3 md:py-4 fixed top-0 left-0 w-full z-30 ${isScrolled ? 'bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 shadow-sm' : 'bg-white'}`}
+      style={{
+        willChange: 'transform',
+        transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+        transform: visible ? 'translateY(0)' : 'translateY(-100%)',
+      }}
     >
       {/* Logo */}
-      <div className="flex items-center space-x-2">
-        <div className="w-6 h-6 bg-black rounded-sm flex items-center justify-center">
-          <span className="text-white text-xs font-bold">F</span>
+      <Link href="/" className="flex items-center" aria-label="Frooxi Home">
+        <div className="w-32 md:w-40 h-7 md:h-9 relative">
+          <Image
+            src="/FrooxiHeaderLogo.svg"
+            alt="Frooxi"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
-        <span className="text-lg font-semibold text-black">Frooxi</span>
-      </div>
+      </Link>
       {/* Desktop Nav */}
       <nav className="hidden md:flex items-center space-x-8">
         <Link href="/" className={`text-gray-600 hover:text-black text-sm${current === 'home' ? ' font-medium text-black' : ''}`}>Home</Link>
@@ -78,6 +124,7 @@ export default function Header({ current }: { current?: string }) {
       <button
         className="md:hidden flex items-center justify-center w-10 h-10 rounded focus:outline-none"
         aria-label="Open menu"
+        aria-expanded={mobileOpen}
         onClick={() => setMobileOpen((v) => !v)}
       >
         <span className="sr-only">Open menu</span>
@@ -87,7 +134,10 @@ export default function Header({ current }: { current?: string }) {
       </button>
       {/* Contact Button (always visible) */}
       <div className="hidden md:flex items-center space-x-4">
-        <Link href="/contact" className="bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-800 font-medium">
+        <Link
+          href="/contact"
+          className="bg-[#00ff8b] hover:bg-[#00e67d] text-black px-4 py-2 rounded text-sm font-medium transition-colors shadow-sm"
+        >
           Contact Us
         </Link>
       </div>
@@ -131,7 +181,12 @@ export default function Header({ current }: { current?: string }) {
               <Link href="/brands" className="text-gray-700 text-base font-medium" onClick={() => setMobileOpen(false)}>Brands</Link>
               <Link href="/pricing" className="text-gray-700 text-base font-medium" onClick={() => setMobileOpen(false)}>Pricing</Link>
               <Link href="/contact" className="text-gray-700 text-base font-medium" onClick={() => setMobileOpen(false)}>Contact</Link>
-              <Link href="/contact" className="mt-4 bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-800 font-medium text-center">Contact Us</Link>
+              <Link
+                href="/contact"
+                className="mt-4 bg-[#00ff8b] hover:bg-[#00e67d] text-black px-4 py-2 rounded text-sm font-medium text-center transition-colors shadow-sm"
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
           {/* Sidebar slide-in animation */}

@@ -5,25 +5,27 @@ import { TeamMember, teamMembers } from '@/app/data/team';
 const TeamMemberCard = ({ member, isFounder = false }: { member: TeamMember; isFounder?: boolean }) => {
   if (isFounder) {
     return (
-      <Link 
-        href={`/team/${member.id}`}
-        className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 block group"
-      >
+      <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group">
         <div className="flex items-start space-x-6">
           <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0 group-hover:ring-4 group-hover:ring-black/5 transition-all duration-300">
-            <Image
-              src={member.image}
-              alt={member.name}
-              width={96}
-              height={96}
-              className="w-24 h-24 rounded-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
+            <Link href={`/team/${member.id}`}>
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={96}
+                height={96}
+                className="w-24 h-24 rounded-full object-cover group-hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </Link>
           </div>
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-3">
-              <h3 className="text-2xl font-bold text-black group-hover:text-gray-800 transition-colors">
-                {member.name}
-              </h3>
+              <Link href={`/team/${member.id}`} className="hover:opacity-80 transition-opacity">
+                <h3 className="text-2xl font-bold text-black group-hover:text-gray-800 transition-colors">
+                  {member.name}
+                </h3>
+              </Link>
               <span className="text-xs bg-black text-white px-3 py-1 rounded-full">
                 {member.role}
               </span>
@@ -40,7 +42,7 @@ const TeamMemberCard = ({ member, isFounder = false }: { member: TeamMember; isF
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     );
   }
 

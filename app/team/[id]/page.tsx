@@ -150,12 +150,16 @@ export default function TeamMemberProfile({ params }: { params: { id: string } }
             <div className="lg:col-span-1">
               <div className="bg-white border border-gray-200 rounded-xl p-8">
                 <div className="w-32 h-32 bg-gray-100 rounded-full overflow-hidden mb-6 mx-auto">
-                  <Image 
-                    src={member.image} 
-                    alt={member.name} 
-                    width={120} height={120}
-                    className="w-24 h-24 rounded-full object-cover" 
-                  />
+                  <div className="w-32 h-32 relative">
+                    <Image 
+                      src={member.image} 
+                      alt={member.name} 
+                      fill
+                      sizes="(max-width: 768px) 32px, 32px"
+                      className="rounded-full object-cover"
+                      priority
+                    />
+                  </div>
                 </div>
                 <div className="text-center">
                   <h1 className="text-3xl font-bold text-black mb-2">{member.name}</h1>
@@ -266,12 +270,16 @@ export default function TeamMemberProfile({ params }: { params: { id: string } }
             {member.portfolio.map((project, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow group">
                 <div className="h-48 bg-gray-100 overflow-hidden relative">
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    width={400} height={300}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <div className="relative w-full h-full">
+                    <Image 
+                      src={project.image} 
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      priority={index < 3} // Only prioritize first 3 images for better performance
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
                 </div>
                 <div className="p-8">
