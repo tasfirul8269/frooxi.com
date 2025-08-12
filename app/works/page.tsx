@@ -180,7 +180,7 @@ export default function WorksPage() {
               Ready to Start Your Project?
             </h2>
             <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can help bring your ideas to life and create something amazing together.
+              Let&apos;s discuss how we can help bring your ideas to life and create something amazing together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
