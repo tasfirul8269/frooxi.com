@@ -75,7 +75,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                 <p className="text-gray-600 leading-relaxed mb-6">
                   At Frooxi we keep things simple and focused. We take time to understand your needs then design and build with purpose.
 
-Whether it's an app, a website, or a complete brand experience, we care about what works best for you and your goals.
+Whether it&apos;s an app, a website, or a complete brand experience, we care about what works best for you and your goals.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
@@ -509,7 +509,7 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                       <h3 className="text-2xl font-bold text-black">Tanvir Almas</h3>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                      "Frooxi is a cutting-edge technology company that delivers innovative digital solutions to transform businesses. We specialize in creating custom software, mobile apps, and web applications that drive growth and efficiency for our clients."
+                      &ldquo;Frooxi is a cutting-edge technology company that delivers innovative digital solutions to transform businesses. We specialize in creating custom software, mobile apps, and web applications that drive growth and efficiency for our clients.&rdquo;
                     </p>
                   </div>
                 </div>
@@ -531,7 +531,7 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                       <h3 className="text-2xl font-bold text-black">Tasfirul Haque</h3>
                     </div>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                      "At Frooxi, we deliver seamless digital experiences through our expertise in AI, cloud computing, and enterprise solutions. Our team builds scalable, secure, and user-friendly applications that help businesses thrive in the digital age."
+                      &ldquo;At Frooxi, we deliver seamless digital experiences through our expertise in AI, cloud computing, and enterprise solutions. Our team builds scalable, secure, and user-friendly applications that help businesses thrive in the digital age.&rdquo;
                     </p>
                   </div>
                 </div>

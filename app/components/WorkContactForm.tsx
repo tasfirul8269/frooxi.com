@@ -43,7 +43,7 @@ export default function WorkContactForm({ projectTitle }: { projectTitle: string
       setFormData({
         name: '',
         email: '',
-        message: `I'm interested in learning more about your "${projectTitle}" project.`,
+        message: `I&apos;m interested in learning more about your &ldquo;${projectTitle}&rdquo; project.`,
       });
       
       // Reset success message after 5 seconds
@@ -58,12 +58,12 @@ export default function WorkContactForm({ projectTitle }: { projectTitle: string
     <div className="bg-gray-50 rounded-lg p-6 mt-12">
       <h3 className="text-xl font-semibold mb-4">Interested in this project?</h3>
       <p className="text-gray-600 mb-6">
-        Have a similar project in mind? Let's discuss how we can help bring your ideas to life.
+        Have a similar project in mind? Let&apos;s discuss how we can help bring your ideas to life.
       </p>
       
       {status === 'success' ? (
         <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-4">
-          Thank you for your message! We'll get back to you soon.
+          Thank you for your message! We&apos;ll get back to you soon.
         </div>
       ) : status === 'error' ? (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">

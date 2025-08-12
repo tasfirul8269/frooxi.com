@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -6,11 +7,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                <span className="text-black text-xs font-bold">F</span>
-              </div>
-              <span className="text-lg font-semibold">Frooxi</span>
+            <div className="flex items-center mb-6">
+              <Link href="/" className="flex items-center" aria-label="Frooxi Home">
+                <div className="w-24 md:w-32 h-6 md:h-8 relative">
+                  <Image
+                    src="/FrooxiHeaderLogo.svg"
+                    alt="Frooxi"
+                    fill
+                    className="object-contain brightness-0 invert"
+                    priority
+                  />
+                </div>
+              </Link>
             </div>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
               We build clean, efficient software that solves real problems. No complexity, just results.

@@ -139,7 +139,7 @@ export default function Team() {
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                We're a diverse group of professionals passionate about technology and innovation, working together to deliver exceptional results.
+                We&apos;re a diverse group of professionals passionate about technology and innovation, working together to deliver exceptional results.
               </p>
             </div>
           </div>

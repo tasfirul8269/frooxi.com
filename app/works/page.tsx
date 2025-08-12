@@ -24,7 +24,7 @@ export default function WorksPage() {
     } else {
       setFilteredWorks(works.filter(work => work.category === activeFilter));
     }
-  }, [activeFilter]);
+  }, [activeFilter, allTags]);
   
   const featuredWorks = filteredWorks.filter(work => work.featured);
   const otherWorks = filteredWorks.filter(work => !work.featured);
