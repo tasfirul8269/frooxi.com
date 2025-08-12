@@ -24,7 +24,13 @@ export default function Brands() {
                   <p className="text-gray-600 text-base mb-8 max-w-xl leading-relaxed mt-4">{brand.description}</p>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-4">
-                  <a href={brand.ctaLink} className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium w-fit">{brand.cta}</a>
+                  {brand.productsStatus === 'Coming Soon' ? (
+                    <button className="bg-gray-300 text-gray-600 px-6 py-3 rounded-lg font-medium w-fit cursor-not-allowed">
+                      Coming Soon
+                    </button>
+                  ) : (
+                    <a href={brand.ctaLink} className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium w-fit">{brand.cta}</a>
+                  )}
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     {brand.stats.map((stat, i) => (
                       <span key={i}>{stat}{i < brand.stats.length - 1 && <span className="mx-2">•</span>}</span>
@@ -36,7 +42,9 @@ export default function Brands() {
               <div className="w-full lg:w-[28rem] flex-shrink-0 flex flex-col justify-center bg-white rounded-2xl border border-gray-100 p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-semibold text-black">Popular Products</h4>
-                  <span className={`text-sm font-medium ${brand.productsStatus === 'Live' ? 'text-green-600' : 'text-yellow-600'}`}>{brand.productsStatus}</span>
+                  {brand.productsStatus === 'Live' && (
+                    <span className="text-sm font-medium text-green-600">{brand.productsStatus}</span>
+                  )}
                 </div>
                 <div className="space-y-3">
                   {brand.products.map((prod, i) => (

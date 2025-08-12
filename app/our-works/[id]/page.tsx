@@ -1,58 +1,213 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-
-// Mock data (in real app, fetch by id)
-const works = [
-  {
-    title: 'Crafty Workshop',
-    category: 'Business',
-    summary: 'A modern, clean template for creative workshops and studios. This project involved a full design and development process, focusing on usability and aesthetics.',
-    images: [
-      'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-    ],
-    technologies: ['React', 'Next.js', 'Tailwind CSS'],
-    categories: ['Business', 'Portfolio'],
-  },
-  // ...add more mock works as needed
-];
+import { works } from '@/app/data/works';
+import { notFound } from 'next/navigation';
 
 export default function WorkDetails({ params }: { params: { id: string } }) {
-  const work = works[parseInt(params.id, 10)] || works[0];
+  const work = works.find(w => w.id === params.id);
+  
+  if (!work) {
+    notFound();
+  }
+
   return (
     <div className="min-h-screen bg-white">
-      <section className="px-6 pt-20 pb-10">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/our-works" className="text-gray-500 hover:text-black text-sm mb-8 inline-block">← Back to Works</Link>
-          <h1 className="text-4xl font-bold text-black mb-2">{work.title}</h1>
-          <div className="mb-4">
-            <span className="text-xs bg-black text-white px-4 py-1 rounded-full font-medium inline-block mr-2">{work.category}</span>
-            {work.categories.slice(1).map((cat, i) => (
-              <span key={i} className="text-xs bg-gray-100 text-black px-4 py-1 rounded-full font-medium inline-block mr-2">{cat}</span>
-            ))}
-          </div>
-          <p className="text-gray-600 text-lg mb-8 max-w-2xl">{work.summary}</p>
-          {/* Gallery */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-            {work.images.map((img, i) => (
-              <div key={i} className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
-                <Image 
-                  src={work.images[i]} 
-                  alt={work.title + ' screenshot ' + (i+1)} 
-                  width={800} height={256}
-                  className="w-full h-64 object-cover" 
+      {/* Hero Section */}
+      <section className="px-4 sm:px-6 pt-20 pb-12 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <Link href="/our-works" className="text-gray-500 hover:text-black text-sm mb-6 inline-flex items-center">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Case Studies
+          </Link>
+          
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            <div>
+              <div className="flex items-center space-x-2 mb-3">
+                <span className="text-xs text-gray-500 uppercase tracking-wide">{work.category}</span>
+                <span className="text-gray-300">•</span>
+                <span className="text-xs text-gray-500">{work.date}</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">{work.title}</h1>
+              <p className="text-gray-600 text-lg leading-relaxed mb-6">{work.shortDescription}</p>
+              
+              {work.client && (
+                <div className="mb-6">
+                  <span className="text-sm text-gray-500">Client:</span>
+                  <span className="text-sm font-medium text-black ml-2">{work.client}</span>
+                </div>
+              )}
+              
+              <div className="flex flex-wrap gap-2 mb-6">
+                {work.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="rounded-lg overflow-hidden border border-gray-200">
+                <Image
+                  src={work.image}
+                  alt={work.title}
+                  width={600}
+                  height={400}
+                  className="w-full h-64 sm:h-80 object-cover"
                 />
               </div>
-            ))}
-          </div>
-          {/* Technologies */}
-          <div className="mb-8">
-            <h2 className="text-xl font-bold text-black mb-3">Technologies Used</h2>
-            <div className="flex flex-wrap gap-3">
-              {work.technologies.map((tech, i) => (
-                <span key={i} className="text-xs bg-black text-white px-4 py-1 rounded-full font-medium inline-block">{tech}</span>
-              ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Details */}
+      <section className="px-4 sm:px-6 py-12 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
+              <h2 className="text-2xl font-bold text-black mb-6">Project Overview</h2>
+              <p className="text-gray-600 leading-relaxed mb-8">{work.longDescription}</p>
+              
+              {/* Project Images */}
+              {work.images && work.images.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-black mb-4">Project Screenshots</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {work.images.map((img, i) => (
+                      <div key={i} className="rounded-lg overflow-hidden border border-gray-200">
+                        <Image
+                          src={img}
+                          alt={`${work.title} screenshot ${i + 1}`}
+                          width={400}
+                          height={300}
+                          className="w-full h-48 object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Challenges & Solutions */}
+              {work.challenges && work.solutions && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-black mb-4">Challenges & Solutions</h3>
+                  <div className="space-y-4">
+                    {work.challenges.map((challenge, i) => (
+                      <div key={i} className="bg-gray-50 rounded-lg p-4">
+                        <h4 className="font-semibold text-black mb-2">Challenge {i + 1}</h4>
+                        <p className="text-gray-600 text-sm mb-3">{challenge}</p>
+                        <h5 className="font-medium text-black mb-1">Solution:</h5>
+                        <p className="text-gray-600 text-sm">{work.solutions?.[i]}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            {/* Sidebar */}
+            <div className="space-y-6">
+              {/* Technologies */}
+              <div className="bg-gray-50 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-black mb-4">Technologies Used</h3>
+                <div className="flex flex-wrap gap-2">
+                  {work.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs bg-black text-white px-3 py-1 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Results */}
+              {work.results && (
+                <div className="bg-gray-50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-black mb-4">Results</h3>
+                  <ul className="space-y-2">
+                    {work.results.map((result, i) => (
+                      <li key={i} className="flex items-start space-x-2">
+                        <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span className="text-sm text-gray-600">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              {/* Links */}
+              <div className="bg-gray-50 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-black mb-4">Project Links</h3>
+                <div className="space-y-3">
+                  {work.url && (
+                    <a
+                      href={work.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+                  {work.githubUrl && (
+                    <a
+                      href={work.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-sm text-gray-600 hover:text-black transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      <span>View Code</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="px-4 sm:px-6 py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-black mb-4">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Let's discuss how we can help bring your ideas to life and create something amazing together.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link 
+              href="/contact" 
+              className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+            >
+              Start Your Project
+            </Link>
+            <Link 
+              href="/our-works" 
+              className="text-black border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+            >
+              View More Case Studies
+            </Link>
           </div>
         </div>
       </section>

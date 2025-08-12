@@ -4,17 +4,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
 import { useState, useRef } from 'react';
+import { works } from '@/app/data/works';
 
 export default function Home() {
   const [showStoryVideo, setShowStoryVideo] = useState(false);
   const knowMoreBtnRef = useRef(null);
+  
+  // Get featured works
+  const featuredWorks = works.filter(work => work.featured).slice(0, 3);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Our Brands Section */}
+      {/* Our Brands Section - Temporarily Hidden */}
+      {false && (
       <section className="px-4 sm:px-6 py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -166,157 +171,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Our Services Section */}
-      <section className="px-4 sm:px-6 py-16 sm:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
-            <div>
-              <h2 className="text-4xl sm:text-6xl font-semibold text-black/80 mb-4 sm:mb-6">Our Services</h2>
-            </div>
-            <div>
-              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                We provide comprehensive software development services with a focus on quality and efficiency, delivering solutions that drive business growth.
-              </p>
-            </div>
-          </div>
-          {/* Featured Service - Large Card */}
-          <div className="mb-8 lg:mb-12">
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 sm:w-32 h-20 sm:h-32 bg-black opacity-5 rounded-full -translate-y-8 sm:-translate-y-16 translate-x-8 sm:translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-16 sm:w-24 h-16 sm:h-24 bg-black opacity-5 rounded-full translate-y-6 sm:translate-y-12 -translate-x-6 sm:-translate-x-12"></div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
-                <div>
-                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-black rounded-xl flex items-center justify-center">
-                      <svg className="w-6 sm:w-8 h-6 sm:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-black">Custom Development</h3>
-                      <p className="text-gray-500 text-base sm:text-lg">Our Core Service</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                  We specialize in building custom software solutions tailored to your business needs, from strategy and design to development and support. Our team delivers robust, scalable applications that help you achieve measurable results and drive growth.
-                  </p>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                    <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
-                      Start Project
-                    </button>
-                    <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
-                      <span>90+ Projects</span>
-                      <span>•</span>
-                      <span>98% Success Rate</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="relative mt-8 lg:mt-0">
-                  <div className="bg-gray-50 rounded-xl p-4 sm:p-8 border border-gray-200">
-                    <h4 className="font-bold text-black mb-4 sm:mb-6 text-base sm:text-lg">What We Deliver</h4>
-                    <div className="space-y-2 sm:space-y-4">
-                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
-                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
-                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                          </svg>
-                        </div>
-                        <div>
-                          <p className="font-medium text-black text-sm sm:text-base">Web Applications</p>
-                          <p className="text-xs sm:text-sm text-gray-500">Scalable & responsive</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
-                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
-                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                          </svg>
-                        </div>
-                        <div>
-                          <p className="font-medium text-black text-sm sm:text-base">API Development</p>
-                          <p className="text-xs sm:text-sm text-gray-500">RESTful & GraphQL</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
-                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
-                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                          </svg>
-                        </div>
-                        <div>
-                          <p className="font-medium text-black text-sm sm:text-base">Mobile Apps</p>
-                          <p className="text-xs sm:text-sm text-gray-500">iOS & Android</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
-                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
-                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                          </svg>
-                        </div>
-                        <div>
-                          <p className="font-medium text-black text-sm sm:text-base">Cloud Solutions</p>
-                          <p className="text-xs sm:text-sm text-gray-500">AWS, Azure, GCP</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Other Services - Grid Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
-              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
-                <span className="text-white text-lg">🎨</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">UI/UX Design</h3>
-              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Beautiful, intuitive user interfaces designed to enhance user experience and drive engagement.
-              </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                <li>• User Research</li>
-                <li>• Wireframing</li>
-                <li>• Prototyping</li>
-                <li>• Design Systems</li>
-              </ul>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
-              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
-                <span className="text-white text-lg">🔒</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Security Services</h3>
-              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Comprehensive security solutions to protect your applications and data from threats and vulnerabilities.
-              </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                <li>• Security Audits</li>
-                <li>• Penetration Testing</li>
-                <li>• Compliance</li>
-                <li>• Data Protection</li>
-              </ul>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
-              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
-                <span className="text-white text-lg">📊</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Data Analytics</h3>
-              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Transform your data into actionable insights with advanced analytics and business intelligence solutions.
-              </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                <li>• Data Visualization</li>
-                <li>• Business Intelligence</li>
-                <li>• Predictive Analytics</li>
-                <li>• Reporting Systems</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      )}
 
       {/* Who We Are Section */}
       <section className="px-4 sm:px-6 py-16 sm:py-20 bg-white">
@@ -530,6 +385,241 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
           </div>
         </div>
       </section>
+
+      {/* Our Services Section */}
+      <section className="px-4 sm:px-6 py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
+            <div>
+              <h2 className="text-4xl sm:text-6xl font-semibold text-black/80 mb-4 sm:mb-6">Our Services</h2>
+            </div>
+            <div>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                We provide comprehensive software development services with a focus on quality and efficiency, delivering solutions that drive business growth.
+              </p>
+            </div>
+          </div>
+          {/* Featured Service - Large Card */}
+          <div className="mb-8 lg:mb-12">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-12 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 sm:w-32 h-20 sm:h-32 bg-black opacity-5 rounded-full -translate-y-8 sm:-translate-y-16 translate-x-8 sm:translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-16 sm:w-24 h-16 sm:h-24 bg-black opacity-5 rounded-full translate-y-6 sm:translate-y-12 -translate-x-6 sm:-translate-x-12"></div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+                <div>
+                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-black rounded-xl flex items-center justify-center">
+                      <svg className="w-6 sm:w-8 h-6 sm:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black">Custom Development</h3>
+                      <p className="text-gray-500 text-base sm:text-lg">Our Core Service</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
+                  We specialize in building custom software solutions tailored to your business needs, from strategy and design to development and support. Our team delivers robust, scalable applications that help you achieve measurable results and drive growth.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                    <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
+                      Start Project
+                    </button>
+                    <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
+                      <span>90+ Projects</span>
+                      <span>•</span>
+                      <span>98% Success Rate</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative mt-8 lg:mt-0">
+                  <div className="bg-gray-50 rounded-xl p-4 sm:p-8 border border-gray-200">
+                    <h4 className="font-bold text-black mb-4 sm:mb-6 text-base sm:text-lg">What We Deliver</h4>
+                    <div className="space-y-2 sm:space-y-4">
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">Web Applications</p>
+                          <p className="text-xs sm:text-sm text-gray-500">Scalable & responsive</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">API Development</p>
+                          <p className="text-xs sm:text-sm text-gray-500">RESTful & GraphQL</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">Mobile Apps</p>
+                          <p className="text-xs sm:text-sm text-gray-500">iOS & Android</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-lg border border-gray-200">
+                        <div className="w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-lg flex items-center justify-center">
+                          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-medium text-black text-sm sm:text-base">Cloud Solutions</p>
+                          <p className="text-xs sm:text-sm text-gray-500">AWS, Azure, GCP</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Other Services - Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <span className="text-white text-lg">🎨</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">UI/UX Design</h3>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Beautiful, intuitive user interfaces designed to enhance user experience and drive engagement.
+              </p>
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
+                <li>• User Research</li>
+                <li>• Wireframing</li>
+                <li>• Prototyping</li>
+                <li>• Design Systems</li>
+              </ul>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <span className="text-white text-lg">🔒</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Security Services</h3>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Comprehensive security solutions to protect your applications and data from threats and vulnerabilities.
+              </p>
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
+                <li>• Security Audits</li>
+                <li>• Penetration Testing</li>
+                <li>• Compliance</li>
+                <li>• Data Protection</li>
+              </ul>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-black rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <span className="text-white text-lg">📊</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-4">Data Analytics</h3>
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Transform your data into actionable insights with advanced analytics and business intelligence solutions.
+              </p>
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
+                <li>• Data Visualization</li>
+                <li>• Business Intelligence</li>
+                <li>• Predictive Analytics</li>
+                <li>• Reporting Systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+             {/* Our Work Section */}
+       <section className="px-4 sm:px-6 py-16 sm:py-20 bg-white">
+         <div className="max-w-7xl mx-auto">
+           {/* Header */}
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 lg:mb-16">
+             <div>
+               <h2 className="text-4xl sm:text-6xl font-semibold text-black/80 mb-4 sm:mb-6">Our Work</h2>
+             </div>
+             <div>
+               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                 Explore some of our recent projects and successful case studies that showcase our expertise and results.
+               </p>
+             </div>
+           </div>
+           
+           {/* Featured Works Grid */}
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+             {featuredWorks.map((work) => (
+               <Link key={work.id} href={`/our-works/${work.id}`} className="group">
+                 <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                   <div className="relative h-48 overflow-hidden">
+                     <Image
+                       src={work.image}
+                       alt={work.title}
+                       fill
+                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                     />
+                     <div className="absolute top-3 right-3">
+                       <span className="bg-black text-white px-2 py-1 rounded text-xs font-medium">
+                         Featured
+                       </span>
+                     </div>
+                   </div>
+                   <div className="p-6 flex-1 flex flex-col">
+                     <div className="flex items-center space-x-2 mb-2">
+                       <span className="text-xs text-gray-500 uppercase tracking-wide">{work.category}</span>
+                       <span className="text-gray-300">•</span>
+                       <span className="text-xs text-gray-500">{work.date}</span>
+                     </div>
+                     <h3 className="text-lg font-semibold text-black mb-3 group-hover:text-gray-600 transition-colors">
+                       {work.title}
+                     </h3>
+                     <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
+                       {work.shortDescription}
+                     </p>
+                     <div className="mt-auto">
+                       <div className="flex flex-wrap gap-1 mb-3">
+                         {work.tags.slice(0, 2).map((tag) => (
+                           <span
+                             key={tag}
+                             className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                           >
+                             {tag}
+                           </span>
+                         ))}
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <span className="text-sm font-medium text-black">View Case Study</span>
+                         <svg className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                         </svg>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </Link>
+             ))}
+           </div>
+           
+           {/* CTA */}
+           <div className="text-center mt-12">
+             <Link 
+               href="/our-works" 
+               className="inline-flex items-center space-x-2 bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+             >
+               <span>View All Case Studies</span>
+               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+               </svg>
+             </Link>
+           </div>
+         </div>
+       </section>
 
       {/* Stats Section */}
       <section className="px-4 sm:px-6 py-12 sm:py-16 bg-white border-t border-gray-200 border-b border-gray-200">
