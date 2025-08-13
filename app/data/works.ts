@@ -21,108 +21,165 @@ export interface WorkItem {
 
 export const works: WorkItem[] = [
   {
-    id: 'ecommerce-platform',
-    title: 'E-commerce Platform',
-    shortDescription: 'A full-featured e-commerce solution with modern UI/UX',
-    longDescription: 'Developed a comprehensive e-commerce platform with features including product catalog, shopping cart, user authentication, and payment processing. The platform supports multiple vendors and includes an admin dashboard for inventory and order management.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
-    images: [
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop'
-    ],
-    tags: ['ecommerce', 'react', 'nodejs', 'mongodb'],
+    id: 'revoult-studio',
+    title: 'Agency Website',
+    shortDescription: 'A modern, animated agency website with smooth performance and SEO optimization',
+    longDescription: 'Revoult Studio, a creative agency specializing in video editing, 3D animation, graphics designing, and website development, approached us to create a modern, visually engaging website that reflects their premium creative work. Their requirements included smooth, lag-free animations across all devices, a responsive design that performs well on both desktop and mobile, and strong SEO optimization to improve online visibility. Additionally, they needed a secure admin panel to add and manage portfolio items, as well as to create multiple admin accounts for team members. We chose Next.js for its SEO-friendly capabilities and fast performance, MongoDB for flexible data management, and Framer Motion for fluid animations. Our development process focused on balancing high-quality visuals with performance optimization, ensuring the animations remained silky smooth without compromising loading speed. The admin panel was built with a role-based access system, enabling secure content management without technical barriers for the client’s team. In the end, the new website not only elevated Revoult Studio’s online presence but also streamlined their workflow, allowing them to showcase their work more effectively and engage potential clients with a polished, professional platform.',
+    image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755045105/RevoultStudio_irf8or.png',
+    images: [],
+    tags: ['agency', 'nextjs', 'mongodb', 'seo', 'framer-motion'],
     category: 'web',
     featured: true,
-    client: 'Retail Solutions Inc.',
+    client: 'Revoult Studio',
     date: '2024-03-15',
-    url: 'https://example-ecommerce.com',
-    githubUrl: 'https://github.com/yourorg/ecommerce-platform',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux'],
-    teamMembers: ['tanvir-almas', 'tasfirul-haque'],
+    url: 'https://revoultstudio.com',
+    githubUrl: '',
+    technologies: ['Next.js', 'Node.js', 'MongoDB', 'Express', 'Framer Motion'],
+    teamMembers: ['tasfirul-haque'],
     challenges: [
-      'Handling high traffic during sales events',
-      'Implementing real-time inventory updates',
-      'Ensuring secure payment processing'
+      'Maintaining smooth, lag-free animations across all devices',
+      'Building a secure admin panel for portfolio and user management',
+      'Optimizing the site for SEO while using animations'
     ],
     solutions: [
-      'Implemented server-side caching and CDN',
-      'Used WebSockets for real-time updates',
-      'Integrated with Stripe and PayPal with PCI compliance'
+      'Used Framer Motion with GPU-accelerated animations for smooth performance',
+      'Implemented a role-based admin panel with MongoDB and secure authentication',
+      'Applied Next.js server-side rendering and metadata optimization for SEO'
     ],
     results: [
-      '40% increase in conversion rate',
-      '99.9% uptime during Black Friday sales',
-      'Positive user feedback on the checkout experience'
+      'Fast-loading, mobile-friendly experience with smooth animations',
+      'Efficient admin workflow for adding and managing content',
+      'Improved search engine visibility and higher client engagement'
     ]
   },
   {
-    id: 'mobile-fitness-app',
-    title: 'Fitness Tracker App',
-    shortDescription: 'Mobile application for tracking workouts and nutrition',
-    longDescription: 'A cross-platform mobile application that helps users track their workouts, nutrition, and fitness goals. The app includes personalized workout plans, progress tracking, and social features.',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
-    tags: ['mobile', 'react native', 'fitness', 'health'],
-    category: 'mobile',
-    featured: true,
-    date: '2024-01-20',
-    url: 'https://apps.apple.com/app/fitness-tracker',
-    technologies: ['React Native', 'Firebase', 'Redux'],
-    teamMembers: ['nabil-bin-kamal', 'omar-saliheen']
-  },
-  {
-    id: 'corporate-website',
-    title: 'Corporate Website Redesign',
-    shortDescription: 'Modern corporate website with improved user experience',
-    longDescription: 'Redesigned and developed a modern corporate website for a Fortune 500 company, focusing on improved user experience, better content organization, and enhanced mobile responsiveness.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-    tags: ['corporate', 'nextjs', 'tailwind', 'responsive'],
+    id: 'mateluxy',
+    title: 'Mateluxy Real Estate',
+    shortDescription: 'A feature-rich real estate platform built with the MERN stack',
+    longDescription: 'Mateluxy, a Dubai-based real estate company specializing in luxury property sales, rentals, and management, approached us to create a sleek and visually appealing website that reflects their premium brand identity while being intuitive and easy to navigate for their clients. The project required building both the frontend and backend, as well as designing the complete UI from scratch, all within a strict one-month deadline. We developed the platform using the MERN stack to ensure scalability, speed, and flexibility. The website features a clean, modern interface with property listings, agent profiles, news articles, and an engaging homepage designed to capture user interest. A robust admin panel was implemented to allow the Mateluxy team to manage every aspect of the platform—including banners, agents, properties, news, contacts, consultancy requests, and booking management—without needing technical expertise. The result is a responsive, SEO-friendly, and high-performing real estate platform that empowers Mateluxy to showcase their listings, engage potential buyers, and streamline their business operations.',
+    image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755046321/Mateluxy_krd2kq.png',
+    images: [],
+    tags: ['real-estate', 'mern', 'mongodb', 'admin-panel'],
     category: 'web',
     featured: true,
-    client: 'TechCorp Industries',
-    date: '2024-02-10',
-    technologies: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+    client: 'Mateluxy Real Estate',
+    date: '2024-07-05',
+    url: 'https://mateluxy.com',
+    githubUrl: '',
+    technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Redux', 'Mongoose'],
+    teamMembers: ['tasfirul-haque'],
+    challenges: [
+      'Completing a full-featured real estate platform within one month',
+      'Creating a visually appealing UI that matches the luxury brand image',
+      'Building an advanced yet easy-to-use admin panel for non-technical staff'
+    ],
+    solutions: [
+      'Used the MERN stack to ensure rapid development and high scalability',
+      'Designed a clean, modern UI/UX to attract potential clients and improve usability',
+      'Developed a comprehensive admin panel with role-based access and complete site control'
+    ],
     results: [
-      '60% improvement in page load speed',
-      '45% increase in mobile engagement',
-      'Better SEO rankings'
+      'Successfully launched within the one-month deadline',
+      'Significant improvement in lead generation and user engagement',
+      'Streamlined property, agent, and booking management for the Mateluxy team'
     ]
-  },
-  {
-    id: 'ui-design-system',
-    title: 'Design System & UI Components',
-    shortDescription: 'Comprehensive design system for consistent UI/UX',
-    longDescription: 'Created a comprehensive design system with reusable UI components, design tokens, and documentation to ensure consistent user experience across all products.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
-    tags: ['design-system', 'ui-components', 'figma', 'storybook'],
-    category: 'design',
-    featured: false,
-    date: '2024-01-15',
-    technologies: ['Figma', 'Storybook', 'React', 'Styled Components'],
-    results: [
-      '50% reduction in design time',
-      'Consistent brand experience',
-      'Improved developer productivity'
-    ]
-  },
-  {
-    id: 'seo-optimization',
-    title: 'SEO Optimization Project',
-    shortDescription: 'Comprehensive SEO optimization for better rankings',
-    longDescription: 'Implemented comprehensive SEO strategies including technical SEO, content optimization, and local SEO to improve search engine rankings and organic traffic.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-    tags: ['seo', 'optimization', 'analytics', 'content'],
-    category: 'seo',
-    featured: false,
-    client: 'Local Business Network',
-    date: '2024-03-01',
-    technologies: ['Google Analytics', 'Search Console', 'SEMrush'],
-    results: [
-      '200% increase in organic traffic',
-      'Top 3 rankings for target keywords',
-      'Improved local search visibility'
-    ]
-  },
+}
+,
+{
+  id: 'mj-hotel-group',
+  title: 'MJ Hotel Group',
+  shortDescription: 'A luxury hotel booking platform built with WordPress',
+  longDescription: 'MJ Hotel Group, a hospitality brand offering luxury serviced apartments across London, wanted a premium online platform that would reflect their high-end brand image and make the booking process seamless for their guests. Their goal was to showcase their wide range of properties—located in areas like Ealing, Northfield, Northolt, Cockfosters, Camden, and Kenton—while also highlighting their focus on exceptional hospitality and sustainability. We developed the website using WordPress to ensure fast deployment, easy management, and scalability for future updates. The site includes a custom hotel booking system that allows guests to browse properties, check availability, and complete bookings directly online. Property pages feature detailed descriptions, amenities, high-quality images, and location details to help guests make informed decisions. The design is clean, responsive, and aligned with MJ Hotel Group’s luxury branding, ensuring a smooth experience across all devices. The result is a visually engaging, user-friendly booking platform that has helped streamline their operations and improve guest engagement.',
+  image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755047243/MJHotelGroup_bzda5f.png',
+  images: [],
+  tags: ['hotel-booking', 'wordpress', 'hospitality', 'cms'],
+  category: 'web',
+  featured: true,
+  client: 'MJ Hotel Group',
+  date: '2024-05-20',
+  url: 'https://mjhotelgroup.co.uk',
+  githubUrl: '',
+  technologies: ['WordPress', 'PHP', 'MySQL', 'Elementor', 'WooCommerce Bookings'],
+  teamMembers: ['tasfirul-haque'],
+  challenges: [
+    'Creating a luxury brand-aligned design for a hospitality website',
+    'Integrating a seamless booking system for multiple properties',
+    'Ensuring fast performance while using a CMS with rich media content'
+  ],
+  solutions: [
+    'Used a fully customized WordPress theme with premium design elements',
+    'Integrated a booking system with live availability and secure payment options',
+    'Optimized media assets and implemented caching for smooth performance'
+  ],
+  results: [
+    'Increased online bookings through a more intuitive platform',
+    'Positive feedback from guests on the ease of use',
+    'Improved operational efficiency for managing reservations and property listings'
+  ]
+}
+,
+{
+  id: 'kd-managements',
+  title: 'Attendance Tracking System',
+  shortDescription: 'An employee attendance tracking system built with WordPress',
+  longDescription: 'KD Managements, a client needing a reliable method to track employee attendance, requested a user-friendly, web-based system that would simplify in/out recording and provide administrators with actionable insights. Built with WordPress, the system includes custom-developed plugins for punch-in and punch-out functionality, enabling employees to easily check in and out of work. On the admin side, a sleek dashboard displays real-time attendance summaries and analytics, offering at-a-glance visibility into team activity, attendance patterns, and productivity metrics. This polished yet practical solution ensures that both employees and administrators can manage attendance seamlessly without technical hassles.',
+  image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755048591/image_2025-08-13_072948339_ux2lxt.png',
+  images: [],
+  tags: ['attendance', 'wordpress', 'custom-plugin', 'analytics'],
+  category: 'web',
+  featured: false,
+  client: 'KD Managements',
+  date: '2024-09-10',
+  url: 'https://kd-managements.com',
+  githubUrl: '',
+  technologies: ['WordPress', 'PHP', 'MySQL', 'Custom Plugins', 'Chart.js'],
+  teamMembers: ['tasfirul-haque'],
+  challenges: [
+    'Creating a seamless punch-in/punch-out workflow within WordPress',
+    'Developing custom plugins that integrate securely into existing CMS architecture',
+    'Presenting real-time attendance data in an intuitive dashboard for the admin'
+  ],
+  solutions: [
+    'Built custom WordPress plugins to handle employee check-in and check-out logic',
+    'Leveraged secure backend logic with optimized database queries for accurate time tracking',
+    'Designed an admin dashboard with attendance summaries and visual analytics using Chart.js'
+  ],
+  results: [
+    'Streamlined attendance tracking for employees with easy punch-in/out functionality',
+    'Empowered admins with real-time insights into attendance and team behavior',
+    'Reduced manual HR overhead and improved data accuracy in workforce management'
+  ]
+}
+,
+{
+  id: 'product-page-ui-design',
+  title: 'Modern Product Page',
+  shortDescription: 'A clean, modern product and archive page UI designed with Figma',
+  longDescription: 'As a UI/UX practice project, I designed a modern, user-friendly product page and archive listing using Figma. The design emphasizes clarity, intuitive navigation, and visual hierarchy to enhance user engagement and improve product discovery. Features include a sleek product gallery, detailed product information sections, customer reviews, and an accessible filtering system on the archive page. The project explores responsive layouts, clean typography, and consistent design patterns to create a seamless shopping experience. This work helps hone my skills in modern interface design and prototyping, preparing me for real-world eCommerce projects.',
+  image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755049723/Frame_41_tqtzzc.png',
+  images: [],
+  tags: ['ui-design', 'figma', 'product-page', 'ecommerce', 'responsive-design'],
+  category: 'design',
+  featured: false,
+  client: 'Practice Project',
+  date: '2024-08-10',
+  url: '',
+  githubUrl: '',
+  technologies: ['Figma', 'UI/UX Design', 'Prototyping'],
+  teamMembers: ['tasfirul-haque'],
+  challenges: [
+    'Designing a clean and intuitive UI that improves product discovery and user engagement'
+  ],
+  solutions: [
+    'Utilized Figma’s auto-layout and component features to create a scalable and consistent design system'
+  ],
+  results: [
+    'A polished UI design ready for handoff to developers',
+    'Improved user navigation and product discovery through intuitive layout',
+    'Enhanced skills in modern UI design and prototyping tools'
+  ]
+}
+,
   {
     id: 'restaurant-app',
     title: 'Restaurant Management App',

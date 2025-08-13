@@ -62,7 +62,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-row gap-4 w-full max-w-xs sm:max-w-none">
-              <button className="bg-[black] text-white px-6 py-3 rounded hover:bg-gray-800 flex items-center justify-center ">
+              <button className="bg-[#60FCC4] text-black hover:text-white px-6 py-3 rounded hover:bg-gray-800 flex items-center justify-center ">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>

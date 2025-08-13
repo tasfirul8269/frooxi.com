@@ -5,40 +5,86 @@ import { TeamMember, teamMembers } from '@/app/data/team';
 const TeamMemberCard = ({ member, isFounder = false }: { member: TeamMember; isFounder?: boolean }) => {
   if (isFounder) {
     return (
-      <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group">
-        <div className="flex items-start space-x-6">
-          <div className="w-24 h-24 bg-gray-100 rounded-full overflow-hidden flex-shrink-0 group-hover:ring-4 group-hover:ring-black/5 transition-all duration-300">
-            <Link href={`/team/${member.id}`}>
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={96}
-                height={96}
-                className="w-24 h-24 rounded-full object-cover group-hover:scale-105 transition-transform duration-500"
-                priority
-              />
+      <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group border border-gray-100 hover:border-gray-200">
+        <div className="p-6">
+          {/* Profile Header */}
+          <div className="flex items-start space-x-5 mb-5">
+            <Link href={`/team/${member.id}`} className="block flex-shrink-0">
+              <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white ring-2 ring-black/5 group-hover:ring-black/10 transition-all duration-300">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  priority
+                />
+              </div>
             </Link>
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center space-x-3 mb-3">
+            
+            <div>
               <Link href={`/team/${member.id}`} className="hover:opacity-80 transition-opacity">
-                <h3 className="text-2xl font-bold text-black group-hover:text-gray-800 transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-black transition-colors">
                   {member.name}
                 </h3>
               </Link>
-              <span className="text-xs bg-black text-white px-3 py-1 rounded-full">
+              <span className="inline-block mt-1 text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">
                 {member.role}
               </span>
             </div>
-            <p className="text-gray-600 mb-4 leading-relaxed">
-              {member.bio}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {member.tags.map((tag) => (
-                <span key={tag} className="text-xs bg-gray-800 text-white px-3 py-1 rounded-full hover:bg-gray-900 transition-colors">
+          </div>
+          
+          {/* Bio */}
+          <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-3">
+            {member.bio}
+          </p>
+          
+          {/* Tags */}
+          {member.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {member.tags.slice(0, 3).map((tag) => (
+                <span 
+                  key={tag} 
+                  className="text-xs font-medium bg-gray-100 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-200 transition-colors"
+                  title={tag}
+                >
                   {tag}
                 </span>
               ))}
+              {member.tags.length > 3 && (
+                <span className="text-xs text-gray-500 self-center">+{member.tags.length - 3} more</span>
+              )}
+            </div>
+          )}
+          
+          {/* Social Links */}
+          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+            <Link 
+              href={`/team/${member.id}`}
+              className="text-sm font-medium text-black hover:text-gray-700 transition-colors flex items-center group"
+            >
+              View profile
+              <svg 
+                className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+            
+            <div className="flex space-x-3">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>

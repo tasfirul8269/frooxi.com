@@ -17,7 +17,7 @@ export default function Services() {
                 From custom development to cloud infrastructure, we&apos;ve got you covered.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">
+                <button className="bg-[#60FCC4] text-black px-8 py-4 rounded-lg hover:bg-black hover:text-white transition-colors">
                   Get a Quote
                 </button>
                 <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">

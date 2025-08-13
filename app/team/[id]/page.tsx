@@ -82,7 +82,7 @@ const teamMembers = {
       }
     ]
   },
-  'alex-lee': {
+  'nabil-bin-kamal': {
     id: 'alex-lee',
     name: 'Alex Lee',
     role: 'Head of Design',

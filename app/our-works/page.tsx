@@ -110,7 +110,7 @@ export default function OurWorks() {
         <section className="px-4 sm:px-6 py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-black mb-2">All Case Studies</h2>
+              <h2 className="text-2xl font-bold text-black mb-2">Our Works</h2>
               <p className="text-gray-600">
                 A comprehensive collection of our work across different services and industries.
               </p>
@@ -158,49 +158,37 @@ export default function OurWorks() {
 
 function FeaturedWorkCard({ work }: { work: any }) {
   return (
-    <Link href={`/our-works/${work.id}`} className="group">
-      <div className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-gray-300 transition-all duration-200 h-full flex flex-col">
-        <div className="relative h-48 overflow-hidden">
-          <Image
-            src={work.image}
-            alt={work.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute top-3 right-3">
-            <span className="bg-black text-white px-2 py-1 rounded text-xs font-medium">
-              Featured
-            </span>
-          </div>
-        </div>
-        <div className="p-4 flex-1 flex flex-col">
-          <div className="flex items-center space-x-2 mb-2">
-            <span className="text-xs text-gray-500 uppercase tracking-wide">{work.category}</span>
-            <span className="text-gray-300">•</span>
-            <span className="text-xs text-gray-500">{work.date}</span>
-          </div>
-          <h3 className="text-lg font-semibold text-black mb-2 group-hover:text-gray-600 transition-colors">
-            {work.title}
-          </h3>
-          <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">
-            {work.shortDescription}
-          </p>
+    <Link href={`/our-works/${work.id}`} className="group block overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl">
+      <div className="relative aspect-video w-full overflow-hidden">
+        <Image
+          src={work.image}
+          alt={work.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 80vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col p-6">
           <div className="mt-auto">
-            <div className="flex flex-wrap gap-1 mb-3">
-              {work.tags.slice(0, 2).map((tag: string) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full mb-3">
+              <span className="relative flex h-2 w-2 mr-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              Featured Project
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-black">View Case Study</span>
-              <svg className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+            <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gray-200 transition-colors">
+              {work.title}
+            </h3>
+            <p className="text-gray-200 mb-4 line-clamp-2 text-sm leading-relaxed">
+              {work.shortDescription}
+            </p>
+            <div className="flex items-center">
+              <span className="text-sm font-medium text-white bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                View Case Study
+                <svg className="w-3.5 h-3.5 inline-block ml-1.5 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
             </div>
           </div>
         </div>
@@ -211,45 +199,19 @@ function FeaturedWorkCard({ work }: { work: any }) {
 
 function WorkCard({ work }: { work: any }) {
   return (
-    <Link href={`/our-works/${work.id}`} className="group">
-      <div className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-gray-300 transition-all duration-200 h-full flex flex-col">
-        <div className="relative h-32 overflow-hidden">
-          <Image
-            src={work.image}
-            alt={work.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-        <div className="p-3 flex-1 flex flex-col">
-          <div className="flex items-center space-x-2 mb-1">
-            <span className="text-xs text-gray-500 uppercase tracking-wide">{work.category}</span>
-            <span className="text-gray-300">•</span>
-            <span className="text-xs text-gray-500">{work.date}</span>
-          </div>
-          <h3 className="text-sm font-semibold text-black mb-2 group-hover:text-gray-600 transition-colors line-clamp-1">
-            {work.title}
-          </h3>
-          <p className="text-gray-600 mb-2 line-clamp-2 text-xs leading-relaxed">
-            {work.shortDescription}
-          </p>
-          <div className="mt-auto">
-            <div className="flex flex-wrap gap-1 mb-2">
-              {work.tags.slice(0, 1).map((tag: string) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-gray-100 text-gray-700 px-1 py-0.5 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-black">View Details</span>
-              <svg className="w-3 h-3 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
+    <Link href={`/our-works/${work.id}`} className="group block overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg">
+      <div className="relative aspect-square w-full overflow-hidden">
+        <Image
+          src={work.image}
+          alt={work.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          sizes="(max-width: 768px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <div className="text-white">
+            <h3 className="text-lg font-medium mb-1">{work.title}</h3>
+            <span className="text-sm opacity-90">{work.category}</span>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import ChatBubble from '@/components/ChatBubble';
 
 export default function Header({ current }: { current?: string }) {
   const [visible, setVisible] = useState(true);
@@ -132,14 +133,13 @@ export default function Header({ current }: { current?: string }) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-      {/* Contact Button (always visible) */}
+      {/* Chat Bubble Button */}
       <div className="hidden md:flex items-center space-x-4">
-        <Link
-          href="/contact"
-          className="bg-[#00ff8b] hover:bg-[#00e67d] text-black px-4 py-2 rounded text-sm font-medium transition-colors shadow-sm"
-        >
-          Contact Us
-        </Link>
+        <div className="flex items-center space-x-4">
+        <Link href="/careers" className="block px-4 font-semibold py-2 text-sm hover:text-[#30d6c4] text-black">Career</Link>
+        <div className="w-[2px] h-5 bg-gray-200"></div>
+          <ChatBubble />
+        </div>
       </div>
       {/* Mobile Sidebar Menu */}
       {mobileOpen && (

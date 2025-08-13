@@ -5,6 +5,7 @@ import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
 import { useState, useRef } from 'react';
 import { works } from '@/app/data/works';
+import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
   const [showStoryVideo, setShowStoryVideo] = useState(false);
@@ -379,7 +380,12 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                 </div>
               </div>
               <div className="mt-6 mb-2">
-                <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full lg:w-auto">Learn More About Us</button>
+                <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg  transition-colors w-full underline lg:w-auto">
+                  <div className="flex items-center space-x-2">
+                    <p>Learn More About Us</p>
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </div>
+                </button>
               </div>
             </div>
           </div>
@@ -422,8 +428,11 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                   We specialize in building custom software solutions tailored to your business needs, from strategy and design to development and support. Our team delivers robust, scalable applications that help you achieve measurable results and drive growth.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                    <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
-                      Start Project
+                  <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:text-[#30d6c4] transition-colors w-full sm:w-auto text-center  ">
+                      <div className="flex items-center space-x-2">
+                      <p>Start Project</p>
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                      </div>
                     </button>
                     <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
                       <span>90+ Projects</span>
@@ -553,51 +562,43 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
            </div>
            
            {/* Featured Works Grid */}
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
              {featuredWorks.map((work) => (
-               <Link key={work.id} href={`/our-works/${work.id}`} className="group">
-                 <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                   <div className="relative h-48 overflow-hidden">
-                     <Image
-                       src={work.image}
-                       alt={work.title}
-                       fill
-                       className="object-cover group-hover:scale-105 transition-transform duration-300"
-                     />
-                     <div className="absolute top-3 right-3">
-                       <span className="bg-black text-white px-2 py-1 rounded text-xs font-medium">
-                         Featured
+               <Link 
+                 key={work.id} 
+                 href={`/our-works/${work.id}`} 
+                 className="group block overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl"
+               >
+                 <div className="relative aspect-square w-full overflow-hidden">
+                   <Image
+                     src={work.image}
+                     alt={work.title}
+                     fill
+                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                     sizes="(max-width: 768px) 100vw, 33vw"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col p-6">
+                     <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full mb-3">
+                       <span className="relative flex h-2 w-2 mr-2">
+                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                         <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                        </span>
+                       Featured Project
                      </div>
-                   </div>
-                   <div className="p-6 flex-1 flex flex-col">
-                     <div className="flex items-center space-x-2 mb-2">
-                       <span className="text-xs text-gray-500 uppercase tracking-wide">{work.category}</span>
-                       <span className="text-gray-300">•</span>
-                       <span className="text-xs text-gray-500">{work.date}</span>
-                     </div>
-                     <h3 className="text-lg font-semibold text-black mb-3 group-hover:text-gray-600 transition-colors">
-                       {work.title}
-                     </h3>
-                     <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
-                       {work.shortDescription}
-                     </p>
                      <div className="mt-auto">
-                       <div className="flex flex-wrap gap-1 mb-3">
-                         {work.tags.slice(0, 2).map((tag) => (
-                           <span
-                             key={tag}
-                             className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
-                           >
-                             {tag}
-                           </span>
-                         ))}
-                       </div>
-                       <div className="flex items-center justify-between">
-                         <span className="text-sm font-medium text-black">View Case Study</span>
-                         <svg className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                         </svg>
+                       <h3 className="text-xl font-bold text-white mb-2 group-hover:text-gray-200 transition-colors">
+                         {work.title}
+                       </h3>
+                       <p className="text-gray-200 text-sm line-clamp-2 mb-3">
+                         {work.shortDescription}
+                       </p>
+                       <div className="flex items-center">
+                         <span className="text-xs font-medium text-white bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                           View Case Study
+                           <svg className="w-3 h-3 inline-block ml-1.5 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                           </svg>
+                         </span>
                        </div>
                      </div>
                    </div>
@@ -610,7 +611,7 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
            <div className="text-center mt-12">
              <Link 
                href="/our-works" 
-               className="inline-flex items-center space-x-2 bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+               className="inline-flex items-center space-x-2 bg-transparent text-[black] px-8 py-4 rounded-lg hover:text-[#60FCC4] transition-colors font-medium"
              >
                <span>View All Case Studies</span>
                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -682,9 +683,13 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                     Our largest and most dynamic team, working with complex challenges to build scalable systems and innovative solutions that power the future.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                    <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
-                      Join Our Team
+                    <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:text-[#30d6c4] transition-colors w-full sm:w-auto text-center  ">
+                      <div className="flex items-center space-x-2">
+                      <p>Join Our Team</p>
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                      </div>
                     </button>
+                    
                     <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
                       <span>25+ Developers</span>
                       <span>•</span>
@@ -860,7 +865,7 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                 We&apos;re always looking for talented individuals who are passionate about technology and innovation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">
+                <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-[#60FCC4] hover:text-black transition-colors">
                   View Open Positions
                 </button>
                 <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
