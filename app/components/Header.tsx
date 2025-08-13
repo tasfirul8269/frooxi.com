@@ -87,7 +87,7 @@ export default function Header({ current }: { current?: string }) {
     >
       {/* Logo */}
       <Link href="/" className="flex items-center" aria-label="Frooxi Home">
-        <div className="w-32 md:w-40 h-7 md:h-9 relative">
+        <div className="w-28 md:w-36 h-6 md:h-8 relative">
           <Image
             src="/FrooxiHeaderLogo.svg"
             alt="Frooxi"
