@@ -519,21 +519,48 @@ Our vision is to build solutions that empower people and businesses to grow, cre
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Founders Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-black mb-4">Meet Our Founders</h2>
+          </div>
           
-          {/* CTA Section */}
-          <div className="text-center mt-16">
-            <div className="bg-white border border-gray-200 rounded-xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-black mb-4">See More of Our Work</h3>
-              <p className="text-gray-600 mb-8">
-                Explore our portfolio to see how we&apos;ve helped businesses transform their digital presence.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/our-works" className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors inline-block">
-                  View Portfolio
-                </Link>
-                <Link href="/contact" className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors inline-block">
-                  Get in Touch
-                </Link>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Founder 1 - Tasfirul */}
+            <div className="group relative overflow-hidden">
+              <div className="aspect-square relative rounded overflow-hidden border border-black/10">
+                <Image
+                  src="/Tasfirul.png"
+                  alt="Tasfirul"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <h3 className="text-2xl font-bold text-white">Tasfirul</h3>
+                  <p className="text-gray-200">Co-Founder & CEO</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Founder 2 - Tanvir */}
+            <div className="group relative overflow-hidden">
+              <div className="aspect-square relative rounded overflow-hidden border border-black/10">
+                <Image
+                  src="/Tanvir.jpg"
+                  alt="Tanvir"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <h3 className="text-2xl font-bold text-white">Tanvir</h3>
+                  <p className="text-gray-200">Co-Founder & CTO</p>
+                </div>
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@ export const works: WorkItem[] = [
     title: 'Agency Website',
     shortDescription: 'A modern, animated agency website with smooth performance and SEO optimization',
     longDescription: 'Revoult Studio, a creative agency specializing in video editing, 3D animation, graphics designing, and website development, approached us to create a modern, visually engaging website that reflects their premium creative work. Their requirements included smooth, lag-free animations across all devices, a responsive design that performs well on both desktop and mobile, and strong SEO optimization to improve online visibility. Additionally, they needed a secure admin panel to add and manage portfolio items, as well as to create multiple admin accounts for team members. We chose Next.js for its SEO-friendly capabilities and fast performance, MongoDB for flexible data management, and Framer Motion for fluid animations. Our development process focused on balancing high-quality visuals with performance optimization, ensuring the animations remained silky smooth without compromising loading speed. The admin panel was built with a role-based access system, enabling secure content management without technical barriers for the client’s team. In the end, the new website not only elevated Revoult Studio’s online presence but also streamlined their workflow, allowing them to showcase their work more effectively and engage potential clients with a polished, professional platform.',
-    image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755045105/RevoultStudio_irf8or.png',
+    image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755088417/Untitled_design_lb7ifz.png',
     images: [],
     tags: ['agency', 'nextjs', 'mongodb', 'seo', 'framer-motion'],
     category: 'web',
@@ -57,7 +57,7 @@ export const works: WorkItem[] = [
     title: 'Mateluxy Real Estate',
     shortDescription: 'A feature-rich real estate platform built with the MERN stack',
     longDescription: 'Mateluxy, a Dubai-based real estate company specializing in luxury property sales, rentals, and management, approached us to create a sleek and visually appealing website that reflects their premium brand identity while being intuitive and easy to navigate for their clients. The project required building both the frontend and backend, as well as designing the complete UI from scratch, all within a strict one-month deadline. We developed the platform using the MERN stack to ensure scalability, speed, and flexibility. The website features a clean, modern interface with property listings, agent profiles, news articles, and an engaging homepage designed to capture user interest. A robust admin panel was implemented to allow the Mateluxy team to manage every aspect of the platform—including banners, agents, properties, news, contacts, consultancy requests, and booking management—without needing technical expertise. The result is a responsive, SEO-friendly, and high-performing real estate platform that empowers Mateluxy to showcase their listings, engage potential buyers, and streamline their business operations.',
-    image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755046321/Mateluxy_krd2kq.png',
+    image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755088418/Untitled_design_1_ippihn.png',
     images: [],
     tags: ['real-estate', 'mern', 'mongodb', 'admin-panel'],
     category: 'web',
@@ -94,7 +94,7 @@ export const works: WorkItem[] = [
   images: [],
   tags: ['hotel-booking', 'wordpress', 'hospitality', 'cms'],
   category: 'web',
-  featured: true,
+  featured: false,
   client: 'MJ Hotel Group',
   date: '2024-05-20',
   url: 'https://mjhotelgroup.co.uk',
@@ -156,11 +156,11 @@ export const works: WorkItem[] = [
   title: 'Modern Product Page',
   shortDescription: 'A clean, modern product and archive page UI designed with Figma',
   longDescription: 'As a UI/UX practice project, I designed a modern, user-friendly product page and archive listing using Figma. The design emphasizes clarity, intuitive navigation, and visual hierarchy to enhance user engagement and improve product discovery. Features include a sleek product gallery, detailed product information sections, customer reviews, and an accessible filtering system on the archive page. The project explores responsive layouts, clean typography, and consistent design patterns to create a seamless shopping experience. This work helps hone my skills in modern interface design and prototyping, preparing me for real-world eCommerce projects.',
-  image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755049723/Frame_41_tqtzzc.png',
+  image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755090262/Untitled_design_2_mfwkbx.png',
   images: [],
   tags: ['ui-design', 'figma', 'product-page', 'ecommerce', 'responsive-design'],
   category: 'design',
-  featured: false,
+  featured: true,
   client: 'Practice Project',
   date: '2024-08-10',
   url: '',
@@ -180,123 +180,63 @@ export const works: WorkItem[] = [
   ]
 }
 ,
-  {
-    id: 'restaurant-app',
-    title: 'Restaurant Management App',
-    shortDescription: 'Complete restaurant management solution',
-    longDescription: 'Developed a comprehensive restaurant management application including order management, inventory tracking, staff scheduling, and customer relationship management.',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
-    tags: ['restaurant', 'management', 'mobile', 'inventory'],
-    category: 'mobile',
-    featured: false,
-    date: '2024-02-28',
-    technologies: ['React Native', 'Node.js', 'PostgreSQL'],
-    results: [
-      '30% reduction in order errors',
-      'Improved staff efficiency',
-      'Better customer satisfaction'
-    ]
-  },
-  {
-    id: 'portfolio-website',
-    title: 'Creative Portfolio Website',
-    shortDescription: 'Stunning portfolio website for creative professionals',
-    longDescription: 'Designed and developed a modern, responsive portfolio website showcasing creative work with smooth animations, interactive elements, and optimal performance.',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
-    tags: ['portfolio', 'creative', 'animations', 'responsive'],
-    category: 'web',
-    featured: false,
-    date: '2024-01-30',
-    technologies: ['React', 'Framer Motion', 'GSAP', 'Three.js'],
-    results: [
-      'Engaging user experience',
-      'Fast loading times',
-      'Increased client inquiries'
-    ]
-  },
-  {
-    id: 'dashboard-ui',
-    title: 'Analytics Dashboard UI',
-    shortDescription: 'Modern analytics dashboard with data visualization',
-    longDescription: 'Created a comprehensive analytics dashboard with interactive charts, real-time data visualization, and customizable widgets for business intelligence.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-    tags: ['dashboard', 'analytics', 'data-viz', 'charts'],
-    category: 'design',
-    featured: false,
-    date: '2024-02-15',
-    technologies: ['React', 'D3.js', 'Chart.js', 'Material-UI'],
-    results: [
-      'Improved data insights',
-      'Better decision making',
-      'Enhanced user experience'
-    ]
-  },
-  {
-    id: 'blog-platform',
-    title: 'Content Management Platform',
-    shortDescription: 'Modern CMS for content creators and publishers',
-    longDescription: 'Built a robust content management system with advanced features like multi-user collaboration, content scheduling, SEO tools, and analytics integration.',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop',
-    tags: ['cms', 'content', 'blog', 'publishing'],
-    category: 'web',
-    featured: false,
-    date: '2024-01-25',
-    technologies: ['Next.js', 'Strapi', 'PostgreSQL', 'Redis'],
-    results: [
-      'Streamlined content workflow',
-      'Improved publishing efficiency',
-      'Better content performance'
-    ]
-  },
-  {
-    id: 'mobile-game',
-    title: 'Educational Mobile Game',
-    shortDescription: 'Interactive educational game for children',
-    longDescription: 'Developed an engaging educational mobile game that helps children learn through interactive gameplay, progress tracking, and adaptive difficulty levels.',
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop',
-    tags: ['game', 'education', 'mobile', 'interactive'],
-    category: 'mobile',
-    featured: false,
-    date: '2024-02-20',
-    technologies: ['Unity', 'C#', 'Firebase'],
-    results: [
-      'Increased learning engagement',
-      'Positive user feedback',
-      'Educational impact measured'
-    ]
-  },
-  {
-    id: 'ecommerce-ui',
-    title: 'E-commerce UI/UX Design',
-    shortDescription: 'User-centered design for online shopping experience',
-    longDescription: 'Designed a complete e-commerce user interface focusing on conversion optimization, user experience, and mobile-first design principles.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
-    tags: ['ecommerce', 'ui-ux', 'conversion', 'mobile-first'],
-    category: 'design',
-    featured: false,
-    date: '2024-03-05',
-    technologies: ['Figma', 'Adobe XD', 'Prototyping'],
-    results: [
-      '25% increase in conversion rate',
-      'Improved user satisfaction',
-      'Reduced cart abandonment'
-    ]
-  },
-  {
-    id: 'api-development',
-    title: 'RESTful API Development',
-    shortDescription: 'Scalable API architecture for enterprise applications',
-    longDescription: 'Developed a comprehensive RESTful API with authentication, rate limiting, caching, and comprehensive documentation for enterprise-level applications.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop',
-    tags: ['api', 'rest', 'nodejs', 'documentation'],
-    category: 'web',
-    featured: false,
-    date: '2024-02-12',
-    technologies: ['Node.js', 'Express', 'MongoDB', 'Swagger'],
-    results: [
-      '99.9% API uptime',
-      'Reduced development time',
-      'Improved integration experience'
-    ]
-  }
+{
+  id: 'ni-mot',
+  title: 'NI-MOT – MOT Booking',
+  shortDescription: 'A streamlined MOT booking & vehicle collection platform built with WordPress',
+  longDescription: 'NI-MOT, Northern Ireland’s first dedicated MOT collection and booking service, simplifies a normally tedious process by handling everything—from appointment scheduling and vehicle collection to testing and return—on behalf of customers. Backed by over 15 years of motor trade experience, the platform caters to a wide range of vehicles including cars, vans, HGVs, and electric vehicles. Built with WordPress and a fully custom-designed theme, the site presents clear service offerings like Full MOT, Full MOT Express (within 3–5 business days), and retests. It emphasizes regional expertise, convenience, and trust by highlighting urgent booking options, services for non-tech users, uninsured or abroad owners, and fleet solutions. The result is a concise, branded, and user-friendly site that enables smooth customer journeys and supports NI-MOT’s mission to make the MOT process fast and stress-free.',
+  image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755091033/Untitled_design_3_h8sc0z.png',
+  images: [],
+  tags: ['wordpress', 'mot-booking', 'custom-design', 'vehicle-service'],
+  category: 'web',
+  featured: false,
+  client: 'NI-MOT',
+  date: '2025-06-15',
+  url: 'https://ni-mot.co.uk',
+  githubUrl: '',
+  technologies: ['WordPress', 'PHP', 'MySQL', 'Custom Theme', 'Booking Logic'],
+  teamMembers: ['tasfirul-haque'],
+  challenges: [
+    'Communicating a complex, region-specific full-service MOT offering clearly to diverse users'
+  ],
+  solutions: [
+    'Built a custom WordPress theme with structured, service-focused sections and clear user pathways—highlighting express options, collection/return logistics, and support for non-tech users'
+  ],
+  results: [
+    'Delivered a branded, easy-to-use platform that showcases NI-MOT’s unique offering and regional advantage',
+    'Enhanced trust and conversion through clarity and professional presentation',
+    'Improved customer experience with simplified access to multiple MOT services'
+  ]
+}
+,
+{
+  id: 'tournia',
+  title: 'Tournia – Esports Tournament & Team Management App',
+  shortDescription: 'A complete esports management solution for organizers, teams, and players built with Flutter',
+  longDescription: 'Tournia is a cross-platform esports management application designed to streamline competitive gaming events. Built with Flutter for a unified Android and iOS experience, the app empowers organizers to create tournaments for multiple games, set rules, schedules, and prize pools. Teams can register, manage rosters, and invite players, while individual players can join teams or participate in solo events. The platform features tournament brackets, live updates, team chat, player profiles, and game-specific customization. Its intuitive design ensures that even first-time users can navigate from tournament discovery to participation without friction. Tournia aims to enhance the esports ecosystem by giving every participant—organizer, team, or player—the tools they need to manage and experience tournaments seamlessly.',
+  image: 'https://res.cloudinary.com/dyqqhtmsn/image/upload/v1755092973/Untitled_design_4_n984wx.png',
+  images: [],
+  tags: ['flutter', 'esports', 'tournament-management', 'team-management'],
+  category: 'mobile',
+  featured: false,
+  client: 'Internal Project',
+  date: '2025-07-10',
+  url: '',
+  githubUrl: '',
+  technologies: ['Flutter', 'Dart', 'Firebase', 'Cloud Functions', 'Realtime Database'],
+  teamMembers: ['tasfirul-haque'],
+  challenges: [
+    'Creating a flexible tournament system that supports different game formats, team structures, and participation rules while keeping the interface user-friendly'
+  ],
+  solutions: [
+    'Designed a modular tournament architecture in Flutter integrated with Firebase for real-time updates, supporting multiple game types and dynamic team/player management with a simple, intuitive UI'
+  ],
+  results: [
+    'Delivered a scalable, cross-platform esports solution accessible to organizers, teams, and players alike',
+    'Enabled real-time tournament tracking and communication, improving engagement and event efficiency',
+    'Provided a foundation for future monetization through premium features, sponsorship integration, and analytics'
+  ]
+}
+,
+ 
 ];

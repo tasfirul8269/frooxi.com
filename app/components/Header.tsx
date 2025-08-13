@@ -111,7 +111,6 @@ export default function Header({ current }: { current?: string }) {
           <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
             <div className="py-2">
               <Link href="/about" className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">About</Link>
-              <Link href="/team" className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">Team</Link>
               <Link href="/our-works" className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">Our Works</Link>
               <Link href="/products" className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">Products</Link>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 function getScrollTop(): number {
   return (
@@ -30,8 +31,20 @@ function hasScrollableParent(element: HTMLElement | null): boolean {
 }
 
 export default function SmoothScroll() {
+  const pathname = usePathname();
   const targetYRef = useRef<number>(0);
   const rafIdRef = useRef<number | null>(null);
+  const isFirstRender = useRef(true);
+
+  // Reset scroll position on route change
+  useEffect(() => {
+    if (!isFirstRender.current) {
+      window.scrollTo(0, 0);
+      targetYRef.current = 0;
+    } else {
+      isFirstRender.current = false;
+    }
+  }, [pathname]);
 
   useEffect(() => {
     targetYRef.current = getScrollTop();

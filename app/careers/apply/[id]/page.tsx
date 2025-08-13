@@ -91,7 +91,7 @@ export default function ApplyPage({ params }: { params: { id: string } }) {
             {selectedRole.description && <p className="text-gray-700 leading-relaxed">{selectedRole.description}</p>}
             {selectedRole.responsibilities && selectedRole.responsibilities.length > 0 && (
               <div>
-                <h3 className="text-sm font-semibold text-black mb-2">What You'll Do</h3>
+                <h3 className="text-sm font-semibold text-black mb-2">What You&apos;ll Do</h3>
                 <ul className="space-y-2 text-sm text-gray-700 list-disc pl-5">
                   {selectedRole.responsibilities.map((r, i) => (
                     <li key={i}>{r}</li>
@@ -101,7 +101,7 @@ export default function ApplyPage({ params }: { params: { id: string } }) {
             )}
             {selectedRole.requirements && selectedRole.requirements.length > 0 && (
               <div>
-                <h3 className="text-sm font-semibold text-black mb-2">What We're Looking For</h3>
+                <h3 className="text-sm font-semibold text-black mb-2">What We&apos;re Looking For</h3>
                 <ul className="space-y-2 text-sm text-gray-700 list-disc pl-5">
                   {selectedRole.requirements.map((r, i) => (
                     <li key={i}>{r}</li>

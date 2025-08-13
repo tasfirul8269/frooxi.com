@@ -99,7 +99,7 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
 
             {job.responsibilities && job.responsibilities.length > 0 && (
               <section>
-                <h2 className="text-lg font-semibold text-black mb-3">What You'll Do</h2>
+                <h2 className="text-lg font-semibold text-black mb-3">What You&apos;ll Do</h2>
                 <ul className="space-y-3">
                   {job.responsibilities.map((item: string, index: number) => (
                     <li key={index} className="flex items-start text-gray-700">
@@ -112,7 +112,7 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
 
             {job.requirements && job.requirements.length > 0 && (
               <section>
-                <h2 className="text-lg font-semibold text-black mb-3">What We're Looking For</h2>
+                <h2 className="text-lg font-semibold text-black mb-3">What We&apos;re Looking For</h2>
                 <ul className="space-y-3">
                   {job.requirements.map((item: string, index: number) => (
                     <li key={index} className="flex items-start text-gray-700">
@@ -140,7 +140,7 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
             <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
               <div>
                 <h3 className="text-base font-semibold text-black mb-1">Ready to apply?</h3>
-                <p className="text-gray-600 text-sm">We'd love to hear from you.</p>
+                <p className="text-gray-600 text-sm">We&apos;d love to hear from you.</p>
               </div>
               <Link href={`/careers/apply/${params.id}`} className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-black text-black px-6 py-3 rounded-lg font-medium hover:bg-black hover:text-white transition-colors text-sm sm:text-base whitespace-nowrap">
                 Apply Now <ArrowRight className="inline ml-2 w-4 h-4" />
@@ -151,9 +151,9 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
           {/* Right sidebar */}
           <aside className="space-y-6">
             <div className="rounded-xl border border-gray-200 p-6">
-              <h3 className="font-semibold text-black mb-2">Ready to apply? We can't wait to meet you!</h3>
+              <h3 className="font-semibold text-black mb-2">Ready to apply? We can&apos;t wait to meet you!</h3>
               <Link href={`/careers/apply/${params.id}`} className="w-full inline-flex items-center justify-center bg-[#60FCC4] text-black px-4 py-2 rounded-lg font-medium hover:bg-black hover:text-white transition-colors">Apply now</Link>
-              <p className="text-xs text-gray-600 mt-3">Next, you'll face an assessment to proceed. Apply for one job at a time and prepare well.</p>
+              <p className="text-xs text-gray-600 mt-3">Next, you&apos;ll face an assessment to proceed. Apply for one job at a time and prepare well.</p>
               <p className="text-[11px] text-gray-400 mt-2">By applying to this job listing, you agree to our terms for recruitment and job applications.</p>
             </div>
 

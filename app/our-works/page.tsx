@@ -159,13 +159,13 @@ export default function OurWorks() {
 function FeaturedWorkCard({ work }: { work: any }) {
   return (
     <Link href={`/our-works/${work.id}`} className="group block overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl">
-      <div className="relative aspect-video w-full overflow-hidden">
+      <div className="relative aspect-square w-full overflow-hidden">
         <Image
           src={work.image}
           alt={work.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 80vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col p-6">
           <div className="mt-auto">

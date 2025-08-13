@@ -574,25 +574,25 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                      src={work.image}
                      alt={work.title}
                      fill
-                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                     className="object-cover transition-all duration-500 group-hover:scale-110"
                      sizes="(max-width: 768px) 100vw, 33vw"
                    />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col p-6">
-                     <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full mb-3">
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                     <div className="inline-flex w-[130px] items-center bg-white/10 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full mb-3">
                        <span className="relative flex h-2 w-2 mr-2">
                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                        </span>
                        Featured Project
                      </div>
-                     <div className="mt-auto">
+                     <div className="mt-auto transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 opacity-0 group-hover:opacity-100">
                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-gray-200 transition-colors">
                          {work.title}
                        </h3>
                        <p className="text-gray-200 text-sm line-clamp-2 mb-3">
                          {work.shortDescription}
                        </p>
-                       <div className="flex items-center">
+                       <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                          <span className="text-xs font-medium text-white bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
                            View Case Study
                            <svg className="w-3 h-3 inline-block ml-1.5 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -865,7 +865,7 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                 We&apos;re always looking for talented individuals who are passionate about technology and innovation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-[#60FCC4] hover:text-black transition-colors">
+                <button className="bg-[#60FCC4] text-black hover:text-white px-8 py-4 rounded-lg hover:bg-black hover:text-black transition-colors">
                   View Open Positions
                 </button>
                 <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
