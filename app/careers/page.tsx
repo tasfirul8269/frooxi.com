@@ -1,299 +1,248 @@
 'use client';
 
-import React, { ReactElement } from 'react';
+import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowRight, FaHeart, FaLightbulb, FaUsers, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { FiArrowRight, FiPlus, FiMinus } from 'react-icons/fi';
 
 export default function CareersPage() {
-  interface Benefit {
-    icon: ReactElement;
-    title: string;
-    description: string;
-  }
-
-  interface Value {
-    title: string;
-    description: string;
-  }
-
-  interface Position {
+  type Value = { title: string; description: string };
+  type Position = {
     id: string;
     title: string;
-    type: string;
-    location: string;
     department: string;
-    description: string;
-  }
+    workMode: 'Onsite' | 'Remote' | 'Hybrid';
+    type: 'Full Time' | 'Part Time' | 'Contract';
+    level: 'Entry Level' | 'Mid Level' | 'Senior';
+    salary: string;
+  };
 
-  const benefits: Benefit[] = [
-    { 
-      icon: <FaHeart className="text-2xl" />, 
-      title: 'Health & Wellness', 
-      description: 'Comprehensive health coverage and wellness programs to keep you at your best.'
-    },
-    { 
-      icon: <FaLightbulb className="text-2xl" />, 
-      title: 'Learning & Growth', 
-      description: 'Continuous learning opportunities and skill development programs.'
-    },
-    { 
-      icon: <FaUsers className="text-2xl" />, 
-      title: 'Great Team', 
-      description: 'Work with talented and passionate colleagues from around the world.'
-    },
+  const heroPoints = "Driven by an endless curiosity, we offer the freedom to forge new paths and the support to grow at your own pace. Embrace continuous learning and explore the vast opportunities ahead.";
+
+  const benefits: string[] = [
+    'Excellent Culture & Environment',
+    'Relax & Sports zone',
+    'Dual Festival Bonuses',
+    'Annual Pleasure Tour',
+    'Meals, Coffee & Snacks',
+    'Muslim Prayer Zone',
+    'Leave Encashment',
+    'Gym Facilities',
+    'Free Shuttle Service',
+    'Loyalty Bonus'
   ];
 
-  const companyValues: Value[] = [
-    {
-      title: 'Innovation',
-      description: 'We embrace creativity and are constantly pushing boundaries.'
-    },
-    {
-      title: 'Collaboration',
-      description: 'We believe in the power of teamwork and shared success.'
-    },
-    {
-      title: 'Integrity',
-      description: 'We do what\'s right, even when no one is watching.'
-    },
-    {
-      title: 'Excellence',
-      description: 'We strive for the highest standards in everything we do.'
-    },
+  const values: Value[] = [
+    { title: 'Excellence and innovation', description: 'Prioritizing continuous improvement and creative solutions.' },
+    { title: 'Empathy and respect', description: 'Understanding and consideration in our diverse, inclusive culture.' },
+    { title: 'Integrity and accountability', description: 'Commitment to ethical practices and responsibility.' },
+    { title: 'Teamwork and collaboration', description: 'Cooperative efforts and shared achievements for success.' },
+    { title: 'Growth and development', description: 'Personal and professional growth through learning.' },
+    { title: 'Supportive culture', description: 'Helping each other with a proactive and caring approach.' },
+    { title: 'Joy and engagement', description: 'A vibrant atmosphere where passion drives fulfilling work.' },
+    { title: 'Adaptability and agility', description: 'Embracing change and responding swiftly to needs.' }
   ];
 
-  const openPositions: Position[] = [
-    { 
-      id: 'senior-developer',
-      title: 'Senior Frontend Developer', 
-      type: 'Full-time', 
-      location: 'San Francisco, CA',
-      department: 'Engineering',
-      description: 'Build amazing user experiences with our talented team.'
-    },
-    { 
-      id: 'ux-designer',
-      title: 'UX/UI Designer', 
-      type: 'Full-time', 
-      location: 'Remote',
-      department: 'Design',
-      description: 'Create beautiful and intuitive user interfaces.'
-    },
-    { 
-      id: 'marketing-manager',
-      title: 'Marketing Manager', 
-      type: 'Full-time', 
-      location: 'New York, NY',
-      department: 'Marketing',
-      description: 'Lead our marketing strategy and campaigns.'
-    },
+  const openings: Position[] = [
+    { id: 'ux-designer', title: 'UI/UX Designer', department: 'Design', workMode: 'Onsite', type: 'Full Time', level: 'Entry Level', salary: '৳25,000–৳40,000 /month' },
+    { id: 'senior-developer', title: 'Senior Frontend Developer', department: 'Engineering', workMode: 'Remote', type: 'Full Time', level: 'Senior', salary: 'Negotiable' },
+    { id: 'marketing-manager', title: 'Marketing Manager', department: 'Marketing', workMode: 'Remote', type: 'Full Time', level: 'Mid Level', salary: 'Negotiable' }
+  ];
+
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [deptFilter, setDeptFilter] = useState<string>('All');
+  
+  const faqs = [
+    { q: 'How to apply?', a: 'Review our current openings to find a role that aligns with your skills and expertise. Provide your email address, then verify it to receive a link to proceed with your application.' },
+    { q: 'What are the steps involved?', a: 'Typically: application review, intro call, skills/portfolio review, technical or role interview, and a culture/values conversation.' },
+    { q: 'What is the timeline for the application process to begin?', a: 'Most candidates hear from us within 3–5 business days. If your profile is a strong match, interviews start shortly after.' }
   ];
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-black text-white">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 py-32">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Join Our Team
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              We're on a mission to build the future of digital experiences. Join us in creating meaningful solutions that make a difference.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a 
-                href="#open-positions" 
-                className="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors inline-flex items-center"
-              >
-                View Open Positions
-                <FiArrowRight className="ml-2" />
-              </a>
-              <a 
-                href="#culture" 
-                className="border border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white/10 transition-colors"
-              >
-                Learn About Our Culture
-              </a>
+      {/* Sticky section nav */}
+      <nav className="mt-16 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <ul className="flex flex-wrap gap-4 py-3 text-xs text-gray-600">
+            <li><a href="#overview" className="hover:text-black">Overview</a></li>
+            <li><a href="#benefits" className="hover:text-black">Benefits</a></li>
+            <li><a href="#culture" className="hover:text-black">Culture</a></li>
+            <li><a href="#values" className="hover:text-black">Values</a></li>
+            <li><a href="#openings" className="hover:text-black">Openings</a></li>
+            <li><a href="#faqs" className="hover:text-black">FAQs</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section id="overview" className="px-4 sm:px-6 pt-8 pb-14">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-black/80 mb-4">Careers</h1>
+            <p className="text-gray-600 max-w-xl mb-6">{heroPoints}</p>
+            <Link href="#openings" className="inline-flex items-center text-sm font-medium text-black hover:text-gray-700">
+              See our openings <FiArrowRight className="ml-2" />
+            </Link>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="text-[11px] px-2 py-1 rounded-full bg-gray-100 text-gray-700">Hybrid-first</span>
+              <span className="text-[11px] px-2 py-1 rounded-full bg-gray-100 text-gray-700">Design-led</span>
+              <span className="text-[11px] px-2 py-1 rounded-full bg-gray-100 text-gray-700">Apply in 5 minutes</span>
             </div>
+          </div>
+          <div className="relative aspect-video md:aspect-[16/10] w-full rounded-xl overflow-hidden border border-gray-200">
+            <Image src="/HeroImage1.jpg" alt="Team at work" fill className="object-cover" />
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section id="benefits" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Join Us</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're building a workplace where talented people can do their best work.
-            </p>
+      {/* Benefits numbered list */}
+      <section className="px-4 sm:px-6 py-10 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-black mb-6">Benefits</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[0, 1].map((col) => (
+              <ol key={col} className="space-y-4">
+                {benefits
+                  .filter((_, i) => (i % 2 === col))
+                  .map((b, i) => {
+                    const index = i * 2 + col + 1;
+                    const num = String(index).padStart(2, '0');
+                    return (
+                      <li key={b} className="flex items-start gap-4">
+                        <span className="text-xs text-gray-400 w-10">/{num}</span>
+                        <div>
+                          <div className="text-sm font-medium text-black">{b}</div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <div 
-                key={index} 
-                className="group p-8 rounded-xl hover:shadow-lg transition-all duration-300 bg-gray-50 hover:bg-white"
-              >
-                <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                  {React.cloneElement(benefit.icon, { className: 'text-white text-2xl' })}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                      </li>
+                    );
+                  })}
+              </ol>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Culture large image */}
+      <section id="culture" className="px-4 sm:px-6 py-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-gray-200">
+            <Image src="/ServiceImage.jpg" alt="Our culture and workspace" fill className="object-cover" />
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="px-4 sm:px-6 py-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-black mb-6">Our Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {values.map((v, idx) => (
+              <div key={idx} className="rounded-xl border border-gray-200 p-5 bg-white">
+                <div className="w-8 h-8 rounded-full bg-gray-100 mb-3" />
+                <div className="text-sm font-semibold text-black mb-1">{v.title}</div>
+                <p className="text-xs text-gray-600 leading-relaxed">{v.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section id="values" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              These principles guide everything we do and how we work together.
-            </p>
+      {/* Openings */}
+      <section id="openings" className="px-4 sm:px-6 py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Filters */}
+          <div className="mb-6 flex flex-wrap gap-3 items-center">
+            {(() => {
+              const departments = ['All', ...Array.from(new Set(openings.map(o => o.department)))];
+              return (
+                <FilterChips label="Department" options={departments} selected={deptFilter} onChange={setDeptFilter} />
+              );
+            })()}
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {companyValues.map((value: Value, index: number) => (
-              <div 
-                key={index}
-                className="bg-white p-6 rounded-xl hover:shadow-lg transition-all duration-300"
+
+          <OpeningsGrid openings={openings} deptFilter={deptFilter} />
+        </div>
+      </section>
+
+      {/* Floating quick apply */}
+      <Link href="/careers/apply/general" className="hidden sm:flex fixed bottom-6 right-6 bg-[#60FCC4] text-black px-4 py-3 rounded-full shadow-lg hover:bg-black hover:text-white transition-colors text-sm items-center">
+        Quick Apply <FiArrowRight className="ml-2" />
+      </Link>
+
+      {/* FAQs */}
+      <section id="faqs" className="px-4 sm:px-6 py-12">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-2xl font-bold text-black mb-2">Faqs</h2>
+            </div>
+          <div className="divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
+            {faqs.map((f, i) => (
+              <button
+                key={f.q}
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="w-full text-left p-4 focus:outline-none hover:bg-gray-50"
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium text-black">{f.q}</span>
+                  {openFaq === i ? <FiMinus className="text-gray-500" /> : <FiPlus className="text-gray-500" />}
+            </div>
+                {openFaq === i && (
+                  <p className="mt-2 text-xs text-gray-600">{f.a}</p>
+                )}
+              </button>
             ))}
           </div>
         </div>
       </section>
+    </div>
+  );
+}
 
-      {/* Open Positions */}
-      <section id="open-positions" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Open Positions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're always looking for talented people to join our team.
-            </p>
-          </div>
-          
-          <div className="space-y-4 max-w-4xl mx-auto">
-            {openPositions.map((position) => (
-              <div 
-                key={position.id}
-                className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-100"
-              >
-                <Link href={`/careers/${position.id}`} className="block">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {position.title}
-                      </h3>
-                      <div className="flex flex-wrap items-center gap-4 mt-3">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
-                          {position.department}
-                        </span>
-                        <div className="flex items-center text-gray-500 text-sm">
-                          <FaMapMarkerAlt className="mr-1.5 flex-shrink-0" />
-                          <span>{position.location}</span>
-                        </div>
-                        <div className="flex items-center text-gray-500 text-sm">
-                          <FaClock className="mr-1.5 flex-shrink-0" />
-                          <span>{position.type}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-4 md:mt-0 flex items-center text-blue-600 font-medium">
-                      <span className="mr-2">View Details</span>
-                      <FaArrowRight className="w-4 h-4 mt-0.5" />
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="px-4 sm:px-6 py-16 bg-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Don't See Your Dream Job?</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            We're always looking for talented individuals. Send us your resume and we'll contact you when a position matching your skills opens up.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300 text-sm sm:text-base">
-              Submit Your Resume
-            </button>
-            <button className="bg-transparent border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors duration-300 text-sm sm:text-base">
-              Contact Our Team
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">
-              Everything you need to know about working at our company.
-            </p>
-          </div>
-          
-          <div className="space-y-4">
-            <div className="border-b border-gray-200 pb-4">
-              <h3 className="text-xl font-medium text-gray-900 mb-2">What is your interview process like?</h3>
-              <p className="text-gray-600">
-                Our interview process typically includes an initial phone screen, followed by technical assessments, and then onsite or virtual interviews with the team. We aim to make the process transparent and efficient.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-4">
-              <h3 className="text-xl font-medium text-gray-900 mb-2">Do you offer remote work options?</h3>
-              <p className="text-gray-600">
-                Yes, we offer flexible work arrangements including fully remote, hybrid, and in-office options depending on the role and team.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-4">
-              <h3 className="text-xl font-medium text-gray-900 mb-2">What benefits do you offer?</h3>
-              <p className="text-gray-600">
-                We offer competitive salaries, comprehensive health coverage, retirement plans, professional development budgets, flexible PTO, and more.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-4">
-              <h3 className="text-xl font-medium text-gray-900 mb-2">What is your company culture like?</h3>
-              <p className="text-gray-600">
-                We foster a collaborative, inclusive environment where everyone's voice is valued. We believe in work-life balance, continuous learning, and having fun while doing great work.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Don't see a role that fits?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            We're always looking for talented individuals to join our team. Send us your resume and we'll be in touch when we have an opening that matches your skills.
-          </p>
-          <button className="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium">
-            Submit Your Resume
+function FilterChips({ label, options, selected, onChange }: { label: string; options: string[]; selected: string; onChange: (v: string) => void }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-xs text-gray-500 mr-1">{label}:</span>
+      {options.map((opt) => (
+        <button
+          key={opt}
+          onClick={() => onChange(opt)}
+          className={`text-xs px-3 py-1 rounded-full border transition-colors ${
+            selected === opt ? 'bg-black text-white border-black' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+          }`}
+        >
+          {opt}
           </button>
+      ))}
+    </div>
+  );
+}
+
+function OpeningsGrid({ openings, deptFilter }: { openings: { id: string; title: string; department: string; workMode: string; type: string; level: string; salary: string }[]; deptFilter: string }) {
+  const filtered = useMemo(() => {
+    return openings.filter((o) => {
+      const deptOk = deptFilter === 'All' || o.department === deptFilter;
+      return deptOk;
+    });
+  }, [openings, deptFilter]);
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      {filtered.map((job) => (
+        <div key={job.id} className="rounded-xl border border-gray-200 bg-white p-5">
+          <div className="text-xs text-gray-500 mb-1">{job.department}</div>
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="text-lg font-semibold text-black/90">{job.title}</h3>
+            <Link href={`/careers/${job.id}`} className="text-sm text-gray-600 hover:text-black inline-flex items-center">
+              Apply <FiArrowRight className="ml-1" />
+            </Link>
+          </div>
+          <div className="text-xs text-gray-500 mt-2">{job.workMode} · {job.type} · {job.level}</div>
+          <div className="mt-3 inline-block text-[11px] px-2 py-1 rounded bg-gray-100 text-gray-700">{job.salary}</div>
         </div>
-      </section>
+      ))}
+      {filtered.length === 0 && (
+        <div className="md:col-span-2 text-sm text-gray-600">No openings match your filters right now.</div>
+      )}
     </div>
   );
 }

@@ -1,0 +1,96 @@
+'use client';
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+
+export default function ApplyPage({ params }: { params: { id: string } }) {
+  const router = useRouter();
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitting(true);
+    // Fake delay to simulate submit
+    await new Promise((r) => setTimeout(r, 800));
+    setSubmitting(false);
+    setSuccess(true);
+  }
+
+  if (success) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center px-4">
+        <div className="max-w-md text-center">
+          <h1 className="text-2xl font-semibold text-black mb-2">Application received</h1>
+          <p className="text-gray-600 mb-6">Thanks for applying. We will review your profile and get back to you soon.</p>
+          <div className="flex gap-3 justify-center">
+            <Link href="/careers" className="px-5 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-50">Back to Careers</Link>
+            <button onClick={() => router.push(`/careers/${params.id}`)} className="px-5 py-2 rounded-lg bg-black text-white text-sm hover:bg-gray-800">View role</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="px-4 sm:px-6 pt-24 pb-16">
+      <div className="max-w-3xl mx-auto">
+        <div className="mb-6">
+          <Link href={`/careers/${params.id}`} className="text-sm text-gray-500 hover:text-black">← Back to role</Link>
+        </div>
+        <h1 className="text-2xl md:text-3xl font-bold text-black mb-1">Quick Apply</h1>
+        <p className="text-gray-600 mb-8">Fill out the form below to apply for this position. Fields marked with * are required.</p>
+
+        <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-black mb-1">Full name *</label>
+              <input required name="name" className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-black mb-1">Email *</label>
+              <input required type="email" name="email" className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-black mb-1">Phone *</label>
+              <input required name="phone" className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-black mb-1">Location</label>
+              <input name="location" className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-black mb-1">Portfolio URL *</label>
+            <input required type="url" name="portfolio" placeholder="https://…" className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
+            <p className="text-xs text-gray-500 mt-1">Please include your best work. Dribbble/Behance/Figma/Website links accepted.</p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-black mb-1">LinkedIn</label>
+            <input type="url" name="linkedin" placeholder="https://linkedin.com/in/…" className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-black mb-1">Cover letter</label>
+            <textarea name="cover" rows={5} className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
+          </div>
+
+          <div className="flex items-center justify-between">
+            <label className="flex items-center gap-2 text-xs text-gray-600">
+              <input type="checkbox" required className="accent-black" />
+              I agree to the processing of my data for recruitment.
+            </label>
+            <button disabled={submitting} className="bg-[#60FCC4] text-black px-6 py-2 rounded-lg text-sm font-medium hover:bg-black hover:text-white transition-colors">
+              {submitting ? 'Submitting…' : 'Submit application'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+

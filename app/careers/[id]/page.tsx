@@ -3,59 +3,25 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { FaArrowLeft, FaMapMarkerAlt, FaBriefcase, FaBuilding, FaClock, FaArrowRight } from 'react-icons/fa';
+import {
+  ArrowLeft,
+  MapPin,
+  Briefcase,
+  Building2,
+  Clock,
+  ArrowRight,
+  Check,
+  Share2,
+  Linkedin,
+  Facebook,
+  Link2
+} from 'lucide-react';
+import { careerPositions } from '@/app/data/careers';
 
-// This would typically come from an API or CMS in a real application
-const jobDetails = {
-  'senior-developer': {
-    title: 'Senior Frontend Developer',
-    type: 'Full-time',
-    location: 'Remote',
-    department: 'Engineering',
-    description: 'We are looking for an experienced Frontend Developer to join our growing team. You will be responsible for building user interfaces and implementing features using modern web technologies.',
-    responsibilities: [
-      'Develop and maintain high-quality web applications using React/Next.js',
-      'Collaborate with designers to implement responsive and accessible UIs',
-      'Write clean, maintainable, and efficient code',
-      'Participate in code reviews and mentor junior developers',
-      'Work closely with product managers and other stakeholders'
-    ],
-    requirements: [
-      '5+ years of experience in frontend development',
-      'Strong proficiency in JavaScript/TypeScript, React, and Next.js',
-      'Experience with modern frontend build pipelines and tools',
-      'Familiarity with RESTful APIs and GraphQL',
-      'Strong understanding of web performance optimization'
-    ],
-    benefits: [
-      'Competitive salary and equity',
-      'Flexible work hours and remote work options',
-      'Health, dental, and vision insurance',
-      'Professional development budget',
-      'Generous vacation policy'
-    ]
-  },
-  'ux-designer': {
-    title: 'UX/UI Designer',
-    type: 'Full-time',
-    location: 'Remote',
-    department: 'Design',
-    description: 'Join our design team to create beautiful and intuitive user experiences. You will be responsible for designing user flows, wireframes, and high-fidelity mockups.',
-    responsibilities: [],
-    requirements: [],
-    benefits: []
-  },
-  'marketing-manager': {
-    title: 'Marketing Manager',
-    type: 'Full-time',
-    location: 'Remote',
-    department: 'Marketing',
-    description: 'Lead our marketing efforts and help grow our brand presence. You will be responsible for developing and executing marketing strategies.',
-    responsibilities: [],
-    requirements: [],
-    benefits: []
-  }
-};
+// Source data from centralized model
+const jobDetails = Object.fromEntries(
+  careerPositions.map((p) => [p.id, p])
+) as Record<string, (typeof careerPositions)[number]>;
 
 export default function JobDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -70,7 +36,7 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
             onClick={() => router.back()}
             className="inline-flex items-center text-sm text-black hover:text-blue-600 transition-colors"
           >
-            <FaArrowLeft className="mr-2" />
+            <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Careers
           </button>
         </div>
@@ -79,104 +45,138 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 bg-white">
-      <div className="max-w-4xl mx-auto">
-        {/* Back button */}
-        <div className="mb-8">
-          <button 
-            onClick={() => router.back()}
-            className="inline-flex items-center text-sm text-gray-600 hover:text-black transition-colors"
-          >
-            <FaArrowLeft className="mr-2" />
-            Back to Careers
-          </button>
-        </div>
-
-        {/* Job Header */}
-        <div className="mb-10">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-            <h1 className="text-3xl font-bold text-black/80">{job.title}</h1>
-            <button className="w-full md:w-auto bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors text-sm sm:text-base">
-              Apply for this position
-            </button>
-          </div>
-          
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-            <div className="flex items-center">
-              <FaBriefcase className="mr-2 text-gray-400" />
-              <span>{job.type}</span>
+    <div className="bg-white">
+      {/* Top summary bar */}
+      <section className="bg-black text-white pt-24 md:pt-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+          <div className="flex items-start justify-between gap-6">
+            <div className="space-y-3">
+              <div className="text-xs opacity-80">{job.department}</div>
+              <h1 className="text-3xl md:text-4xl font-bold">{job.title} {job.level ? <span className="text-white/70 text-base font-medium">({job.level})</span> : null}</h1>
+              <div className="flex flex-wrap items-center gap-6 text-sm">
+                {job.salary && (
+                  <div>
+                    <div className="text-white font-semibold">{job.salary}</div>
+                    <div className="text-white/60 text-[11px]">BDT/month</div>
+                  </div>
+                )}
+                <div className="space-y-1">
+                  <div className="text-white/90">Location</div>
+                  <div className="text-white/70 text-sm flex items-center"><MapPin className="w-4 h-4 mr-1" /> {job.location}</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-white/90">Job Type</div>
+                  <div className="text-white/70 text-sm flex items-center"><Briefcase className="w-4 h-4 mr-1" /> {job.type}</div>
+                </div>
+                {job.experience && (
+                  <div className="space-y-1">
+                    <div className="text-white/90">Experience</div>
+                    <div className="text-white/70 text-sm flex items-center"><Clock className="w-4 h-4 mr-1" /> {job.experience}</div>
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="flex items-center">
-              <FaMapMarkerAlt className="mr-2 text-gray-400" />
-              <span>{job.location}</span>
-            </div>
-            <div className="flex items-center">
-              <FaBuilding className="mr-2 text-gray-400" />
-              <span>{job.department}</span>
-            </div>
+            <Link href="/careers" className="hidden sm:inline-flex bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100">View all open roles</Link>
           </div>
         </div>
+      </section>
 
-        {/* Job Content */}
-        <div className="bg-white rounded-xl border border-gray-100 p-6 md:p-8">
-          {/* Job Description */}
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-black mb-4">Job Description</h2>
-            <p className="text-gray-600 mb-6">{job.description}</p>
-            
+      {/* Main layout */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+        <button
+          onClick={() => router.back()}
+          className="inline-flex items-center text-xs text-gray-500 hover:text-black mb-6"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" /> Back to Careers
+        </button>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Left content */}
+          <article className="lg:col-span-2 space-y-10">
+            <section>
+              <p className="text-gray-700 leading-relaxed">{job.description}</p>
+            </section>
+
             {job.responsibilities && job.responsibilities.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-lg font-semibold text-black mb-3">Key Responsibilities</h3>
+              <section>
+                <h2 className="text-lg font-semibold text-black mb-3">What You'll Do</h2>
                 <ul className="space-y-3">
-                  {job.responsibilities.map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3"></span>
-                      <span className="text-gray-600">{item}</span>
+                  {job.responsibilities.map((item: string, index: number) => (
+                    <li key={index} className="flex items-start text-gray-700">
+                      <Check className="w-4 h-4 mt-0.5 mr-3 text-black" /> {item}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
             )}
 
             {job.requirements && job.requirements.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-lg font-semibold text-black mb-3">Requirements</h3>
+              <section>
+                <h2 className="text-lg font-semibold text-black mb-3">What We're Looking For</h2>
                 <ul className="space-y-3">
-                  {job.requirements.map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3"></span>
-                      <span className="text-gray-600">{item}</span>
+                  {job.requirements.map((item: string, index: number) => (
+                    <li key={index} className="flex items-start text-gray-700">
+                      <Check className="w-4 h-4 mt-0.5 mr-3 text-black" /> {item}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
             )}
 
-            {job.benefits && job.benefits.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-lg font-semibold text-black mb-3">What We Offer</h3>
+            {job.whyJoinUs && job.whyJoinUs.length > 0 && (
+              <section>
+                <h2 className="text-lg font-semibold text-black mb-3">Why Join Us</h2>
                 <ul className="space-y-3">
-                  {job.benefits.map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3"></span>
-                      <span className="text-gray-600">{item}</span>
+                  {job.whyJoinUs.map((item: string, index: number) => (
+                    <li key={index} className="flex items-start text-gray-700">
+                      <Check className="w-4 h-4 mt-0.5 mr-3 text-black" /> {item}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
             )}
-          </section>
 
-          {/* Bottom CTA */}
-          <div className="border-t border-gray-100 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-              <h3 className="text-lg font-semibold text-black mb-1">Interested in this position?</h3>
-              <p className="text-gray-600 text-sm">We'd love to hear from you.</p>
+            {/* Bottom CTA */}
+            <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div>
+                <h3 className="text-base font-semibold text-black mb-1">Ready to apply?</h3>
+                <p className="text-gray-600 text-sm">We'd love to hear from you.</p>
+              </div>
+              <Link href={`/careers/apply/${params.id}`} className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-black text-black px-6 py-3 rounded-lg font-medium hover:bg-black hover:text-white transition-colors text-sm sm:text-base whitespace-nowrap">
+                Apply Now <ArrowRight className="inline ml-2 w-4 h-4" />
+              </Link>
             </div>
-            <button className="w-full sm:w-auto bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors text-sm sm:text-base whitespace-nowrap">
-              Apply Now <FaArrowRight className="inline ml-2" />
-            </button>
-          </div>
+          </article>
+
+          {/* Right sidebar */}
+          <aside className="space-y-6">
+            <div className="rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-black mb-2">Ready to apply? We can't wait to meet you!</h3>
+              <Link href={`/careers/apply/${params.id}`} className="w-full inline-flex items-center justify-center bg-[#60FCC4] text-black px-4 py-2 rounded-lg font-medium hover:bg-black hover:text-white transition-colors">Apply now</Link>
+              <p className="text-xs text-gray-600 mt-3">Next, you'll face an assessment to proceed. Apply for one job at a time and prepare well.</p>
+              <p className="text-[11px] text-gray-400 mt-2">By applying to this job listing, you agree to our terms for recruitment and job applications.</p>
+            </div>
+
+            {(job.benefits && job.benefits.length > 0) && (
+              <div className="rounded-xl border border-gray-200 p-6">
+                <h4 className="font-semibold text-black mb-3">Basics & Benefits</h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {job.benefits.map((b: string, i: number) => (
+                    <li key={i} className="flex items-start"><Check className="w-4 h-4 mt-0.5 mr-2 text-black" /> {b}</li>
+                  ))}
+                </ul>
+                <div className="mt-4">
+                  <div className="text-xs text-gray-500 mb-2">Share</div>
+                  <div className="flex items-center gap-3 text-gray-600">
+                    <Share2 className="w-4 h-4" />
+                    <Linkedin className="w-4 h-4" />
+                    <Facebook className="w-4 h-4" />
+                    <Link2 className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            )}
+          </aside>
         </div>
       </div>
     </div>
