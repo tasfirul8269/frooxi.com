@@ -1,5 +1,6 @@
 import { ArrowRight, Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -62,14 +63,14 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-row gap-4 w-full max-w-xs sm:max-w-none">
-              <button className="bg-[#60FCC4] text-black hover:text-white px-6 py-3 rounded hover:bg-gray-800 flex items-center justify-center ">
+              <Link href="/contact" className="bg-[#60FCC4] text-black hover:text-white px-6 py-3 rounded hover:bg-gray-800 flex items-center justify-center">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-              <button className="text-black border border-gray-300 px-6 py-3 rounded hover:bg-gray-50 flex items-center justify-center ">
+              </Link>
+              <Link href="/our-works" className="text-black border border-gray-300 px-6 py-3 rounded hover:bg-gray-50 flex items-center justify-center">
                 <Play className="mr-2 h-4 w-4" />
                 View Demo
-              </button>
+              </Link>
             </div>
           </div>
           {/* Mobile/Tablet fallback */}
