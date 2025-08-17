@@ -226,7 +226,7 @@ We&apos;re not here to follow trends. We&apos;re here to build things that matte
                   </div>
                   <button
                     ref={knowMoreBtnRef}
-                    className="text-black/60 hover:text-black underline underline-offset-2 transition-colors p-0 bg-transparent border-none shadow-none font-medium ml-4"
+                    className="text-black hover:text-[#30d6c4] underline underline-offset-2 transition-colors p-0 bg-transparent border-none shadow-none font-medium ml-4"
                     style={{background: 'none', border: 'none'}}
                     onClick={() => setShowStoryVideo(true)}
                   >
@@ -380,12 +380,14 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                 </div>
               </div>
               <div className="mt-6 mb-2">
-                <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg  transition-colors w-full underline lg:w-auto">
-                  <div className="flex items-center space-x-2">
-                    <p>Learn More About Us</p>
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </div>
-                </button>
+                <Link href="/about" className="inline-block w-full lg:w-auto">
+                  <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-colors w-full underline underline-offset-2 lg:w-auto">
+                    <div className="flex items-center space-x-2">
+                      <p>Learn More About Us</p>
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </div>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -428,12 +430,14 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                   We specialize in building custom software solutions tailored to your business needs, from strategy and design to development and support. Our team delivers robust, scalable applications that help you achieve measurable results and drive growth.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                  <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:text-[#30d6c4] transition-colors w-full sm:w-auto text-center  ">
-                      <div className="flex items-center space-x-2">
-                      <p>Start Project</p>
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                      </div>
-                    </button>
+                    <Link href="/contact" className="w-full sm:w-auto">
+                      <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:text-[#30d6c4] transition-colors w-full text-center">
+                        <div className="flex items-center space-x-2 justify-center">
+                          <p>Start Project</p>
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </div>
+                      </button>
+                    </Link>
                     <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
                       <span>90+ Projects</span>
                       <span>•</span>
@@ -683,12 +687,14 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
                     Our largest and most dynamic team, working with complex challenges to build scalable systems and innovative solutions that power the future.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                    <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:text-[#30d6c4] transition-colors w-full sm:w-auto text-center  ">
-                      <div className="flex items-center space-x-2">
-                      <p>Join Our Team</p>
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                      </div>
-                    </button>
+                    <Link href="/careers" className="w-full sm:w-auto">
+                      <button className="bg-transparent text-[black] hover:text-[#30d6c4] px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:text-[#30d6c4] transition-colors w-full text-center">
+                        <div className="flex items-center space-x-2 justify-center">
+                          <p>Join Our Team</p>
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </div>
+                      </button>
+                    </Link>
                     
                     <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500">
                       <span>25+ Developers</span>
@@ -864,10 +870,12 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
               <p className="text-gray-600 mb-8">
                 We&apos;re always looking for talented individuals who are passionate about technology and innovation.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-[#60FCC4] text-black hover:text-white px-8 py-4 rounded-lg hover:bg-black hover:text-black transition-colors">
-                  View Open Positions
-                </button>
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Link href="/careers" className="w-full sm:w-auto">
+                  <button className="bg-[#60FCC4] text-black hover:text-white px-8 py-4 rounded-lg hover:bg-black hover:text-black transition-colors w-full">
+                    View Open Positions
+                  </button>
+                </Link>
                 <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
                   Contact HR
                 </button>
