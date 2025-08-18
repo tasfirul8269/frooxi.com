@@ -314,7 +314,7 @@ Would you like to provide any additional details before we proceed?`;
       <div className="bg-black text-white p-4 flex justify-between items-center">
         <div>
           <h3 className="font-semibold">Frooxi Assistant</h3>
-          <p className="text-xs text-gray-300">We'll respond quickly</p>
+          <p className="text-xs text-gray-300">We&apos;ll respond quickly</p>
         </div>
         <button 
           onClick={() => setIsOpen(false)}
