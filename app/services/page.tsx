@@ -1,5 +1,14 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the Chatbot component with no SSR
+const Chatbot = dynamic(() => import('@/app/components/Chatbot/Chatbot'), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function Services() {
   return (
@@ -17,13 +26,23 @@ export default function Services() {
                 From custom development to cloud infrastructure, we&apos;ve got you covered.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-[#60FCC4] text-black px-8 py-4 rounded-lg hover:bg-black hover:text-white transition-colors">
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Dispatch a custom event that the Chatbot component is listening for
+                    const event = new Event('openChat', { bubbles: true });
+                    window.dispatchEvent(event);
+                  }}
+                  className="bg-[#60FCC4] text-black px-8 py-4 rounded-lg hover:bg-black hover:text-white transition-colors"
+                >
                   Get a Quote
                 </button>
+                <Chatbot />
                 <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
                   View Portfolio
                 </button>
               </div>
+              {/* Chatbot is now a floating button in the bottom right */}
             </div>
             <div className="relative">
               <div className="w-full h-96 bg-gray-200 rounded-xl overflow-hidden">

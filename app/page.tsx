@@ -870,15 +870,17 @@ Whether it&apos;s an app a website or a complete brand experience we care about 
               <p className="text-gray-600 mb-8">
                 We&apos;re always looking for talented individuals who are passionate about technology and innovation.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <div className="flex flex-col justify-center sm:flex-row gap-4 mt-8">
                 <Link href="/careers" className="w-full sm:w-auto">
                   <button className="bg-[#60FCC4] text-black hover:text-white px-8 py-4 rounded-lg hover:bg-black hover:text-black transition-colors w-full">
                     View Open Positions
                   </button>
                 </Link>
+                <Link href="/contact" className="w-full sm:w-auto">
                 <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
                   Contact HR
                 </button>
+                </Link>
               </div>
             </div>
           </div>
