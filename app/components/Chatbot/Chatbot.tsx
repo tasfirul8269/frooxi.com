@@ -21,7 +21,7 @@ const ChatBubbleIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-type MessageType = 'greeting' | 'name' | 'email' | 'project' | 'budget' | 'timeline' | 'summary' | 'contact' | 'goodbye' | 'phone';
+type MessageType = 'greeting' | 'name' | 'email' | 'project' | 'projectDetails' | 'audience' | 'features' | 'content' | 'integrations' | 'platform' | 'design' | 'budget' | 'timeline' | 'summary' | 'contact' | 'goodbye' | 'phone';
 
 type InputType = 'text' | 'email' | 'tel' | 'number';
 
@@ -40,6 +40,13 @@ type FormDataType = {
   name: string;
   email: string;
   projectType: string;
+  projectDetails: string;
+  audience: string;
+  features: string;
+  content: string;
+  integrations: string;
+  platform: string;
+  design: string;
   budget: string;
   timeline: string;
   phoneNumber: string;
@@ -76,6 +83,13 @@ export default function Chatbot() {
     name: '',
     email: '',
     projectType: '',
+    projectDetails: '',
+    audience: '',
+    features: '',
+    content: '',
+    integrations: '',
+    platform: '',
+    design: '',
     budget: '',
     timeline: '',
     phoneNumber: ''
@@ -150,11 +164,12 @@ export default function Chatbot() {
       type: messageType as MessageType
     });
     
-    // Update form data
-    if (messageType && messageType !== 'goodbye' && messageType !== 'summary') {
+    // Update form data using field if available, else by messageType
+    const targetField = (currentMessage as any)?.field || messageType;
+    if (targetField && targetField !== 'goodbye' && targetField !== 'summary') {
       setFormData(prev => ({
         ...prev,
-        [messageType]: inputValue
+        [targetField]: inputValue
       }));
     }
 
@@ -166,17 +181,100 @@ export default function Chatbot() {
       botResponse(newMessages, messageType);
     }, 500);
   };
-
   const generateSummary = (data: FormDataType) => {
-    return `Here's what I've gathered about your project:
-    
-• Name: ${data.name}
-• Email: ${data.email}
-• Project Type: ${data.projectType}
-• Budget: ${data.budget}
-• Timeline: ${data.timeline}
+    // Helpers
+    const isUnset = (v?: string) => !v || /^(not sure|not yet|n\/a|na|—|none)$/i.test(v.trim());
+    const clean = (v: string) => v.trim().replace(/\s+/g, ' ');
+    const stripPeriod = (v: string) => v.replace(/\.$/, '');
+    const titleCaseTech = (v: string) => {
+      const t = v.toLowerCase();
+      return t.replace(/react\b/i, 'React')
+              .replace(/next\.?js\b/i, 'Next.js')
+              .replace(/node\b/i, 'Node')
+              .replace(/express\b/i, 'Express')
+              .replace(/postgres(ql)?\b/i, 'PostgreSQL');
+    };
+    const normalizePOS = (v: string) => v.replace(/\bpos\b/gi, 'POS');
+    const neutralizeFirstPerson = (v: string) => {
+      let s = v;
+      s = s.replace(/^\s*i\s*(want|wanna|need|am\s+looking\s+to|would\s+like\s+to)\s+/i, '');
+      s = s.replace(/^\s*we\s*(want|wanna|need|are\s+looking\s+to|would\s+like\s+to)\s+/i, '');
+      s = s.replace(/\bmy\b/gi, '');
+      s = s.replace(/\bfor\s+myself\b/gi, 'for personal use');
+      s = s.replace(/\bfor\s+me\b/gi, 'for personal use');
+      s = s.replace(/\bfinance\b/gi, 'finance');
+      s = normalizePOS(s);
+      s = clean(s);
+      // Ensure starts with an article
+      if (!/^\s*(a|an|the)\b/i.test(s)) {
+        const startsWithVowel = /^[aeiou]/i.test(s);
+        s = (startsWithVowel ? 'An ' : 'A ') + s;
+      }
+      return s;
+    };
 
-Would you like to provide any additional details before we proceed?`;
+    const parts: string[] = [];
+
+    // Header with contact
+    const namePart = !isUnset(data.name) ? clean(data.name) : '';
+    const emailPart = !isUnset(data.email) ? clean(data.email) : '';
+    if (namePart || emailPart) {
+      const contact = namePart && emailPart
+        ? `${namePart} <${emailPart}>`
+        : (namePart || emailPart);
+      parts.push(`Project contact: ${contact}.`);
+    }
+
+    // Lead/idea
+    const ideaRaw = data.projectDetails || data.projectType || '';
+    if (!isUnset(ideaRaw)) {
+      const idea = stripPeriod(neutralizeFirstPerson(clean(ideaRaw)));
+      parts.push(`${idea}.`);
+    }
+
+    // Audience (humanize "myself")
+    if (!isUnset(data.audience)) {
+      let audience = clean(data.audience);
+      audience = audience.replace(/^myself$/i, 'personal use');
+      audience = audience.replace(/^me$/i, 'personal use');
+      parts.push(`It is intended for ${stripPeriod(audience)}.`);
+    }
+
+    // Scope: features + pages
+    const scopeBits: string[] = [];
+    if (!isUnset(data.features)) scopeBits.push(stripPeriod(normalizePOS(clean(data.features))));
+    if (!isUnset(data.content)) scopeBits.push(stripPeriod(clean(data.content)));
+    if (scopeBits.length) parts.push(`Core scope includes ${scopeBits.join('; ')}.`);
+
+    // Integrations
+    if (!isUnset(data.integrations)) {
+      parts.push(`Planned integrations include ${stripPeriod(clean(data.integrations))}.`);
+    }
+
+    // Tech
+    if (!isUnset(data.platform)) {
+      parts.push(`Proposed tech stack: ${stripPeriod(titleCaseTech(normalizePOS(clean(data.platform))))}.`);
+    }
+
+    // Design (optional)
+    if (!isUnset(data.design)) {
+      parts.push(`Design preference: ${stripPeriod(clean(data.design))}.`);
+    }
+
+    // Constraints
+    const constraints: string[] = [];
+    if (!isUnset(data.budget)) constraints.push(`budget ${clean(data.budget)}`);
+    if (!isUnset(data.timeline)) constraints.push(`timeline ${clean(data.timeline)}`);
+    if (constraints.length) parts.push(`Constraints: ${constraints.join('; ')}.`);
+
+    // Final polish: join and remove accidental double periods
+    return parts.join(' ').replace(/\.\./g, '.');
+  };
+
+  // Placeholder: persist summary to backend/database (no-op for now)
+  const persistSummary = async (summary: string, data: FormDataType) => {
+    // TODO: POST to your API here
+    return Promise.resolve();
   };
 
   const botResponse = (currentMessages: Message[], lastType?: string) => {
@@ -185,6 +283,18 @@ Would you like to provide any additional details before we proceed?`;
     let inputType: 'text' | 'email' | 'tel' | 'number' = 'text';
     let field = '';
     let options: string[] = [];
+    let responseSender: 'bot' | 'system' = 'bot';
+
+    // Helper to detect generic/short project replies
+    const isTooShortProject = (text: string) => {
+      const cleaned = text.trim().toLowerCase();
+      if (cleaned.length < 10) return true;
+      const genericPhrases = [
+        'website', 'a website', 'build a website', 'web site', 'app', 'an app', 'mobile app',
+        'software', 'project', 'ecommerce', 'e-commerce', 'shop', 'store', 'saas', 'dashboard'
+      ];
+      return genericPhrases.includes(cleaned) || cleaned.split(/\s+/).length <= 2;
+    };
 
     switch (lastType) {
       case 'name':
@@ -203,12 +313,71 @@ Would you like to provide any additional details before we proceed?`;
         } else {
           response = 'Got it! Could you tell me more about the project you have in mind? What kind of solution are you looking to build?';
           type = 'project';
+          field = 'projectType';
+          // Store the email in form data
+          setFormData(prev => ({
+            ...prev,
+            email: inputValue
+          }));
         }
         break;
       case 'project':
-        response = 'Thanks for sharing! To help us provide the best solution, could you give me an idea of your budget range for this project?';
+        // Save the raw project type/short description
+        setFormData(prev => ({ ...prev, projectType: inputValue }));
+        // Check if the project description is too short or generic
+        if (isTooShortProject(inputValue)) {
+          response = "Got it! To help us understand better, could you briefly describe the idea in 2–3 sentences? What's the goal and who benefits?";
+          type = 'projectDetails';
+          field = 'projectDetails';
+        } else {
+          // If it's reasonably detailed, still ask a quick follow-up about audience
+          response = 'Thanks for sharing! Who is your primary audience or user base for this solution?';
+          type = 'audience';
+          field = 'audience';
+        }
+        break;
+      case 'projectDetails':
+        response = 'Great, that helps! Who is your primary audience or user base?';
+        type = 'audience';
+        field = 'audience';
+        // persist
+        setFormData(prev => ({ ...prev, projectDetails: inputValue }));
+        break;
+      case 'audience':
+        response = 'Understood. What are the core features or user flows you need in the first version?';
+        type = 'features';
+        field = 'features';
+        setFormData(prev => ({ ...prev, audience: inputValue }));
+        break;
+      case 'features':
+        response = 'Noted. Do you already have content/pages in mind (e.g., Home, About, Pricing, Blog), or should we help with content as well?';
+        type = 'content';
+        field = 'content';
+        setFormData(prev => ({ ...prev, features: inputValue }));
+        break;
+      case 'content':
+        response = 'Any third‑party integrations needed (e.g., payments, auth, CRM, analytics, email, CMS)?';
+        type = 'integrations';
+        field = 'integrations';
+        setFormData(prev => ({ ...prev, content: inputValue }));
+        break;
+      case 'integrations':
+        response = 'Do you have a preferred platform/tech stack (e.g., Next.js, WordPress, Shopify) or should we recommend one?';
+        type = 'platform';
+        field = 'platform';
+        setFormData(prev => ({ ...prev, integrations: inputValue }));
+        break;
+      case 'platform':
+        response = 'Any design references or brand guidelines we should follow?';
+        type = 'design';
+        field = 'design';
+        setFormData(prev => ({ ...prev, platform: inputValue }));
+        break;
+      case 'design':
+        response = 'Thanks! To help us provide the best solution, could you give me an idea of your budget range for this project?';
         type = 'budget';
         field = 'budget';
+        setFormData(prev => ({ ...prev, design: inputValue }));
         break;
       case 'budget':
         response = 'Got it! When are you looking to get started with this project?';
@@ -216,11 +385,18 @@ Would you like to provide any additional details before we proceed?`;
         field = 'timeline';
         break;
       case 'timeline':
-        response = generateSummary({...formData, [lastType]: inputValue});
-        type = 'summary';
+        {
+          const dataNow = { ...formData, [lastType]: inputValue } as FormDataType;
+          const summary = generateSummary(dataNow);
+          // Persist silently; do not show the summary in chat
+          persistSummary(summary, dataNow).catch(() => {});
+          response = 'Great! How would you prefer we send the proposal and next steps? Email or SMS?';
+          type = 'contact';
+        }
         break;
       case 'summary':
-        response = 'Perfect! How would you prefer we send you the proposal and next steps? You can choose email or SMS.';
+        // Route directly to contact preference
+        response = 'Great! How would you prefer we send the proposal and next steps? Email or SMS?';
         type = 'contact';
         break;
       case 'contact':
@@ -251,25 +427,10 @@ Would you like to provide any additional details before we proceed?`;
         }
         break;
       case 'goodbye':
-        response = 'Thank you for choosing Frooxi! Our team will be in touch shortly. Have a wonderful day!';
+        // Final message should be from the system and do NOT clear chat history
+        response = '✨ Thank you for your message! ✨ We appreciate you reaching out to us. Our team will review your inquiry and get back to you soon.';
         type = 'goodbye';
-        setTimeout(() => {
-          // Reset the chat after a delay
-          setMessages([{
-            id: Date.now(),
-            text: "👋 Welcome back! How can I assist you today?",
-            sender: 'bot',
-            type: 'greeting',
-          }]);
-          setFormData({
-            name: '',
-            email: '',
-            projectType: '',
-            budget: '',
-            timeline: '',
-            phoneNumber: ''
-          });
-        }, 3000);
+        responseSender = 'system';
         break;
       default:
         response = "👋 Welcome back! How can I assist you today?";
@@ -280,10 +441,11 @@ Would you like to provide any additional details before we proceed?`;
       const newMessage: Message = {
         id: Date.now(),
         text: response,
-        sender: 'bot',
+        sender: responseSender,
         type,
         ...(options.length > 0 && { options }),
         ...(inputType && { inputType }),
+        ...(field && { field }),
       };
       setMessages(prev => [...prev, newMessage]);
     }
@@ -298,6 +460,30 @@ Would you like to provide any additional details before we proceed?`;
       const form = document.getElementById('chat-form') as HTMLFormElement;
       form?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
     }, 50);
+  };
+
+  const startNewQuote = () => {
+    // Keep history; append a divider and restart questions
+    setFormData({
+      name: '',
+      email: '',
+      projectType: '',
+      projectDetails: '',
+      audience: '',
+      features: '',
+      content: '',
+      integrations: '',
+      platform: '',
+      design: '',
+      budget: '',
+      timeline: '',
+      phoneNumber: ''
+    });
+    setMessages(prev => [
+      ...prev,
+      { id: Date.now(), text: '— New quote started —', sender: 'system', type: 'greeting' },
+      { id: Date.now() + 1, text: "👋 Hello! I'm Frooxi's assistant. I'm here to help you with your project. May I know your name?", sender: 'bot', type: 'name' }
+    ]);
   };
 
   // Only render the chat interface in the browser
@@ -333,15 +519,36 @@ Would you like to provide any additional details before we proceed?`;
               key={message.id}
               className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
-              <div
-                className={`max-w-[80%] rounded-2xl px-4 py-2 ${
-                  message.sender === 'user'
-                    ? 'bg-[#60FCC4] text-black rounded-br-none'
-                    : 'bg-white text-gray-800 rounded-bl-none shadow-sm'
-                }`}
-              >
-                {message.text}
-              </div>
+              {message.sender === 'system' && message.type === 'goodbye' ? (
+                <div className="w-full flex flex-col items-center space-y-2">
+                  <div className="max-w-[90%] bg-gray-50 text-center text-gray-600 text-xs py-4 border border-gray-100 rounded-lg mx-auto shadow-sm px-4">
+                    {message.text}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={startNewQuote}
+                    className="border border-gray-300 text-gray-800 px-3 py-1.5 rounded-lg hover:bg-gray-50 text-sm"
+                  >
+                    New quote
+                  </button>
+                </div>
+              ) : message.sender === 'system' ? (
+                <div className="w-full flex justify-center">
+                  <div className="max-w-[90%] bg-gray-50 text-center text-gray-600 text-xs py-4 border border-gray-100 rounded-lg mx-auto shadow-sm px-4">
+                    {message.text}
+                  </div>
+                </div>
+              ) : (
+                <div
+                  className={`max-w-[80%] rounded-2xl px-4 py-2 ${
+                    message.sender === 'user'
+                      ? 'bg-[#60FCC4] text-black rounded-br-none'
+                      : 'bg-white text-gray-800 rounded-bl-none shadow-sm'
+                  }`}
+                >
+                  {message.text}
+                </div>
+              )}
             </div>
           ))}
           <div ref={chatEndRef} />

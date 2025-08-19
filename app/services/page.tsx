@@ -38,9 +38,11 @@ export default function Services() {
                   Get a Quote
                 </button>
                 <Chatbot />
+                <Link href="/our-works">
                 <button className="text-black border border-gray-300 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
                   View Portfolio
                 </button>
+                </Link>
               </div>
               {/* Chatbot is now a floating button in the bottom right */}
             </div>

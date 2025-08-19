@@ -1,0 +1,33 @@
+[
+  { "question": "Name", "answer": "Tasfirul Haque." },
+  { "question": "Email", "answer": "adef@gmail.com." },
+  { "question": "Project Type", "answer": "Website development." },
+  {
+    "question": "Idea",
+    "answer": "Build a POS system for my store and a finance management system to track transactions, invoices, and cash flow."
+  },
+  {
+    "question": "Audience",
+    "answer": "Store owners who need an easy-to-use POS terminal and simple finance tools."
+  },
+  {
+    "question": "Key Features",
+    "answer": "POS terminal; product and inventory management; transactions and receipts; invoicing; basic analytics and reports; role-based access; export to CSV/PDF."
+  },
+  {
+    "question": "Content/Pages",
+    "answer": "Dashboard; POS Terminal; Transactions; Products; Invoices; Reports; Settings."
+  },
+  {
+    "question": "Integrations",
+    "answer": "Payments, authentication, and email notifications (e.g., Stripe or local payment provider, JWT/OAuth, SMTP)."
+  },
+  {
+    "question": "Platform/Tech",
+    "answer": "React front end with a lightweight Node/Express API and a relational database (e.g., PostgreSQL)."
+  },
+  { "question": "Design Preferences", "answer": "Not defined yet; clean and functional UI first." },
+  { "question": "Budget", "answer": "$1000." },
+  { "question": "Timeline", "answer": "Deliver this month (MVP scope)." }
+]
+
