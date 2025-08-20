@@ -1,123 +1,9 @@
 'use client';
 
-import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { jsPDF } from 'jspdf';
 
-const generateBrochure = async () => {
-  if (typeof window === 'undefined') return; // Ensure we're on client side
-  
-  const { jsPDF } = await import('jspdf');
-  const doc = new jsPDF();
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const margin = 15;
-  
-  // Add header with logo
-  try {
-    const logoResponse = await fetch('/FrooxiHeaderLogo.svg');
-    const logoSvg = await logoResponse.text();
-    const logoImg = document.createElement('img');
-    logoImg.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(logoSvg)));
-    await new Promise((resolve) => {
-      logoImg.onload = () => {
-        doc.addImage(logoImg, 'SVG', margin, 15, 80, 24);
-        resolve(true);
-      };
-      logoImg.onerror = () => resolve(false);
-    });
-  } catch (error) {
-    doc.setFontSize(20);
-    doc.setFont('helvetica', 'bold');
-    doc.text('FROOXI', margin, 25);
-  }
-  
-  // Add header line
-  doc.setDrawColor(0, 0, 0);
-  doc.setLineWidth(0.5);
-  doc.line(margin, 45, pageWidth - margin, 45);
-  
-  // Main title
-  doc.setFontSize(24);
-  doc.setFont('helvetica', 'bold');
-  doc.text('SERVICES BROCHURE', pageWidth / 2, 65, { align: 'center' });
-  
-  // Services grid
-  const services = [
-    { 
-      title: 'Website Development', 
-      icon: '🌐',
-      desc: 'Professional websites for your business'
-    },
-    { 
-      title: 'Application Development', 
-      icon: '📱',
-      desc: 'Custom apps for web and mobile'
-    },
-    { 
-      title: 'UI/UX Design', 
-      icon: '🎨',
-      desc: 'Beautiful, intuitive interfaces'
-    },
-    { 
-      title: 'SEO Services', 
-      icon: '🔍',
-      desc: 'Improve search rankings'
-    },
-    { 
-      title: 'Digital Marketing', 
-      icon: '📈',
-      desc: 'Grow your online presence'
-    },
-    { 
-      title: 'Cyber Security', 
-      icon: '🔒',
-      desc: 'Protect your business'
-    },
-    { 
-      title: 'Data Analytics', 
-      icon: '📊',
-      desc: 'Data-driven insights'
-    }
-  ];
-  
-  // Draw service cards
-  let yPos = 85;
-  services.forEach((service, index) => {
-    const x = index % 2 === 0 ? margin : pageWidth / 2 + 5;
-    if (index % 2 === 0 && index !== 0) yPos += 50;
-    
-    // Card background
-    doc.setFillColor(248, 250, 252);
-    doc.roundedRect(x, yPos, pageWidth/2 - 20, 45, 5, 5, 'F');
-    doc.setDrawColor(229, 231, 235);
-    doc.roundedRect(x, yPos, pageWidth/2 - 20, 45, 5, 5, 'S');
-    
-    // Service icon and title
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text(service.icon, x + 10, yPos + 15);
-    doc.text(service.title, x + 30, yPos + 15);
-    
-    // Service description
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.text(service.desc, x + 10, yPos + 30, { maxWidth: pageWidth/2 - 30 });
-  });
-  
-  // Footer
-  doc.setFontSize(10);
-  doc.setTextColor(100, 100, 100);
-  doc.text('© 2023 Frooxi. All rights reserved.', pageWidth / 2, 280, { align: 'center' });
-  
-  // Contact info
-  doc.setFontSize(12);
-  doc.text('Contact us: info@frooxi.com | +8801310846012', pageWidth / 2, 290, { align: 'center' });
-  
-  // Save the PDF
-  doc.save('Frooxi-Services-Brochure.pdf');
-};
 
 // Dynamically import the Chatbot component with no SSR
 const Chatbot = dynamic(() => import('@/app/components/Chatbot/Chatbot'), {
@@ -474,18 +360,7 @@ export default function Services() {
             >
               Schedule a Consultation
             </a>
-            <button 
-              onClick={async () => {
-                try {
-                  await generateBrochure();
-                } catch (error) {
-                  console.error('Failed to generate brochure:', error);
-                }
-              }}
-              className="text-white border border-gray-600 px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors"
-            >
-              Download Brochure
-            </button>
+            
           </div>
         </div>
       </section>

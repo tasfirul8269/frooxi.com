@@ -19,6 +19,7 @@ export default function About() {
       }
     }
   };
+
   return (
     <div className="min-h-screen bg-white">
       {/* About Us Section */}
@@ -475,91 +476,163 @@ Our vision is to build solutions that empower people and businesses to grow, cre
       </section>
 
       {/* Gallery Section */}
-      <section className="px-6 py-20 bg-gray-50">
+      <section className="px-4 py-16 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
             <div>
-              <h2 className="text-4xl font-semibold text-black/80 mb-6">Our Gallery</h2>
+              <h2 className="text-4xl font-bold text-black mb-6">Our Gallery</h2>
             </div>
             <div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                A glimpse into our world of creativity, innovation, and the amazing projects we&apos;ve had the privilege to work on.
+                A visual journey through our work, team, and the moments that define our passion for innovation and excellence in every project we undertake.
               </p>
             </div>
           </div>
           
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Staggered Masonry Grid */}
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
             {[
-              { id: 1, title: 'Team Collaboration', desc: 'Our team working together on innovative solutions' },
-              { id: 2, title: 'Office Space', desc: 'Our modern and creative workspace' },
-              { id: 3, title: 'Project Meeting', desc: 'Brainstorming session with clients' },
-              { id: 4, title: 'Product Launch', desc: 'Celebrating successful project delivery' },
-              { id: 5, title: 'Tech Conference', desc: 'Sharing knowledge at industry events' },
-              { id: 6, title: 'Awards Ceremony', desc: 'Recognizing excellence in our team' }
-            ].map((item) => (
-              <div key={item.id} className="group relative overflow-hidden rounded-xl aspect-square">
+              { id: 1, src: '/HeroImage.jpg', alt: 'Hero Image', height: 'h-64' },
+              { id: 2, src: '/HeroImage1.jpg', alt: 'Team Collaboration', height: 'h-80' },
+              { id: 3, src: '/ServiceImage.jpg', alt: 'Our Services', height: 'h-72' },
+              { id: 4, src: '/Nabil.png', alt: 'Team Member', height: 'h-64' },
+              { id: 5, src: '/Tasfirul.png', alt: 'Team Member', height: 'h-80' },
+              { id: 6, src: '/Tanvir.jpg', alt: 'Team Member', height: 'h-72' },
+              { id: 7, src: '/ProfilePlaceholder.jpg', alt: 'Our Work', height: 'h-64' },
+              { id: 8, src: '/EDUCARE.png', alt: 'Projects', height: 'h-80' },
+            ].map((image) => (
+              <div 
+                key={image.id} 
+                className={`relative w-full overflow-hidden rounded-lg mb-3 md:mb-4 ${image.height} transition-transform duration-300 hover:scale-[1.02]`}
+              >
                 <Image
-                  src={`https://picsum.photos/seed/frooxi-${item.id}/800/800`}
-                  alt={item.title}
+                  src={image.src}
+                  alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33.33vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-white font-semibold text-lg">{item.title}</h3>
-                  <p className="text-white/80 text-sm mt-1">{item.desc}</p>
-                </div>
-                <div className="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Founders Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">Meet Our Founders</h2>
+      {/* Founders Section - Enhanced Design */}
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        <div className="absolute inset-0 opacity-5">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundSize: '60px 60px'
+            }}
+          />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block relative">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative">
+                Meet Our Founders
+              </h2>
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-6">
+              The brilliant minds shaping Frooxi&apos;s future with innovation and expertise
+            </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
+
+          <div className="relative">
             {/* Founder 1 - Tasfirul */}
-            <div className="group relative overflow-hidden">
-              <div className="aspect-square relative rounded overflow-hidden border border-black/10">
-                <Image
-                  src="/Tasfirul.png"
-                  alt="Tasfirul"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-2xl font-bold text-white">Tasfirul</h3>
-                  <p className="text-gray-200">Co-Founder & CEO</p>
+            <div className="relative z-10 mb-24 md:mb-32">
+              <div className="md:grid md:grid-cols-2 gap-16 items-center">
+                <div className="relative md:order-2 mb-12 md:mb-0">
+                  <div className="relative aspect-square max-w-md mx-auto">
+                    <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl transform rotate-2 opacity-20"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl transform -rotate-2"></div>
+                    <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-xl transform transition-transform duration-500 hover:scale-105">
+                      <Image
+                        src="/Tasfirul.png"
+                        alt="Tasfirul"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="md:order-1 text-center md:text-left">
+                  <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span>Co-Founder & CEO</span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tasfirul</h3>
+                  <p className="text-gray-600 mb-8 text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
+                    With a visionary approach and entrepreneurial spirit, Tasfirul leads Frooxi&apos;s strategic direction, 
+                    ensuring we stay at the forefront of innovation while delivering exceptional value to our clients.
+                  </p>
+                  <div className="flex justify-center md:justify-start space-x-5">
+                    <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-300" aria-label="LinkedIn">
+                      <span className="sr-only">LinkedIn</span>
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </a>
+                    <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300" aria-label="Twitter">
+                      <span className="sr-only">Twitter</span>
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-            
+
             {/* Founder 2 - Tanvir */}
-            <div className="group relative overflow-hidden">
-              <div className="aspect-square relative rounded overflow-hidden border border-black/10">
-                <Image
-                  src="/Tanvir.jpg"
-                  alt="Tanvir"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-2xl font-bold text-white">Tanvir</h3>
-                  <p className="text-gray-200">Co-Founder & CTO</p>
+            <div className="relative z-10">
+              <div className="md:grid md:grid-cols-2 gap-16 items-center">
+                {/* Second Founder - Image on Left */}
+                <div className="relative mb-12 md:mb-0 md:order-1">
+                  <div className="relative aspect-square max-w-md mx-auto">
+                    <div className="absolute -inset-1 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl transform -rotate-2 opacity-20"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl transform rotate-2"></div>
+                    <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-xl transform transition-transform duration-500 hover:scale-105">
+                      <Image
+                        src="/Tanvir.jpg"
+                        alt="Tanvir"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center md:text-left md:order-2">
+                  <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <span>Co-Founder & CTO</span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tanvir</h3>
+                  <p className="text-gray-600 mb-8 text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
+                    A technical virtuoso, Tanvir spearheads our technological innovation, ensuring Frooxi delivers
+                    cutting-edge solutions that push the boundaries of what&apos;s possible in the digital landscape.
+                  </p>
+                  <div className="flex justify-center md:justify-start space-x-5">
+                    <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-300" aria-label="LinkedIn">
+                      <span className="sr-only">LinkedIn</span>
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </a>
+                    <a href="#" className="text-gray-400 hover:text-gray-800 transition-colors duration-300" aria-label="GitHub">
+                      <span className="sr-only">GitHub</span>
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -568,4 +641,4 @@ Our vision is to build solutions that empower people and businesses to grow, cre
       </section>
     </div>
   );
-} 
+}

@@ -149,6 +149,7 @@ export default function Header() {
             </div>
           </div>
         </div>
+        {/* Temporarily hidden brands page
         <Link 
           href="/brands" 
           className={`text-sm transition-colors ${
@@ -159,6 +160,7 @@ export default function Header() {
         >
           Brands
         </Link>
+        */}
         <Link 
           href="/pricing" 
           className={`text-sm transition-colors ${
