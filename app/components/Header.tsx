@@ -132,7 +132,7 @@ export default function Header() {
         </Link>
         <div className="relative group">
           <button className={`text-sm flex items-center space-x-1 transition-colors ${
-            isActive('/about') || isActive('/our-works') || isActive('/products') || isActive('/careers')
+            isActive('/about') || isActive('/our-works') || isActive('/portfolio') || isActive('/products') || isActive('/careers')
               ? 'text-[#00a67c] font-medium' 
               : 'text-gray-600 hover:text-black'
           }`}>
@@ -145,6 +145,7 @@ export default function Header() {
             <div className="py-2">
               <Link href="/about" className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">About</Link>
               <Link href="/our-works" className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">Our Works</Link>
+              <Link href="/portfolio" className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">Portfolio</Link>
             </div>
           </div>
         </div>
@@ -307,6 +308,21 @@ export default function Header() {
                       <Briefcase className="w-4 h-4 text-gray-500 group-hover:text-[#60FCC4]" />
                     </div>
                     <span>Our Works</span>
+                  </Link>
+                  
+                  <Link 
+                    href="/portfolio" 
+                    className={`flex items-center px-4 py-3 rounded-xl hover:bg-gray-50 group ${
+                      isActive('/portfolio')
+                        ? 'text-[#00a67c]' 
+                        : 'text-gray-600 hover:text-black'
+                    }`}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center mr-3 group-hover:bg-[#60FCC4]/20">
+                      <Box className="w-4 h-4 text-gray-500 group-hover:text-[#60FCC4]" />
+                    </div>
+                    <span>Portfolio</span>
                   </Link>
                   
                   <Link 
