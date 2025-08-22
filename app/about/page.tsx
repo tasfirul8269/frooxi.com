@@ -1,24 +1,10 @@
 'use client';
 
-import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function About() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const togglePlayPause = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play().catch(e => console.error("Error playing video:", e));
-        setIsPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      }
-    }
-  };
+  // Image will be used instead of video
 
   return (
     <div className="min-h-screen bg-white">
@@ -107,94 +93,24 @@ Whether it&apos;s an app, a website, or a complete brand experience, we care abo
               </div>
             </div>
             
-            {/* Video on the right - matching height of left column */}
-            <div className="relative rounded-xl overflow-hidden w-full bg-black group">
-              <video
-                ref={videoRef}
-                src="/StoryVideo.mp4"
-                loop
-                playsInline
-                onClick={togglePlayPause}
-                className="w-full h-[600px] object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
-              >
-                Your browser does not support the video tag.
-              </video>
-              
-              {/* Semi-transparent overlay */}
-              <div 
-                className={`absolute inset-0 transition-all duration-300 ${
-                  isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
-                }`}
-                style={{
-                  background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%)'
-                }}
-              ></div>
-              
-              {/* Play/Pause button overlay */}
-              <div 
-                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                  isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
-                }`}
-                onClick={togglePlayPause}
-              >
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-full flex items-center justify-center transform transition-transform duration-300 hover:scale-110 cursor-pointer">
-                  {isPlaying ? (
-                    <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  ) : (
-                    <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  )}
-                </div>
+            {/* Image on the right - matching height of left column */}
+            <div className="relative rounded-xl overflow-hidden w-full h-full">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/HeroImage.jpg"
+                  alt="Our Story"
+                  fill
+                  className="object-cover rounded-xl"
+                  priority
+                />
+                <div className="absolute inset-0 bg-black/20 rounded-xl"></div>
               </div>
               
-              {/* Bottom gradient overlay with controls */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/80 to-transparent">
-                <div className="absolute bottom-4 left-6 right-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-white text-sm font-medium">Our Story</div>
-                      <div className="text-white/80 text-xs">Watch our journey</div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (videoRef.current) {
-                            videoRef.current.muted = !videoRef.current.muted;
-                          }
-                        }}
-                        className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
-                        aria-label={videoRef.current?.muted ? 'Unmute' : 'Mute'}
-                      >
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          {videoRef.current?.muted ? (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
-                          ) : (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
-                          )}
-                        </svg>
-                      </button>
-                      <button 
-                        onClick={togglePlayPause}
-                        className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
-                        aria-label={isPlaying ? 'Pause' : 'Play'}
-                      >
-                        {isPlaying ? (
-                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        ) : (
-                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                          </svg>
-                        )}
-                      </button>
-                    </div>
-                  </div>
+              {/* Image caption */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="text-white">
+                  <div className="text-sm font-medium">Our Story</div>
+                  <div className="text-sm text-white/80">Our journey in pictures</div>
                 </div>
               </div>
             </div>
