@@ -27,25 +27,31 @@ export const pricingSections: PricingSection[] = [
       {
         id: 'website-starter',
         name: 'Starts From',
-        price: '$1,200',
-        description: 'Basic, modern website for small businesses or portfolios.',
+        price: '$1,500',
+        description: 'Basic website + essential SEO for small businesses.',
         features: [
-          'Up to 5 pages',
+          'Up to 6 pages',
           'Responsive design',
-          'Contact form'
+          'Contact form + Google Maps',
+          'Basic on-page SEO setup',
+          'Google Analytics integration'
         ],
         buttonText: 'Get Started',
-        badgeText: ''
+        badgeText: 'Popular'
       },
       {
         id: 'website-professional',
         name: 'Professional',
-        price: '$2,500',
-        description: 'Custom website with CMS, blog, and advanced features.',
+        price: '$4,500',
+        description: 'Custom website with advanced SEO for growth-focused businesses.',
         features: [
-          'Up to 15 pages',
-          'CMS integration',
-          'Blog & SEO setup'
+          'Up to 20 pages / e-commerce ready',
+          'CMS integration (WordPress / Next.js / Shopify)',
+          'Blog setup + SEO optimization',
+          'Technical SEO (schema, indexing, speed)',
+          'Competitor keyword analysis',
+          'Monthly SEO performance reports',
+          '1 month free maintenance'
         ],
         buttonText: 'Choose Plan',
         isRecommended: true,
@@ -55,11 +61,13 @@ export const pricingSections: PricingSection[] = [
         id: 'website-custom',
         name: 'Custom',
         price: 'Contact Us',
-        description: 'For e-commerce, web apps, or unique requirements.',
+        description: 'For startups & enterprises with unique requirements.',
         features: [
           'Unlimited pages',
-          'Custom integrations',
-          'Dedicated support'
+          'Custom integrations (APIs, CRM, Payments)',
+          'Scalable SEO strategy (50+ keywords)',
+          'Content plan + backlink outreach',
+          'Dedicated support & consultation'
         ],
         buttonText: 'Request Quote',
         isCustom: true

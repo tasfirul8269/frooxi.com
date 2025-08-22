@@ -20,16 +20,16 @@ export default function CareersPage() {
   const heroPoints = "Driven by an endless curiosity, we offer the freedom to forge new paths and the support to grow at your own pace. Embrace continuous learning and explore the vast opportunities ahead.";
 
   const benefits: string[] = [
-    'Excellent Culture & Environment',
-    'Relax & Sports zone',
-    'Dual Festival Bonuses',
-    'Annual Pleasure Tour',
-    'Meals, Coffee & Snacks',
-    'Muslim Prayer Zone',
-    'Leave Encashment',
-    'Gym Facilities',
-    'Free Shuttle Service',
-    'Loyalty Bonus'
+    'Flexible Work Hours',
+    'Fully Remote Work from Anywhere',
+    'Competitive Project-Based & Monthly Pay',
+    'Internet Allowance Support',
+    'Performance Bonuses',
+    'Paid Leave & Sick Days',
+    'Access to Premium Tools & Software',
+    'Skill Development & Training Sessions',
+    'Career Growth Opportunities',
+    'Team Bonding Virtual Events'
   ];
 
   const values: Value[] = [
@@ -60,19 +60,6 @@ export default function CareersPage() {
 
   return (
     <div className="bg-white">
-      {/* Sticky section nav */}
-      <nav className="mt-16 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <ul className="flex flex-wrap gap-4 py-3 text-xs text-gray-600">
-            <li><a href="#overview" className="hover:text-black">Overview</a></li>
-            <li><a href="#benefits" className="hover:text-black">Benefits</a></li>
-            <li><a href="#culture" className="hover:text-black">Culture</a></li>
-            <li><a href="#values" className="hover:text-black">Values</a></li>
-            <li><a href="#openings" className="hover:text-black">Openings</a></li>
-            <li><a href="#faqs" className="hover:text-black">FAQs</a></li>
-          </ul>
-        </div>
-      </nav>
 
       {/* Hero */}
       <section id="overview" className="px-4 sm:px-6 pt-8 pb-14">
@@ -96,7 +83,7 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits numbered list */}
-      <section className="px-4 sm:px-6 py-10 border-t border-gray-200">
+      <section id="benefits" className="px-4 sm:px-6 py-10 border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-black mb-6">Benefits</h2>
           <div className="grid md:grid-cols-2 gap-8">

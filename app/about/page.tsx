@@ -565,12 +565,12 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                 <div className="md:order-1 text-center md:text-left">
                   <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
                     <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span>Co-Founder & CEO</span>
+                    <span>Co-Founder</span>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tasfirul</h3>
                   <p className="text-gray-600 mb-8 text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
-                    With a visionary approach and entrepreneurial spirit, Tasfirul leads Frooxi&apos;s strategic direction, 
-                    ensuring we stay at the forefront of innovation while delivering exceptional value to our clients.
+                  With a visionary approach and entrepreneurial spirit, Tasfirul leads Frooxi&apos;s strategic direction, 
+                  ensuring we stay at the forefront of innovation while delivering exceptional value to our clients.
                   </p>
                   <div className="flex justify-center md:justify-start space-x-5">
                     <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-300" aria-label="LinkedIn">
@@ -612,12 +612,12 @@ Our vision is to build solutions that empower people and businesses to grow, cre
                 <div className="text-center md:text-left md:order-2">
                   <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
                     <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                    <span>Co-Founder & CTO</span>
+                    <span>Co-Founder</span>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tanvir</h3>
                   <p className="text-gray-600 mb-8 text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
-                    A technical virtuoso, Tanvir spearheads our technological innovation, ensuring Frooxi delivers
-                    cutting-edge solutions that push the boundaries of what&apos;s possible in the digital landscape.
+                  With a visionary approach and entrepreneurial spirit, Tasfirul leads Frooxi&apos;s strategic direction, 
+                  ensuring we stay at the forefront of innovation while delivering exceptional value to our clients.
                   </p>
                   <div className="flex justify-center md:justify-start space-x-5">
                     <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-300" aria-label="LinkedIn">
